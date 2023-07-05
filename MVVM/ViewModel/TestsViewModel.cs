@@ -34,13 +34,14 @@ namespace Filian.MVVM.ViewModel
             SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
 
             Tests = new ObservableCollection<Test>();
+
             while (sqlDataReader.Read())
             {
                Tests.Add(new Test
                {
-                   Id = sqlDataReader.GetInt32(0), 
-                   ImagePath = sqlDataReader.GetString(2), 
-                   Name = sqlDataReader.GetString(1)
+                   Id = sqlDataReader.GetInt32(0),
+                   Name = sqlDataReader.GetString(1),
+                   Picture_Path = sqlDataReader.GetString(2)
                }); 
             }
             sqlConnection.Close();

@@ -52,7 +52,7 @@
                    Content="{Binding CountOfTests}" 
                    Foreground="White" 
                    FontSize="20"
-                   Visibility="{Binding LabelVisibility}"/>
+                   Visibility="{Binding VisibilityOfCountOfTestsLabel}"/>
 
             <Image Grid.Column="1" 
                    Source="C:\Users\oleksandrm\materials\Filian\Images\back.png"

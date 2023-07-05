@@ -40,7 +40,7 @@ namespace Filian.MVVM.ViewModel
                     {
                         Id = sqlDataReader.GetInt32(0), 
                         Name = sqlDataReader.GetString(1), 
-                        PicturePath = sqlDataReader.GetString(2)
+                        Picture_Path = sqlDataReader.GetString(2)
                     });
             }
             sqlConnection.Close();

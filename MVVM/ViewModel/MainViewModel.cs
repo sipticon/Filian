@@ -23,8 +23,8 @@ namespace Filian.MVVM.ViewModel
         private object _previousView;
         private static int _themeId;
 
-        private static List<int> _underthemesId = new List<int>();
-        private Visibility labelVisibility = Visibility.Hidden;
+        private static List<int> _underThemeIds = new List<int>();
+        private Visibility visibilityOfCountOfTestsLabel = Visibility.Hidden;
 
         private int countOfTests;
         private int countOfCorrectAnswers = 0;
@@ -39,20 +39,20 @@ namespace Filian.MVVM.ViewModel
             } 
         }
 
-        public Visibility LabelVisibility
+        public Visibility VisibilityOfCountOfTestsLabel
         {
-            get => labelVisibility;
+            get => visibilityOfCountOfTestsLabel;
             set
             {
-                labelVisibility = value;
-                OnPropertyChanged("LabelVisibility");
+                visibilityOfCountOfTestsLabel = value;
+                OnPropertyChanged("VisibilityOfCountOfTestsLabel");
             }
         }
 
-        public List<int> UnderthemesId
+        public List<int> UnderThemeIds
         {
-            get => _underthemesId;
-            set => _underthemesId = value;
+            get => _underThemeIds;
+            set => _underThemeIds = value;
         }
 
         public int ThemeId
@@ -107,7 +107,7 @@ namespace Filian.MVVM.ViewModel
                 var test = TestsVm.SelectedTest;
                 if (test != null)
                 {
-                    ViewChange(ThemesVm);
+                    ChangeView(ThemesVm);
                 }
             }
             else if (CurrentView == ThemesVm)
@@ -117,7 +117,7 @@ namespace Filian.MVVM.ViewModel
                 {
                     ThemeId = theme.Id;
                     UnderThemesVm = new UnderThemesViewModel();
-                    ViewChange(UnderThemesVm);
+                    ChangeView(UnderThemesVm);
                 }
             }
             else if (CurrentView == UnderThemesVm)
@@ -125,16 +125,16 @@ namespace Filian.MVVM.ViewModel
                 var underThemes = UnderThemesVm.SelectedItems;
                 if (underThemes != null)
                 {
-                    foreach (UnderTheme ut in underThemes)
+                    foreach (Theme underTheme in underThemes)
                     {
-                        UnderthemesId.Add(ut.Id);
+                        UnderThemeIds.Add(underTheme.Id);
                     }
                    
-                    OneFromTwoTest oneFromTwoTest = new OneFromTwoTest();
+                    OneFromTwoTest oneFromTwoTest = new OneFromTwoTest(UnderThemeIds);
                     OneFromTwoVm = new OneFromTwoViewModel();
                     CountOfTests = OneFromTwoVm.CountOftests - 1;
-                    LabelVisibility = Visibility.Visible;
-                    ViewChange(OneFromTwoVm);
+                    VisibilityOfCountOfTestsLabel = Visibility.Visible;
+                    ChangeView(OneFromTwoVm);
                 }
             }
             else
@@ -145,7 +145,7 @@ namespace Filian.MVVM.ViewModel
                 {
                     if (selectedImageAnswer == "" || selectedImageAnswer == null)
                         MessageBox.Show("Please, select answer!");
-                    else if (selectedImageAnswer.Contains(currentWord))
+                    else if (selectedImageAnswer.Contains("\\"+currentWord+"."))
                     {
                         countOfCorrectAnswers++;
                         MessageBox.Show("Correct");
@@ -161,13 +161,18 @@ namespace Filian.MVVM.ViewModel
                 {
                     if (selectedImageAnswer == "" || selectedImageAnswer == null)
                         MessageBox.Show("Please, select answer!");
-                    else if (selectedImageAnswer.Contains(currentWord))
+                    else if (selectedImageAnswer.Contains("/" + currentWord + "."))
                     {
                         countOfCorrectAnswers++;
-                        CheckResultOfChoise("Correct");
+                        MessageBox.Show("Correct");
+                        CheckResultOfChoise();
                     }
                     else
-                        CheckResultOfChoise("Incorrect");
+                    {
+                        MessageBox.Show("Incorrect");
+                        CheckResultOfChoise();
+                    }
+                       
                 }
             }
         }
@@ -182,28 +187,27 @@ namespace Filian.MVVM.ViewModel
             if (PreviousView != null)
             {
                 CurrentView = PreviousView;
-                LabelVisibility = Visibility.Hidden;
+                VisibilityOfCountOfTestsLabel = Visibility.Hidden;
             }
         }
 
-        private void ViewChange(object newView)
+        private void ChangeView(object newView)
         {
             PreviousView = CurrentView;
             CurrentView = newView;
         }
 
-        private void CheckResultOfChoise(string messageResultOfSelection)
+        private void CheckResultOfChoise()
         {
-            MessageBox.Show(messageResultOfSelection);
             OneFromTwoView OneFromTwoV = new OneFromTwoView();
-            ViewChange(OneFromTwoV);
+            ChangeView(OneFromTwoV);
             CountOfTests--;
         }
 
         private void EndOfTest()
         {
             CurrentView = WelcomeVm;
-            LabelVisibility = Visibility.Hidden;
+            VisibilityOfCountOfTestsLabel = Visibility.Hidden;
             PreviousView = WelcomeVm;
             countOfCorrectAnswers = 0;
         }

@@ -33,7 +33,7 @@
                                     Background="Brown" 
                                     CornerRadius="30">
                                 <StackPanel>
-                                    <Image Source="{Binding Path=PicturePath}" Width="200" Height="180" Margin="10,10,10,10"  Stretch="Fill"/>
+                                    <Image Source="{Binding Path=Picture_Path}" Width="200" Height="180" Margin="10,10,10,10"  Stretch="Fill"/>
                                     <TextBlock FontSize="20" Foreground="White" Text="{Binding Path=Name}" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
                                 </StackPanel>
                             </Border>

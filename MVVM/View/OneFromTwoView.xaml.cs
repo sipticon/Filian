@@ -17,16 +17,16 @@ namespace Filian.MVVM.View
         private void Select1(object sender, MouseButtonEventArgs e)
         {
             if(!isSelected2)
-                SelectImage(sender, ref isSelected1);
+                SelectAndMarkImage(sender, ref isSelected1);
         }
 
         private void Select2(object sender, MouseButtonEventArgs e)
         {
             if(!isSelected1)
-                SelectImage(sender, ref isSelected2);
+                SelectAndMarkImage(sender, ref isSelected2);
         }
 
-        private void SelectImage(object sender, ref bool isSelected)
+        private void SelectAndMarkImage(object sender, ref bool isSelected)
         {
             Image selectedImage = (Image)sender;
             if (!isSelected)

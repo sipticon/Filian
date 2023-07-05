@@ -7,11 +7,11 @@ namespace Filian.MVVM.ViewModel
 {
     public class UnderThemesViewModel : ObservableObject
     {
-        public ObservableCollection<UnderTheme> UnderThemes { get; set; }
+        public ObservableCollection<Theme> UnderThemes { get; set; }
 
-        private static ObservableCollection<UnderTheme> _selectedItems;
+        private static ObservableCollection<Theme> _selectedItems;
 
-        public ObservableCollection<UnderTheme> SelectedItems
+        public ObservableCollection<Theme> SelectedItems
         {
             get => _selectedItems;
             set
@@ -24,7 +24,7 @@ namespace Filian.MVVM.ViewModel
         public UnderThemesViewModel()
         {
             MainViewModel mainViewModel = new MainViewModel();
-            SelectedItems = new ObservableCollection<UnderTheme>();
+            SelectedItems = new ObservableCollection<Theme>();
 
             string sqlForUnderTheme = $" SELECT * FROM themes WHERE parenttheme_id = {mainViewModel.ThemeId}";
             string ssqlConnectionString =
@@ -35,14 +35,14 @@ namespace Filian.MVVM.ViewModel
             SqlCommand sqlCommand = new SqlCommand(sqlForUnderTheme, sqlConnection);
 
             SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
-            UnderThemes = new ObservableCollection<UnderTheme>();
+            UnderThemes = new ObservableCollection<Theme>();
             while (sqlDataReader.Read())
             {
-                UnderThemes.Add(new UnderTheme
+                UnderThemes.Add(new Theme
                 {
                     Id = sqlDataReader.GetInt32(0), 
                     Name = sqlDataReader.GetString(1), 
-                    PicturePath = sqlDataReader.GetString(2)
+                    Picture_Path = sqlDataReader.GetString(2)
                 });
             }
             sqlConnection.Close();

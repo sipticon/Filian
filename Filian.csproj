@@ -60,11 +60,11 @@
     </ApplicationDefinition>
     <Compile Include="Core\ObservableObject.cs" />
     <Compile Include="Core\RelayCommand.cs" />
+    <Compile Include="MVVM\Model\DataBaseEntity.cs" />
     <Compile Include="MVVM\Model\ListViewExtentions.cs" />
-    <Compile Include="MVVM\Model\OneFromTwoStruct.cs" />
+    <Compile Include="MVVM\Model\OneFromTwoTestInfo.cs" />
     <Compile Include="MVVM\Model\OneFromTwoTest.cs" />
     <Compile Include="MVVM\Model\Theme.cs" />
-    <Compile Include="MVVM\Model\UnderTheme.cs" />
     <Compile Include="MVVM\Model\Word.cs" />
     <Compile Include="MVVM\ViewModel\MainViewModel.cs" />
     <Compile Include="MVVM\Model\Test.cs" />
