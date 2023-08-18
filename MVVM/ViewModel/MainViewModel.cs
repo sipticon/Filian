@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using Filian.Core;
 using System.Windows;
 using Filian.MVVM.Model;
@@ -8,58 +10,46 @@ namespace Filian.MVVM.ViewModel
 {
     public class MainViewModel : ObservableObject
     {
-        public RelayCommand TestsViewCommand { get; set; }
+        private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
+
+        public RelayCommand OpenLanguagesViewCommand { get; set; }
+        public RelayCommand OpenTestsViewCommand { get; set; }
         public RelayCommand ApplyCommand { get; set; }
         public RelayCommand ExitCommand { get; set; }
         public RelayCommand BackCommand { get; set; }
 
+        public LanguagesViewModel LanguagesVm { get; set; }
         public TestsViewModel TestsVm { get; set; }
         public ThemesViewModel ThemesVm { get; set; }
         public UnderThemesViewModel UnderThemesVm { get; set; }
         public WelcomeViewModel WelcomeVm { get; set; }
         public OneFromTwoViewModel OneFromTwoVm { get; set; }
+        public OneFromFourViewModel OneFromFourVm { get; set; }
+        public OneFromFourTextViewModel OneFromFourTextVm { get; set; }
+        public OneFromFourListeningViewModel OneFromFourListeningVm { get; set; }
+        public TrueOrFalseViewModel TrueOrFalseVm { get; set; }
+        public SpellWithPictureViewModel SpellWithPictureVm { get; set; }
+        public SpellWithVoiceViewModel SpellWithVoiceVm { get; set; }
+        public TranslationTextViewModel TranslationTextVm { get; set; }
+        public TranslationPronunciationViewModel TranslationPronunciationVm { get; set; }
+        public FindPairTranslationViewModel FindPairTranslationVm { get; set; }
 
         private object _currentView;
-        private object _previousView;
+
         private static int _themeId;
+        private int _testId;
+        private int _countOfTests = 0;
+        private int _countOfCorrectAnswers = 0;
+
+        private bool _backButtonActive = true;
+        private bool _navigatePanelButtonsActive = true;
+
+        private string _countOfTestsLabel;
 
         private static List<int> _underThemeIds = new List<int>();
-        private Visibility visibilityOfCountOfTestsLabel = Visibility.Hidden;
+        private Stack _previousViews;
 
-        private int countOfTests;
-        private int countOfCorrectAnswers = 0;
-
-        public int CountOfTests
-        {
-            get => countOfTests;
-            set
-            {
-                countOfTests = value;
-                OnPropertyChanged("CountOfTests");
-            } 
-        }
-
-        public Visibility VisibilityOfCountOfTestsLabel
-        {
-            get => visibilityOfCountOfTestsLabel;
-            set
-            {
-                visibilityOfCountOfTestsLabel = value;
-                OnPropertyChanged("VisibilityOfCountOfTestsLabel");
-            }
-        }
-
-        public List<int> UnderThemeIds
-        {
-            get => _underThemeIds;
-            set => _underThemeIds = value;
-        }
-
-        public int ThemeId
-        {
-            get => _themeId;
-            set => _themeId = value;
-        }
+        private Visibility _visibilityOfCountOfTestsLabel = Visibility.Hidden;
 
         public object CurrentView
         {
@@ -70,31 +60,54 @@ namespace Filian.MVVM.ViewModel
                 OnPropertyChanged();
             }
         }
-
-        public object PreviousView
+        public int ThemeId
         {
-            get => _previousView;
+            get => _themeId;
+            set => _themeId = value;
+        }
+        public static int LanguageId { get; set; } = 2;
+
+        public string CountOfTestsLabel
+        {
+            get => _countOfTestsLabel;
             set
             {
-                _previousView = value;
-                OnPropertyChanged();
+                _countOfTestsLabel = value;
+                OnPropertyChanged("CountOfTestsLabel");
+            }
+
+        }
+
+        public List<int> UnderThemeIds
+        {
+            get => _underThemeIds;
+            set => _underThemeIds = value;
+        }
+
+        public Visibility VisibilityOfCountOfTestsLabel
+        {
+            get => _visibilityOfCountOfTestsLabel;
+            set
+            {
+                _visibilityOfCountOfTestsLabel = value;
+                OnPropertyChanged("VisibilityOfCountOfTestsLabel");
             }
         }
 
         public MainViewModel()
         {
-            TestsVm = new TestsViewModel();
+            Log.Info("Application started.");
+
+            LanguagesVm = new LanguagesViewModel();
             WelcomeVm = new WelcomeViewModel();
-            ThemesVm = new ThemesViewModel();
+            TestsVm = new TestsViewModel();
 
-            CurrentView = WelcomeVm;
+            _previousViews = new Stack();
 
-            TestsViewCommand = new RelayCommand(o =>
-            {
-                PreviousView = CurrentView;
-                CurrentView = TestsVm;
-            });
+            ChangeView(LanguagesVm);
 
+            OpenLanguagesViewCommand = new RelayCommand(o => { NavigateToLanguagesView(); });
+            OpenTestsViewCommand = new RelayCommand(o => { NavigateToTestsView(); });
             ApplyCommand = new RelayCommand(o => { Apply_Click(); });
             ExitCommand = new RelayCommand(o => { Exit_Click(); });
             BackCommand = new RelayCommand(o => { Back_Click(); });
@@ -102,11 +115,23 @@ namespace Filian.MVVM.ViewModel
 
         private void Apply_Click()
         {
-            if (CurrentView == TestsVm)
+            if (CurrentView == LanguagesVm)
+            {
+                var languageId = LanguagesVm.SelectedLanguage;
+                if (languageId != null)
+                {
+                    LanguageId = languageId.Id;
+                    TestsVm = new TestsViewModel();
+                    ChangeView(TestsVm);
+                }
+            }
+            else if (CurrentView == TestsVm)
             {
                 var test = TestsVm.SelectedTest;
                 if (test != null)
                 {
+                    _testId = test.Id;
+                    ThemesVm = new ThemesViewModel();
                     ChangeView(ThemesVm);
                 }
             }
@@ -129,87 +154,269 @@ namespace Filian.MVVM.ViewModel
                     {
                         UnderThemeIds.Add(underTheme.Id);
                     }
-                   
-                    OneFromTwoTest oneFromTwoTest = new OneFromTwoTest(UnderThemeIds);
-                    OneFromTwoVm = new OneFromTwoViewModel();
-                    CountOfTests = OneFromTwoVm.CountOftests - 1;
+
+                    switch (_testId)
+                    {
+                        case 1 :
+                            OneFromTwoTest oneFromTwoTest = new OneFromTwoTest(UnderThemeIds);
+                            OneFromTwoVm = new OneFromTwoViewModel();
+                            _countOfTests = OneFromTwoVm.CountOfTests - 1;
+                            ChangeView(OneFromTwoVm);
+                            break;
+                        case 2:
+                            OneFromFourTest oneFromFourTest = new OneFromFourTest(UnderThemeIds);
+                            OneFromFourVm = new OneFromFourViewModel();
+                            _countOfTests = OneFromFourVm.CountOfTests - 1;
+                            ChangeView(OneFromFourVm);
+                            break;
+                        case 3:
+                            OneFromFourTextTest oneFromFourTextTest = new OneFromFourTextTest(UnderThemeIds);
+                            OneFromFourTextVm = new OneFromFourTextViewModel();
+                            _countOfTests = OneFromFourTextVm.CountOfTests - 1;
+                            ChangeView(OneFromFourTextVm);
+                            break;
+                        case 4:
+                            OneFromFourListeningTest oneFromFourListeningTest = new OneFromFourListeningTest(UnderThemeIds);
+                            OneFromFourListeningVm = new OneFromFourListeningViewModel();
+                            _countOfTests = OneFromFourListeningVm.CountOfTests - 1;
+                            ChangeView(OneFromFourListeningVm);
+                            break;
+                        case 5:
+                            TrueOrFalseTest trueOrFalseTest = new TrueOrFalseTest(UnderThemeIds);
+                            TrueOrFalseVm = new TrueOrFalseViewModel();
+                            _countOfTests = TrueOrFalseVm.CountOfTests - 1;
+                            ChangeView(TrueOrFalseVm);
+                            break;
+                        case 6:
+                            SpellWithPictureTest spellWithPictureTest = new SpellWithPictureTest(UnderThemeIds);
+                            SpellWithPictureVm = new SpellWithPictureViewModel();
+                            _countOfTests = SpellWithPictureVm.CountOfTests - 1;
+                            ChangeView(SpellWithPictureVm);
+                            break;
+                        case 7:
+                            SpellWithVoiceTest spellWithVoiceTest = new SpellWithVoiceTest(UnderThemeIds);
+                            SpellWithVoiceVm = new SpellWithVoiceViewModel();
+                            _countOfTests = SpellWithVoiceVm.CountOfTests - 1;
+                            ChangeView(SpellWithVoiceVm);
+                            break;
+                        case 8:
+                            TranslationTextTest translationTextTest = new TranslationTextTest(UnderThemeIds);
+                            TranslationTextVm = new TranslationTextViewModel();
+                            _countOfTests = TranslationTextVm.CountOfTests - 1;
+                            ChangeView(TranslationTextVm);
+                            break;
+                        case 9:
+                            TranslationPronunciationTest translationPronunciationTest = new TranslationPronunciationTest(UnderThemeIds);
+                            TranslationPronunciationVm = new TranslationPronunciationViewModel();
+                            _countOfTests = TranslationPronunciationVm.CountOfTests - 1;
+                            ChangeView(TranslationPronunciationVm);
+                            break;
+                        case 10:
+                            FindPairTranslationTest findPairTranslationTest = new FindPairTranslationTest(UnderThemeIds);
+                            FindPairTranslationVm = new FindPairTranslationViewModel();
+                            _countOfTests = FindPairTranslationVm.CountOfTests - 1;
+                            ChangeView(FindPairTranslationVm);
+                            break;
+                    }
+                    CountOfTestsLabel = $"Tests left: {_countOfTests}";
                     VisibilityOfCountOfTestsLabel = Visibility.Visible;
-                    ChangeView(OneFromTwoVm);
+                    _backButtonActive = false;
+                    _navigatePanelButtonsActive = false;
                 }
             }
-            else
+            else if (_testId == 1)
             {
-                string currentWord = OneFromTwoVm.Word;
-                string selectedImageAnswer = OneFromTwoViewModel.SelectedImage;
-                if (CountOfTests == 1)
-                {
-                    if (selectedImageAnswer == "" || selectedImageAnswer == null)
-                        MessageBox.Show("Please, select answer!");
-                    else if (selectedImageAnswer.Contains("\\"+currentWord+"."))
-                    {
-                        countOfCorrectAnswers++;
-                        MessageBox.Show("Correct");
-                    }
-                    else
-                        MessageBox.Show("Incorrect");
-
-                    MessageBox.Show($"That's all! \n Count of correct answers - {countOfCorrectAnswers}");
-
-                    EndOfTest();
-                }
-                else
-                {
-                    if (selectedImageAnswer == "" || selectedImageAnswer == null)
-                        MessageBox.Show("Please, select answer!");
-                    else if (selectedImageAnswer.Contains("/" + currentWord + "."))
-                    {
-                        countOfCorrectAnswers++;
-                        MessageBox.Show("Correct");
-                        CheckResultOfChoise();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Incorrect");
-                        CheckResultOfChoise();
-                    }
-                       
-                }
+                CheckResultOfChoice(OneFromTwoVm.Word, OneFromTwoViewModel.SelectedImage);
             }
+            else if (_testId == 2)
+            {
+                CheckResultOfChoice(OneFromFourVm.Word, OneFromFourViewModel.SelectedImage);
+            }
+            else if (_testId == 3)
+            {
+                CheckResultOfChoice(OneFromFourTextViewModel.CorrectTranslation, OneFromFourTextViewModel.SelectedWord);
+            }
+            else if (_testId == 4)
+            {
+                CheckResultOfChoice(OneFromFourListeningVm.Word, OneFromFourListeningViewModel.SelectedImage);
+            }
+            else if (_testId == 5)
+            {
+                CheckResultOfChoice((TrueOrFalseVm.ShownTranslation == TrueOrFalseVm.CorrectTranslation).ToString(), TrueOrFalseViewModel.IsCurrentWordRight.ToString());
+            }
+            else if (_testId == 6)
+            {
+                CheckResultOfChoice(SpellWithPictureVm.Translation.ToLower(),SpellWithPictureVm.Answer.ToLower());
+            }
+            else if (_testId == 7)
+            {
+                CheckResultOfChoice(SpellWithVoiceVm.Translation.ToLower(), SpellWithVoiceVm.Answer.ToLower());
+            }
+            else if (_testId == 8)
+            {
+                CheckResultOfChoice(TranslationTextVm.Word.ToLower(), TranslationTextVm.Answer.ToLower());
+            }
+            else if (_testId == 9)
+            {
+                CheckResultOfChoice(TranslationPronunciationVm.Word.ToLower(), TranslationPronunciationVm.Answer.ToLower());
+            }
+            else if (_testId == 10)
+            {
+                CheckResultOfChoice(FindPairTranslationVm.CorrectWord, FindPairTranslationViewModel.SelectedWord);
+            }
+            else {}
         }
 
         private void Exit_Click()
         {
-            Application.Current.Shutdown();
+            try
+            {
+                Application.Current.Shutdown();
+                Log.Info("Application successfully closed.");
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Failed while closing application",ex);
+            }
         }
 
         private void Back_Click()
         {
-            if (PreviousView != null)
+            try
             {
-                CurrentView = PreviousView;
-                VisibilityOfCountOfTestsLabel = Visibility.Hidden;
+                if (_backButtonActive && _previousViews.Count > 1)
+                {
+                    CurrentView = _previousViews.Pop();
+                    Log.Info("Successfully returning to the previous page.");
+                }
+                else
+                {
+                    MessageBox.Show("Can't go back!");
+                }
             }
+            catch (Exception ex)
+            {
+                Log.Error("Failed while return to the previous page: ",ex);
+            }
+        }
+
+        private void NavigateToLanguagesView()
+        {
+            if (_navigatePanelButtonsActive)
+                ChangeView(LanguagesVm);
+            else
+                MessageBox.Show("You are in the test!");
+        }
+
+        private void NavigateToTestsView()
+        {
+            if (_navigatePanelButtonsActive)
+                ChangeView(TestsVm);
+            else
+                MessageBox.Show("You are in the test!");
         }
 
         private void ChangeView(object newView)
         {
-            PreviousView = CurrentView;
-            CurrentView = newView;
+            try
+            {
+                if(_backButtonActive)
+                    _previousViews.Push(CurrentView);
+                CurrentView = newView;
+                Log.Info($"View successfully changed to {newView}");
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Exception while changing view: ",ex);
+            }
         }
 
-        private void CheckResultOfChoise()
+        private void CheckResultOfChoice(string correctAnswer, string selectedAnswer)
         {
-            OneFromTwoView OneFromTwoV = new OneFromTwoView();
-            ChangeView(OneFromTwoV);
-            CountOfTests--;
+            if (_countOfTests == 1)
+            {
+                if (selectedAnswer == "")
+                    MessageBox.Show("Please, select answer!");
+                else if (selectedAnswer.Contains(correctAnswer + ".") || selectedAnswer == correctAnswer)
+                {
+                    _countOfCorrectAnswers++;
+                    MessageBox.Show("Correct");
+                }
+                else
+                    MessageBox.Show("Incorrect");
+
+                MessageBox.Show($"That's all! \n Count of correct answers - {_countOfCorrectAnswers}");
+
+                EndOfTest();
+            }
+            else
+            {
+                if (selectedAnswer == "")
+                    MessageBox.Show("Please, select answer!");
+                else if (selectedAnswer.Contains(correctAnswer + ".") || selectedAnswer == correctAnswer)
+                {
+                    _countOfCorrectAnswers++;
+                    MessageBox.Show("Correct");
+                    MoveToTheNextTest();
+                }
+                else
+                {
+                    MessageBox.Show("Incorrect");
+                    MoveToTheNextTest();
+                }
+            }
+            CountOfTestsLabel = $"Tests left: {_countOfTests}";
+        }
+        private void MoveToTheNextTest()
+        {
+            object newView = null;
+            switch (_testId)
+            {
+                case 1:
+                    newView = new OneFromTwoView();
+                    break;
+                case 2:
+                    newView = new OneFromFourView();
+                    break;
+                case 3:
+                    newView = new OneFromFourTextView();
+                    break;
+                case 4:
+                    newView = new OneFromFourListeningView();
+                    break;
+                case 5:
+                    newView = new TrueOrFalseView();
+                    break;
+                case 6:
+                    newView = new SpellWithPictureView();
+                    break;
+                case 7:
+                    newView = new SpellWithVoiceView();
+                    break;
+                case 8:
+                    newView = new TranslationTextView();
+                    break;
+                case 9:
+                    newView = new TranslationPronunciationView();
+                    break;
+                case 10:
+                    newView = new FindPairTranslationView();
+                    break;
+            }
+            ChangeView(newView);
+            _countOfTests--;
         }
 
         private void EndOfTest()
         {
-            CurrentView = WelcomeVm;
+            Log.Info($"Test {CurrentView} successfully finished.");
+            ChangeView(WelcomeVm);
+            _previousViews.Clear();
             VisibilityOfCountOfTestsLabel = Visibility.Hidden;
-            PreviousView = WelcomeVm;
-            countOfCorrectAnswers = 0;
+            _countOfCorrectAnswers = 0;
+            _countOfTests = 0;
+            _backButtonActive = true;
+            _navigatePanelButtonsActive = true;
         }
     }
 }

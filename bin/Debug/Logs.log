@@ -1,0 +1,555 @@
+2023-08-18 10:55:26,506 [1] INFO  Filian.MVVM.ViewModel.MainViewModel Application started.
+2023-08-18 10:55:26,679 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully connected to database.
+2023-08-18 10:55:26,695 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully selected languages info from database.
+2023-08-18 10:55:26,695 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully connected to database.
+2023-08-18 10:55:26,695 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully selected tests info from database.
+2023-08-18 10:55:26,711 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.LanguagesViewModel
+2023-08-18 10:55:27,041 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully connected to database.
+2023-08-18 10:55:27,051 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully selected languages info from database.
+2023-08-18 10:55:30,243 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully connected to database.
+2023-08-18 10:55:30,258 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully selected tests info from database.
+2023-08-18 10:55:30,258 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.TestsViewModel
+2023-08-18 10:55:30,258 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully connected to database.
+2023-08-18 10:55:30,274 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully selected tests info from database.
+2023-08-18 10:55:31,798 [1] INFO  Filian.MVVM.ViewModel.ThemesViewModel Successfully connected to database.
+2023-08-18 10:55:31,814 [1] INFO  Filian.MVVM.ViewModel.ThemesViewModel Successfully selected themes info from database.
+2023-08-18 10:55:31,814 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.ThemesViewModel
+2023-08-18 10:55:31,814 [1] INFO  Filian.MVVM.ViewModel.ThemesViewModel Successfully connected to database.
+2023-08-18 10:55:31,814 [1] INFO  Filian.MVVM.ViewModel.ThemesViewModel Successfully selected themes info from database.
+2023-08-18 10:55:33,547 [1] INFO  Filian.MVVM.ViewModel.MainViewModel Application started.
+2023-08-18 10:55:33,547 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully connected to database.
+2023-08-18 10:55:33,563 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully selected languages info from database.
+2023-08-18 10:55:33,563 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully connected to database.
+2023-08-18 10:55:33,563 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully selected tests info from database.
+2023-08-18 10:55:33,563 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.LanguagesViewModel
+2023-08-18 10:55:33,579 [1] INFO  Filian.MVVM.ViewModel.UnderThemesViewModel Successfully connected to database.
+2023-08-18 10:55:33,579 [1] INFO  Filian.MVVM.ViewModel.UnderThemesViewModel Successfully selected underThemes info from database.
+2023-08-18 10:55:33,579 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.UnderThemesViewModel
+2023-08-18 10:55:33,579 [1] INFO  Filian.MVVM.ViewModel.MainViewModel Application started.
+2023-08-18 10:55:33,595 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully connected to database.
+2023-08-18 10:55:33,595 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully selected languages info from database.
+2023-08-18 10:55:33,595 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully connected to database.
+2023-08-18 10:55:33,605 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully selected tests info from database.
+2023-08-18 10:55:33,610 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.LanguagesViewModel
+2023-08-18 10:55:33,610 [1] INFO  Filian.MVVM.ViewModel.UnderThemesViewModel Successfully connected to database.
+2023-08-18 10:55:33,610 [1] INFO  Filian.MVVM.ViewModel.UnderThemesViewModel Successfully selected underThemes info from database.
+2023-08-18 10:55:36,370 [1] INFO  Filian.MVVM.Model.OneFromTwoTest Successfully connected to database for OneFromTwoTest.
+2023-08-18 10:55:36,385 [1] INFO  Filian.MVVM.Model.OneFromTwoTest Successfully selected words info from database for OneFromTwoTest.
+2023-08-18 10:55:36,464 [1] INFO  Filian.MVVM.Model.OneFromTwoTest Successfully selected pictures info from database for OneFromTwoTest.
+2023-08-18 10:55:36,464 [1] INFO  Filian.MVVM.ViewModel.OneFromTwoViewModel OneFromTwoTest successfully created.
+2023-08-18 10:55:36,464 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.OneFromTwoViewModel
+2023-08-18 10:55:36,474 [1] INFO  Filian.MVVM.ViewModel.OneFromTwoViewModel OneFromTwoTest successfully created.
+2023-08-18 10:55:46,643 [1] INFO  Filian.MVVM.ViewModel.MainViewModel Application successfully closed.
+2023-08-18 10:55:53,037 [1] INFO  Filian.MVVM.ViewModel.MainViewModel Application started.
+2023-08-18 10:55:53,538 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully connected to database.
+2023-08-18 10:55:53,554 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully selected languages info from database.
+2023-08-18 10:55:53,559 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully connected to database.
+2023-08-18 10:55:53,574 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully selected tests info from database.
+2023-08-18 10:55:53,890 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.LanguagesViewModel
+2023-08-18 10:55:54,700 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully connected to database.
+2023-08-18 10:55:54,716 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully selected languages info from database.
+2023-08-18 10:55:57,708 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully connected to database.
+2023-08-18 10:55:57,708 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully selected tests info from database.
+2023-08-18 10:55:57,723 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.TestsViewModel
+2023-08-18 10:55:57,723 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully connected to database.
+2023-08-18 10:55:57,723 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully selected tests info from database.
+2023-08-18 10:56:00,597 [1] INFO  Filian.MVVM.ViewModel.ThemesViewModel Successfully connected to database.
+2023-08-18 10:56:00,597 [1] INFO  Filian.MVVM.ViewModel.ThemesViewModel Successfully selected themes info from database.
+2023-08-18 10:56:00,597 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.ThemesViewModel
+2023-08-18 10:56:00,613 [1] INFO  Filian.MVVM.ViewModel.ThemesViewModel Successfully connected to database.
+2023-08-18 10:56:00,613 [1] INFO  Filian.MVVM.ViewModel.ThemesViewModel Successfully selected themes info from database.
+2023-08-18 10:56:02,146 [1] INFO  Filian.MVVM.ViewModel.MainViewModel Application started.
+2023-08-18 10:56:02,162 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully connected to database.
+2023-08-18 10:56:02,162 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully selected languages info from database.
+2023-08-18 10:56:02,162 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully connected to database.
+2023-08-18 10:56:02,162 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully selected tests info from database.
+2023-08-18 10:56:02,172 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.LanguagesViewModel
+2023-08-18 10:56:02,172 [1] INFO  Filian.MVVM.ViewModel.UnderThemesViewModel Successfully connected to database.
+2023-08-18 10:56:02,177 [1] INFO  Filian.MVVM.ViewModel.UnderThemesViewModel Successfully selected underThemes info from database.
+2023-08-18 10:56:02,177 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.UnderThemesViewModel
+2023-08-18 10:56:02,177 [1] INFO  Filian.MVVM.ViewModel.MainViewModel Application started.
+2023-08-18 10:56:02,191 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully connected to database.
+2023-08-18 10:56:02,193 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully selected languages info from database.
+2023-08-18 10:56:02,193 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully connected to database.
+2023-08-18 10:56:02,193 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully selected tests info from database.
+2023-08-18 10:56:02,193 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.LanguagesViewModel
+2023-08-18 10:56:02,193 [1] INFO  Filian.MVVM.ViewModel.UnderThemesViewModel Successfully connected to database.
+2023-08-18 10:56:02,193 [1] INFO  Filian.MVVM.ViewModel.UnderThemesViewModel Successfully selected underThemes info from database.
+2023-08-18 10:56:04,566 [1] INFO  Filian.MVVM.Model.TranslationTextTest Successfully connected to database for TranslationTextTest.
+2023-08-18 10:56:04,581 [1] INFO  Filian.MVVM.Model.TranslationTextTest Successfully selected words info from database for TranslationTextTest.
+2023-08-18 10:56:04,581 [1] INFO  Filian.MVVM.ViewModel.TranslationTextViewModel TranslationTextTest successfully created.
+2023-08-18 10:56:04,581 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.TranslationTextViewModel
+2023-08-18 10:56:04,581 [1] INFO  Filian.MVVM.ViewModel.TranslationTextViewModel TranslationTextTest successfully created.
+2023-08-18 10:56:14,227 [1] INFO  Filian.MVVM.ViewModel.TranslationTextViewModel TranslationTextTest successfully created.
+2023-08-18 10:56:14,238 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.View.TranslationTextView
+2023-08-18 10:56:26,169 [1] INFO  Filian.MVVM.ViewModel.TranslationTextViewModel TranslationTextTest successfully created.
+2023-08-18 10:56:26,169 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.View.TranslationTextView
+2023-08-18 10:56:28,822 [1] INFO  Filian.MVVM.ViewModel.TranslationTextViewModel TranslationTextTest successfully created.
+2023-08-18 10:56:28,822 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.View.TranslationTextView
+2023-08-18 10:56:34,727 [1] INFO  Filian.MVVM.ViewModel.TranslationTextViewModel TranslationTextTest successfully created.
+2023-08-18 10:56:34,743 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.View.TranslationTextView
+2023-08-18 10:56:41,755 [1] INFO  Filian.MVVM.ViewModel.TranslationTextViewModel TranslationTextTest successfully created.
+2023-08-18 10:56:41,755 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.View.TranslationTextView
+2023-08-18 10:56:45,937 [1] INFO  Filian.MVVM.ViewModel.MainViewModel Application successfully closed.
+2023-08-18 10:57:54,538 [1] INFO  Filian.MVVM.ViewModel.MainViewModel Application started.
+2023-08-18 10:57:54,710 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully connected to database.
+2023-08-18 10:57:54,726 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully selected languages info from database.
+2023-08-18 10:57:54,726 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully connected to database.
+2023-08-18 10:57:54,742 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully selected tests info from database.
+2023-08-18 10:57:54,742 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.LanguagesViewModel
+2023-08-18 10:57:55,198 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully connected to database.
+2023-08-18 10:57:55,198 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully selected languages info from database.
+2023-08-18 10:57:58,147 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully connected to database.
+2023-08-18 10:57:58,162 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully selected tests info from database.
+2023-08-18 10:57:58,162 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.TestsViewModel
+2023-08-18 10:57:58,162 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully connected to database.
+2023-08-18 10:57:58,178 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully selected tests info from database.
+2023-08-18 10:58:01,340 [1] INFO  Filian.MVVM.ViewModel.ThemesViewModel Successfully connected to database.
+2023-08-18 10:58:01,340 [1] INFO  Filian.MVVM.ViewModel.ThemesViewModel Successfully selected themes info from database.
+2023-08-18 10:58:01,340 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.ThemesViewModel
+2023-08-18 10:58:01,340 [1] INFO  Filian.MVVM.ViewModel.ThemesViewModel Successfully connected to database.
+2023-08-18 10:58:01,355 [1] INFO  Filian.MVVM.ViewModel.ThemesViewModel Successfully selected themes info from database.
+2023-08-18 10:58:03,152 [1] INFO  Filian.MVVM.ViewModel.MainViewModel Application started.
+2023-08-18 10:58:03,152 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully connected to database.
+2023-08-18 10:58:03,168 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully selected languages info from database.
+2023-08-18 10:58:03,168 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully connected to database.
+2023-08-18 10:58:03,168 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully selected tests info from database.
+2023-08-18 10:58:03,178 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.LanguagesViewModel
+2023-08-18 10:58:03,178 [1] INFO  Filian.MVVM.ViewModel.UnderThemesViewModel Successfully connected to database.
+2023-08-18 10:58:03,184 [1] INFO  Filian.MVVM.ViewModel.UnderThemesViewModel Successfully selected underThemes info from database.
+2023-08-18 10:58:03,184 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.UnderThemesViewModel
+2023-08-18 10:58:03,184 [1] INFO  Filian.MVVM.ViewModel.MainViewModel Application started.
+2023-08-18 10:58:03,184 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully connected to database.
+2023-08-18 10:58:03,200 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully selected languages info from database.
+2023-08-18 10:58:03,200 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully connected to database.
+2023-08-18 10:58:03,200 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully selected tests info from database.
+2023-08-18 10:58:03,200 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.LanguagesViewModel
+2023-08-18 10:58:03,200 [1] INFO  Filian.MVVM.ViewModel.UnderThemesViewModel Successfully connected to database.
+2023-08-18 10:58:03,200 [1] INFO  Filian.MVVM.ViewModel.UnderThemesViewModel Successfully selected underThemes info from database.
+2023-08-18 10:58:04,969 [1] INFO  Filian.MVVM.Model.TranslationTextTest Successfully connected to database for TranslationTextTest.
+2023-08-18 10:58:04,969 [1] INFO  Filian.MVVM.Model.TranslationTextTest Successfully selected words info from database for TranslationTextTest.
+2023-08-18 10:58:04,984 [1] INFO  Filian.MVVM.ViewModel.TranslationTextViewModel TranslationTextTest successfully created.
+2023-08-18 10:58:04,984 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.TranslationTextViewModel
+2023-08-18 10:58:04,984 [1] INFO  Filian.MVVM.ViewModel.TranslationTextViewModel TranslationTextTest successfully created.
+2023-08-18 10:58:12,052 [1] INFO  Filian.MVVM.ViewModel.TranslationTextViewModel TranslationTextTest successfully created.
+2023-08-18 10:58:12,057 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.View.TranslationTextView
+2023-08-18 10:58:17,994 [1] INFO  Filian.MVVM.ViewModel.TranslationTextViewModel TranslationTextTest successfully created.
+2023-08-18 10:58:17,994 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.View.TranslationTextView
+2023-08-18 10:58:22,317 [1] INFO  Filian.MVVM.ViewModel.MainViewModel Application successfully closed.
+2023-08-18 10:58:44,054 [1] INFO  Filian.MVVM.ViewModel.MainViewModel Application started.
+2023-08-18 10:58:44,227 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully connected to database.
+2023-08-18 10:58:44,243 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully selected languages info from database.
+2023-08-18 10:58:44,243 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully connected to database.
+2023-08-18 10:58:44,243 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully selected tests info from database.
+2023-08-18 10:58:44,243 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.LanguagesViewModel
+2023-08-18 10:58:44,699 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully connected to database.
+2023-08-18 10:58:44,699 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully selected languages info from database.
+2023-08-18 10:58:47,328 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully connected to database.
+2023-08-18 10:58:47,328 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully selected tests info from database.
+2023-08-18 10:58:47,328 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.TestsViewModel
+2023-08-18 10:58:47,345 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully connected to database.
+2023-08-18 10:58:47,345 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully selected tests info from database.
+2023-08-18 10:59:08,846 [1] INFO  Filian.MVVM.ViewModel.MainViewModel Application successfully closed.
+2023-08-18 11:35:13,771 [1] INFO  Filian.MVVM.ViewModel.MainViewModel Application started.
+2023-08-18 11:35:14,007 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully connected to database.
+2023-08-18 11:35:14,044 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully selected languages info from database.
+2023-08-18 11:35:14,044 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully connected to database.
+2023-08-18 11:35:14,054 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully selected tests info from database.
+2023-08-18 11:35:14,054 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.LanguagesViewModel
+2023-08-18 11:35:14,599 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully connected to database.
+2023-08-18 11:35:14,602 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully selected languages info from database.
+2023-08-18 11:36:20,438 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully connected to database.
+2023-08-18 11:36:20,438 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully selected tests info from database.
+2023-08-18 11:36:20,454 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.TestsViewModel
+2023-08-18 11:36:20,454 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully connected to database.
+2023-08-18 11:36:20,454 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully selected tests info from database.
+2023-08-18 11:36:26,010 [1] INFO  Filian.MVVM.ViewModel.ThemesViewModel Successfully connected to database.
+2023-08-18 11:36:26,010 [1] INFO  Filian.MVVM.ViewModel.ThemesViewModel Successfully selected themes info from database.
+2023-08-18 11:36:26,010 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.ThemesViewModel
+2023-08-18 11:36:26,026 [1] INFO  Filian.MVVM.ViewModel.ThemesViewModel Successfully connected to database.
+2023-08-18 11:36:26,026 [1] INFO  Filian.MVVM.ViewModel.ThemesViewModel Successfully selected themes info from database.
+2023-08-18 11:36:29,082 [1] INFO  Filian.MVVM.ViewModel.MainViewModel Application started.
+2023-08-18 11:36:29,082 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully connected to database.
+2023-08-18 11:36:29,082 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully selected languages info from database.
+2023-08-18 11:36:29,082 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully connected to database.
+2023-08-18 11:36:29,098 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully selected tests info from database.
+2023-08-18 11:36:29,098 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.LanguagesViewModel
+2023-08-18 11:36:29,098 [1] INFO  Filian.MVVM.ViewModel.UnderThemesViewModel Successfully connected to database.
+2023-08-18 11:36:29,098 [1] INFO  Filian.MVVM.ViewModel.UnderThemesViewModel Successfully selected underThemes info from database.
+2023-08-18 11:36:29,098 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.UnderThemesViewModel
+2023-08-18 11:36:29,113 [1] INFO  Filian.MVVM.ViewModel.MainViewModel Application started.
+2023-08-18 11:36:29,113 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully connected to database.
+2023-08-18 11:36:29,113 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully selected languages info from database.
+2023-08-18 11:36:29,113 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully connected to database.
+2023-08-18 11:36:29,113 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully selected tests info from database.
+2023-08-18 11:36:29,113 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.LanguagesViewModel
+2023-08-18 11:36:29,129 [1] INFO  Filian.MVVM.ViewModel.UnderThemesViewModel Successfully connected to database.
+2023-08-18 11:36:29,129 [1] INFO  Filian.MVVM.ViewModel.UnderThemesViewModel Successfully selected underThemes info from database.
+2023-08-18 11:36:31,991 [1] INFO  Filian.MVVM.Model.TranslationPronunciationTest Successfully connected to database for TranslationPronunciationTest.
+2023-08-18 11:36:31,991 [1] INFO  Filian.MVVM.Model.TranslationPronunciationTest Successfully selected words info from database for TranslationPronunciationTest.
+2023-08-18 11:36:32,006 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.TranslationPronunciationViewModel
+2023-08-18 11:36:35,863 [1] INFO  Filian.MVVM.ViewModel.MainViewModel Application successfully closed.
+2023-08-18 11:37:06,486 [1] INFO  Filian.MVVM.ViewModel.MainViewModel Application started.
+2023-08-18 11:37:06,659 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully connected to database.
+2023-08-18 11:37:06,659 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully selected languages info from database.
+2023-08-18 11:37:06,674 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully connected to database.
+2023-08-18 11:37:06,674 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully selected tests info from database.
+2023-08-18 11:37:06,674 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.LanguagesViewModel
+2023-08-18 11:37:07,036 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully connected to database.
+2023-08-18 11:37:07,036 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully selected languages info from database.
+2023-08-18 11:37:09,360 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully connected to database.
+2023-08-18 11:37:09,376 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully selected tests info from database.
+2023-08-18 11:37:09,376 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.TestsViewModel
+2023-08-18 11:37:09,386 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully connected to database.
+2023-08-18 11:37:09,391 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully selected tests info from database.
+2023-08-18 11:37:13,583 [1] INFO  Filian.MVVM.ViewModel.ThemesViewModel Successfully connected to database.
+2023-08-18 11:37:13,588 [1] INFO  Filian.MVVM.ViewModel.ThemesViewModel Successfully selected themes info from database.
+2023-08-18 11:37:13,588 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.ThemesViewModel
+2023-08-18 11:37:13,588 [1] INFO  Filian.MVVM.ViewModel.ThemesViewModel Successfully connected to database.
+2023-08-18 11:37:13,588 [1] INFO  Filian.MVVM.ViewModel.ThemesViewModel Successfully selected themes info from database.
+2023-08-18 11:37:15,661 [1] INFO  Filian.MVVM.ViewModel.MainViewModel Application started.
+2023-08-18 11:37:15,661 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully connected to database.
+2023-08-18 11:37:15,687 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully selected languages info from database.
+2023-08-18 11:37:15,687 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully connected to database.
+2023-08-18 11:37:15,692 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully selected tests info from database.
+2023-08-18 11:37:15,692 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.LanguagesViewModel
+2023-08-18 11:37:15,692 [1] INFO  Filian.MVVM.ViewModel.UnderThemesViewModel Successfully connected to database.
+2023-08-18 11:37:15,708 [1] INFO  Filian.MVVM.ViewModel.UnderThemesViewModel Successfully selected underThemes info from database.
+2023-08-18 11:37:15,708 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.UnderThemesViewModel
+2023-08-18 11:37:15,708 [1] INFO  Filian.MVVM.ViewModel.MainViewModel Application started.
+2023-08-18 11:37:15,708 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully connected to database.
+2023-08-18 11:37:15,708 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully selected languages info from database.
+2023-08-18 11:37:15,708 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully connected to database.
+2023-08-18 11:37:15,724 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully selected tests info from database.
+2023-08-18 11:37:15,724 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.LanguagesViewModel
+2023-08-18 11:37:15,724 [1] INFO  Filian.MVVM.ViewModel.UnderThemesViewModel Successfully connected to database.
+2023-08-18 11:37:15,724 [1] INFO  Filian.MVVM.ViewModel.UnderThemesViewModel Successfully selected underThemes info from database.
+2023-08-18 11:37:17,739 [1] INFO  Filian.MVVM.Model.TranslationPronunciationTest Successfully connected to database for TranslationPronunciationTest.
+2023-08-18 11:37:17,755 [1] INFO  Filian.MVVM.Model.TranslationPronunciationTest Successfully selected words info from database for TranslationPronunciationTest.
+2023-08-18 11:37:17,755 [1] INFO  Filian.MVVM.ViewModel.TranslationPronunciationViewModel TranslationPronunciationTest successfully created.
+2023-08-18 11:37:17,755 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.TranslationPronunciationViewModel
+2023-08-18 11:37:17,771 [1] INFO  Filian.MVVM.ViewModel.TranslationPronunciationViewModel TranslationPronunciationTest successfully created.
+2023-08-18 11:37:32,422 [1] INFO  Filian.MVVM.ViewModel.TranslationPronunciationViewModel TranslationPronunciationTest successfully created.
+2023-08-18 11:37:32,425 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.View.TranslationPronunciationView
+2023-08-18 11:37:44,961 [1] INFO  Filian.MVVM.ViewModel.TranslationPronunciationViewModel TranslationPronunciationTest successfully created.
+2023-08-18 11:37:44,975 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.View.TranslationPronunciationView
+2023-08-18 11:37:58,357 [1] INFO  Filian.MVVM.ViewModel.TranslationPronunciationViewModel TranslationPronunciationTest successfully created.
+2023-08-18 11:37:58,372 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.View.TranslationPronunciationView
+2023-08-18 11:38:03,501 [1] INFO  Filian.MVVM.ViewModel.TranslationPronunciationViewModel TranslationPronunciationTest successfully created.
+2023-08-18 11:38:03,517 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.View.TranslationPronunciationView
+2023-08-18 11:38:10,916 [1] INFO  Filian.MVVM.ViewModel.TranslationPronunciationViewModel TranslationPronunciationTest successfully created.
+2023-08-18 11:38:10,931 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.View.TranslationPronunciationView
+2023-08-18 11:38:15,940 [1] INFO  Filian.MVVM.ViewModel.MainViewModel Application successfully closed.
+2023-08-18 11:39:22,923 [1] INFO  Filian.MVVM.ViewModel.MainViewModel Application started.
+2023-08-18 11:39:23,101 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully connected to database.
+2023-08-18 11:39:23,115 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully selected languages info from database.
+2023-08-18 11:39:23,115 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully connected to database.
+2023-08-18 11:39:23,121 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully selected tests info from database.
+2023-08-18 11:39:23,131 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.LanguagesViewModel
+2023-08-18 11:39:23,611 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully connected to database.
+2023-08-18 11:39:23,616 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully selected languages info from database.
+2023-08-18 11:39:27,165 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully connected to database.
+2023-08-18 11:39:27,172 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully selected tests info from database.
+2023-08-18 11:39:27,172 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.TestsViewModel
+2023-08-18 11:39:27,180 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully connected to database.
+2023-08-18 11:39:27,182 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully selected tests info from database.
+2023-08-18 11:39:32,052 [1] INFO  Filian.MVVM.ViewModel.MainViewModel Application successfully closed.
+2023-08-18 12:09:44,951 [1] INFO  Filian.MVVM.ViewModel.MainViewModel Application started.
+2023-08-18 12:09:45,131 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully connected to database.
+2023-08-18 12:09:45,146 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully selected languages info from database.
+2023-08-18 12:09:45,152 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully connected to database.
+2023-08-18 12:09:45,161 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully selected tests info from database.
+2023-08-18 12:09:45,161 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.LanguagesViewModel
+2023-08-18 12:09:45,571 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully connected to database.
+2023-08-18 12:09:45,571 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully selected languages info from database.
+2023-08-18 12:09:48,154 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully connected to database.
+2023-08-18 12:09:48,161 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully selected tests info from database.
+2023-08-18 12:09:48,166 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.TestsViewModel
+2023-08-18 12:09:48,171 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully connected to database.
+2023-08-18 12:09:48,176 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully selected tests info from database.
+2023-08-18 12:09:51,801 [1] INFO  Filian.MVVM.ViewModel.ThemesViewModel Successfully connected to database.
+2023-08-18 12:09:51,801 [1] INFO  Filian.MVVM.ViewModel.ThemesViewModel Successfully selected themes info from database.
+2023-08-18 12:09:51,801 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.ThemesViewModel
+2023-08-18 12:09:51,811 [1] INFO  Filian.MVVM.ViewModel.ThemesViewModel Successfully connected to database.
+2023-08-18 12:09:51,815 [1] INFO  Filian.MVVM.ViewModel.ThemesViewModel Successfully selected themes info from database.
+2023-08-18 12:09:53,824 [1] INFO  Filian.MVVM.ViewModel.MainViewModel Application started.
+2023-08-18 12:09:53,824 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully connected to database.
+2023-08-18 12:09:53,841 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully selected languages info from database.
+2023-08-18 12:09:53,846 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully connected to database.
+2023-08-18 12:09:53,851 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully selected tests info from database.
+2023-08-18 12:09:53,851 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.LanguagesViewModel
+2023-08-18 12:09:53,856 [1] INFO  Filian.MVVM.ViewModel.UnderThemesViewModel Successfully connected to database.
+2023-08-18 12:09:53,872 [1] INFO  Filian.MVVM.ViewModel.UnderThemesViewModel Successfully selected underThemes info from database.
+2023-08-18 12:09:53,872 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.UnderThemesViewModel
+2023-08-18 12:09:53,876 [1] INFO  Filian.MVVM.ViewModel.MainViewModel Application started.
+2023-08-18 12:09:53,881 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully connected to database.
+2023-08-18 12:09:53,891 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully selected languages info from database.
+2023-08-18 12:09:53,891 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully connected to database.
+2023-08-18 12:09:53,896 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully selected tests info from database.
+2023-08-18 12:09:53,901 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.LanguagesViewModel
+2023-08-18 12:09:53,903 [1] INFO  Filian.MVVM.ViewModel.UnderThemesViewModel Successfully connected to database.
+2023-08-18 12:09:53,903 [1] INFO  Filian.MVVM.ViewModel.UnderThemesViewModel Successfully selected underThemes info from database.
+2023-08-18 12:09:55,871 [1] INFO  Filian.MVVM.Model.FindPairTranslationTest Successfully connected to database for FindPairTranslationTest.
+2023-08-18 12:09:55,891 [1] INFO  Filian.MVVM.Model.FindPairTranslationTest Successfully selected words info from database for FindPairTranslationTest.
+2023-08-18 12:09:56,091 [1] INFO  Filian.MVVM.Model.FindPairTranslationTest Successfully selected pictures info from database for FindPairTranslationTest.
+2023-08-18 12:09:56,091 [1] INFO  Filian.MVVM.ViewModel.FindPairTranslationViewModel FindPairTranslationTest successfully created.
+2023-08-18 12:09:56,091 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.FindPairTranslationViewModel
+2023-08-18 12:09:56,101 [1] INFO  Filian.MVVM.ViewModel.FindPairTranslationViewModel FindPairTranslationTest successfully created.
+2023-08-18 12:10:00,611 [1] INFO  Filian.MVVM.ViewModel.FindPairTranslationViewModel FindPairTranslationTest successfully created.
+2023-08-18 12:10:00,622 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.View.FindPairTranslationView
+2023-08-18 12:10:30,131 [1] INFO  Filian.MVVM.ViewModel.FindPairTranslationViewModel FindPairTranslationTest successfully created.
+2023-08-18 12:10:30,138 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.View.FindPairTranslationView
+2023-08-18 12:10:33,761 [1] INFO  Filian.MVVM.ViewModel.FindPairTranslationViewModel FindPairTranslationTest successfully created.
+2023-08-18 12:10:33,772 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.View.FindPairTranslationView
+2023-08-18 12:10:36,624 [1] INFO  Filian.MVVM.ViewModel.FindPairTranslationViewModel FindPairTranslationTest successfully created.
+2023-08-18 12:10:36,629 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.View.FindPairTranslationView
+2023-08-18 12:10:40,002 [1] INFO  Filian.MVVM.ViewModel.FindPairTranslationViewModel FindPairTranslationTest successfully created.
+2023-08-18 12:10:40,011 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.View.FindPairTranslationView
+2023-08-18 12:10:43,092 [1] INFO  Filian.MVVM.ViewModel.FindPairTranslationViewModel FindPairTranslationTest successfully created.
+2023-08-18 12:10:43,099 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.View.FindPairTranslationView
+2023-08-18 12:10:43,944 [1] INFO  Filian.MVVM.ViewModel.MainViewModel Application successfully closed.
+2023-08-18 12:10:51,811 [1] INFO  Filian.MVVM.ViewModel.MainViewModel Application started.
+2023-08-18 12:10:52,007 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully connected to database.
+2023-08-18 12:10:52,021 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully selected languages info from database.
+2023-08-18 12:10:52,023 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully connected to database.
+2023-08-18 12:10:52,041 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully selected tests info from database.
+2023-08-18 12:10:52,041 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.LanguagesViewModel
+2023-08-18 12:10:52,501 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully connected to database.
+2023-08-18 12:10:52,501 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully selected languages info from database.
+2023-08-18 12:10:56,042 [1] INFO  Filian.MVVM.ViewModel.MainViewModel Application successfully closed.
+2023-08-18 12:11:05,908 [1] INFO  Filian.MVVM.ViewModel.MainViewModel Application started.
+2023-08-18 12:11:06,911 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully connected to database.
+2023-08-18 12:11:07,056 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully selected languages info from database.
+2023-08-18 12:11:07,062 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully connected to database.
+2023-08-18 12:11:07,107 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully selected tests info from database.
+2023-08-18 12:11:07,134 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.LanguagesViewModel
+2023-08-18 12:11:09,701 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully connected to database.
+2023-08-18 12:11:09,834 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully selected languages info from database.
+2023-08-18 12:11:12,871 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully connected to database.
+2023-08-18 12:11:12,903 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully selected tests info from database.
+2023-08-18 12:11:12,919 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.TestsViewModel
+2023-08-18 12:11:12,930 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully connected to database.
+2023-08-18 12:11:12,944 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully selected tests info from database.
+2023-08-18 12:11:16,234 [1] INFO  Filian.MVVM.ViewModel.ThemesViewModel Successfully connected to database.
+2023-08-18 12:11:16,242 [1] INFO  Filian.MVVM.ViewModel.ThemesViewModel Successfully selected themes info from database.
+2023-08-18 12:11:16,244 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.ThemesViewModel
+2023-08-18 12:11:16,252 [1] INFO  Filian.MVVM.ViewModel.ThemesViewModel Successfully connected to database.
+2023-08-18 12:11:16,257 [1] INFO  Filian.MVVM.ViewModel.ThemesViewModel Successfully selected themes info from database.
+2023-08-18 12:11:18,075 [1] INFO  Filian.MVVM.ViewModel.MainViewModel Application started.
+2023-08-18 12:11:18,077 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully connected to database.
+2023-08-18 12:11:18,082 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully selected languages info from database.
+2023-08-18 12:11:18,084 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully connected to database.
+2023-08-18 12:11:18,090 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully selected tests info from database.
+2023-08-18 12:11:18,092 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.LanguagesViewModel
+2023-08-18 12:11:18,094 [1] INFO  Filian.MVVM.ViewModel.UnderThemesViewModel Successfully connected to database.
+2023-08-18 12:11:18,105 [1] INFO  Filian.MVVM.ViewModel.UnderThemesViewModel Successfully selected underThemes info from database.
+2023-08-18 12:11:18,107 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.UnderThemesViewModel
+2023-08-18 12:11:18,113 [1] INFO  Filian.MVVM.ViewModel.MainViewModel Application started.
+2023-08-18 12:11:18,115 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully connected to database.
+2023-08-18 12:11:18,120 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully selected languages info from database.
+2023-08-18 12:11:18,123 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully connected to database.
+2023-08-18 12:11:18,128 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully selected tests info from database.
+2023-08-18 12:11:18,132 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.LanguagesViewModel
+2023-08-18 12:11:18,134 [1] INFO  Filian.MVVM.ViewModel.UnderThemesViewModel Successfully connected to database.
+2023-08-18 12:11:18,138 [1] INFO  Filian.MVVM.ViewModel.UnderThemesViewModel Successfully selected underThemes info from database.
+2023-08-18 12:11:19,916 [1] INFO  Filian.MVVM.Model.FindPairTranslationTest Successfully connected to database for FindPairTranslationTest.
+2023-08-18 12:11:20,085 [1] INFO  Filian.MVVM.Model.FindPairTranslationTest Successfully selected words info from database for FindPairTranslationTest.
+2023-08-18 12:11:22,146 [1] INFO  Filian.MVVM.Model.FindPairTranslationTest Successfully selected pictures info from database for FindPairTranslationTest.
+2023-08-18 12:11:22,150 [1] INFO  Filian.MVVM.ViewModel.FindPairTranslationViewModel FindPairTranslationTest successfully created.
+2023-08-18 12:11:22,153 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.FindPairTranslationViewModel
+2023-08-18 12:11:22,159 [1] INFO  Filian.MVVM.ViewModel.FindPairTranslationViewModel FindPairTranslationTest successfully created.
+2023-08-18 12:12:08,946 [1] INFO  Filian.MVVM.ViewModel.MainViewModel Application started.
+2023-08-18 12:12:09,162 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully connected to database.
+2023-08-18 12:12:09,172 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully selected languages info from database.
+2023-08-18 12:12:09,172 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully connected to database.
+2023-08-18 12:12:09,182 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully selected tests info from database.
+2023-08-18 12:12:09,185 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.LanguagesViewModel
+2023-08-18 12:12:09,602 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully connected to database.
+2023-08-18 12:12:09,602 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully selected languages info from database.
+2023-08-18 12:12:11,666 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully connected to database.
+2023-08-18 12:12:11,682 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully selected tests info from database.
+2023-08-18 12:12:11,687 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.TestsViewModel
+2023-08-18 12:12:11,697 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully connected to database.
+2023-08-18 12:12:11,717 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully selected tests info from database.
+2023-08-18 12:12:14,524 [1] INFO  Filian.MVVM.ViewModel.ThemesViewModel Successfully connected to database.
+2023-08-18 12:12:14,532 [1] INFO  Filian.MVVM.ViewModel.ThemesViewModel Successfully selected themes info from database.
+2023-08-18 12:12:14,532 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.ThemesViewModel
+2023-08-18 12:12:14,542 [1] INFO  Filian.MVVM.ViewModel.ThemesViewModel Successfully connected to database.
+2023-08-18 12:12:14,542 [1] INFO  Filian.MVVM.ViewModel.ThemesViewModel Successfully selected themes info from database.
+2023-08-18 12:12:17,152 [1] INFO  Filian.MVVM.ViewModel.MainViewModel Application started.
+2023-08-18 12:12:17,152 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully connected to database.
+2023-08-18 12:12:17,162 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully selected languages info from database.
+2023-08-18 12:12:17,162 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully connected to database.
+2023-08-18 12:12:17,162 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully selected tests info from database.
+2023-08-18 12:12:17,172 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.LanguagesViewModel
+2023-08-18 12:12:17,175 [1] INFO  Filian.MVVM.ViewModel.UnderThemesViewModel Successfully connected to database.
+2023-08-18 12:12:17,182 [1] INFO  Filian.MVVM.ViewModel.UnderThemesViewModel Successfully selected underThemes info from database.
+2023-08-18 12:12:17,182 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.UnderThemesViewModel
+2023-08-18 12:12:17,187 [1] INFO  Filian.MVVM.ViewModel.MainViewModel Application started.
+2023-08-18 12:12:17,192 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully connected to database.
+2023-08-18 12:12:17,192 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully selected languages info from database.
+2023-08-18 12:12:17,197 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully connected to database.
+2023-08-18 12:12:17,197 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully selected tests info from database.
+2023-08-18 12:12:17,202 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.LanguagesViewModel
+2023-08-18 12:12:17,202 [1] INFO  Filian.MVVM.ViewModel.UnderThemesViewModel Successfully connected to database.
+2023-08-18 12:12:17,207 [1] INFO  Filian.MVVM.ViewModel.UnderThemesViewModel Successfully selected underThemes info from database.
+2023-08-18 12:12:18,752 [1] INFO  Filian.MVVM.Model.FindPairTranslationTest Successfully connected to database for FindPairTranslationTest.
+2023-08-18 12:12:18,767 [1] INFO  Filian.MVVM.Model.FindPairTranslationTest Successfully selected words info from database for FindPairTranslationTest.
+2023-08-18 12:12:18,982 [1] INFO  Filian.MVVM.Model.FindPairTranslationTest Successfully selected pictures info from database for FindPairTranslationTest.
+2023-08-18 12:12:18,987 [1] INFO  Filian.MVVM.ViewModel.FindPairTranslationViewModel FindPairTranslationTest successfully created.
+2023-08-18 12:12:18,987 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.FindPairTranslationViewModel
+2023-08-18 12:12:18,993 [1] INFO  Filian.MVVM.ViewModel.FindPairTranslationViewModel FindPairTranslationTest successfully created.
+2023-08-18 12:12:21,676 [1] INFO  Filian.MVVM.ViewModel.FindPairTranslationViewModel FindPairTranslationTest successfully created.
+2023-08-18 12:12:21,676 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.View.FindPairTranslationView
+2023-08-18 12:12:24,015 [1] INFO  Filian.MVVM.ViewModel.FindPairTranslationViewModel FindPairTranslationTest successfully created.
+2023-08-18 12:12:24,022 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.View.FindPairTranslationView
+2023-08-18 12:12:26,944 [1] INFO  Filian.MVVM.ViewModel.FindPairTranslationViewModel FindPairTranslationTest successfully created.
+2023-08-18 12:12:26,949 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.View.FindPairTranslationView
+2023-08-18 12:12:29,662 [1] INFO  Filian.MVVM.ViewModel.FindPairTranslationViewModel FindPairTranslationTest successfully created.
+2023-08-18 12:12:29,669 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.View.FindPairTranslationView
+2023-08-18 12:12:32,212 [1] INFO  Filian.MVVM.ViewModel.FindPairTranslationViewModel FindPairTranslationTest successfully created.
+2023-08-18 12:12:32,218 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.View.FindPairTranslationView
+2023-08-18 12:12:35,892 [1] INFO  Filian.MVVM.ViewModel.FindPairTranslationViewModel FindPairTranslationTest successfully created.
+2023-08-18 12:12:35,898 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.View.FindPairTranslationView
+2023-08-18 12:12:40,149 [1] INFO  Filian.MVVM.ViewModel.FindPairTranslationViewModel FindPairTranslationTest successfully created.
+2023-08-18 12:12:40,152 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.View.FindPairTranslationView
+2023-08-18 12:12:43,652 [1] INFO  Filian.MVVM.ViewModel.FindPairTranslationViewModel FindPairTranslationTest successfully created.
+2023-08-18 12:12:43,652 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.View.FindPairTranslationView
+2023-08-18 12:12:46,453 [1] INFO  Filian.MVVM.ViewModel.FindPairTranslationViewModel FindPairTranslationTest successfully created.
+2023-08-18 12:12:46,458 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.View.FindPairTranslationView
+2023-08-18 12:12:50,208 [1] INFO  Filian.MVVM.ViewModel.FindPairTranslationViewModel FindPairTranslationTest successfully created.
+2023-08-18 12:12:50,214 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.View.FindPairTranslationView
+2023-08-18 12:12:59,420 [1] INFO  Filian.MVVM.ViewModel.FindPairTranslationViewModel FindPairTranslationTest successfully created.
+2023-08-18 12:12:59,422 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.View.FindPairTranslationView
+2023-08-18 12:13:04,982 [1] INFO  Filian.MVVM.ViewModel.FindPairTranslationViewModel FindPairTranslationTest successfully created.
+2023-08-18 12:13:04,994 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.View.FindPairTranslationView
+2023-08-18 12:13:07,783 [1] INFO  Filian.MVVM.ViewModel.FindPairTranslationViewModel FindPairTranslationTest successfully created.
+2023-08-18 12:13:07,789 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.View.FindPairTranslationView
+2023-08-18 12:13:17,132 [1] INFO  Filian.MVVM.ViewModel.FindPairTranslationViewModel FindPairTranslationTest successfully created.
+2023-08-18 12:13:17,133 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.View.FindPairTranslationView
+2023-08-18 12:13:19,402 [1] INFO  Filian.MVVM.ViewModel.FindPairTranslationViewModel FindPairTranslationTest successfully created.
+2023-08-18 12:13:19,409 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.View.FindPairTranslationView
+2023-08-18 12:13:22,263 [1] INFO  Filian.MVVM.ViewModel.FindPairTranslationViewModel FindPairTranslationTest successfully created.
+2023-08-18 12:13:22,270 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.View.FindPairTranslationView
+2023-08-18 12:13:24,849 [1] INFO  Filian.MVVM.ViewModel.FindPairTranslationViewModel FindPairTranslationTest successfully created.
+2023-08-18 12:13:24,857 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.View.FindPairTranslationView
+2023-08-18 12:13:25,893 [1] INFO  Filian.MVVM.ViewModel.MainViewModel Application successfully closed.
+2023-08-18 13:05:29,255 [1] INFO  Filian.MVVM.ViewModel.MainViewModel Application started.
+2023-08-18 13:05:29,523 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully connected to database.
+2023-08-18 13:05:29,535 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully selected languages info from database.
+2023-08-18 13:05:29,538 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully connected to database.
+2023-08-18 13:05:29,547 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully selected tests info from database.
+2023-08-18 13:05:29,551 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.LanguagesViewModel
+2023-08-18 13:05:30,421 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully connected to database.
+2023-08-18 13:05:30,428 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully selected languages info from database.
+2023-08-18 13:05:35,304 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully connected to database.
+2023-08-18 13:05:35,314 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully selected tests info from database.
+2023-08-18 13:05:35,319 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.TestsViewModel
+2023-08-18 13:05:35,324 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully connected to database.
+2023-08-18 13:05:35,324 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully selected tests info from database.
+2023-08-18 13:05:42,414 [1] INFO  Filian.MVVM.ViewModel.ThemesViewModel Successfully connected to database.
+2023-08-18 13:05:42,414 [1] INFO  Filian.MVVM.ViewModel.ThemesViewModel Successfully selected themes info from database.
+2023-08-18 13:05:42,423 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.ThemesViewModel
+2023-08-18 13:05:42,428 [1] INFO  Filian.MVVM.ViewModel.ThemesViewModel Successfully connected to database.
+2023-08-18 13:05:42,428 [1] INFO  Filian.MVVM.ViewModel.ThemesViewModel Successfully selected themes info from database.
+2023-08-18 13:05:46,481 [1] INFO  Filian.MVVM.ViewModel.MainViewModel Application started.
+2023-08-18 13:05:46,481 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully connected to database.
+2023-08-18 13:05:46,481 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully selected languages info from database.
+2023-08-18 13:05:46,481 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully connected to database.
+2023-08-18 13:05:46,481 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully selected tests info from database.
+2023-08-18 13:05:46,481 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.LanguagesViewModel
+2023-08-18 13:05:46,497 [1] INFO  Filian.MVVM.ViewModel.UnderThemesViewModel Successfully connected to database.
+2023-08-18 13:05:46,497 [1] INFO  Filian.MVVM.ViewModel.UnderThemesViewModel Successfully selected underThemes info from database.
+2023-08-18 13:05:46,497 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.UnderThemesViewModel
+2023-08-18 13:05:46,497 [1] INFO  Filian.MVVM.ViewModel.MainViewModel Application started.
+2023-08-18 13:05:46,512 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully connected to database.
+2023-08-18 13:05:46,512 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully selected languages info from database.
+2023-08-18 13:05:46,512 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully connected to database.
+2023-08-18 13:05:46,512 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully selected tests info from database.
+2023-08-18 13:05:46,512 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.LanguagesViewModel
+2023-08-18 13:05:46,512 [1] INFO  Filian.MVVM.ViewModel.UnderThemesViewModel Successfully connected to database.
+2023-08-18 13:05:46,528 [1] INFO  Filian.MVVM.ViewModel.UnderThemesViewModel Successfully selected underThemes info from database.
+2023-08-18 13:05:50,076 [1] INFO  Filian.MVVM.Model.TranslationPronunciationTest Successfully connected to database for TranslationPronunciationTest.
+2023-08-18 13:05:50,091 [1] INFO  Filian.MVVM.Model.TranslationPronunciationTest Successfully selected words info from database for TranslationPronunciationTest.
+2023-08-18 13:05:50,091 [1] INFO  Filian.MVVM.ViewModel.TranslationPronunciationViewModel TranslationPronunciationTest successfully created.
+2023-08-18 13:05:50,091 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.TranslationPronunciationViewModel
+2023-08-18 13:05:50,107 [1] INFO  Filian.MVVM.ViewModel.TranslationPronunciationViewModel TranslationPronunciationTest successfully created.
+2023-08-18 13:06:01,801 [1] INFO  Filian.MVVM.ViewModel.MainViewModel Application successfully closed.
+2023-08-18 13:06:05,894 [1] INFO  Filian.MVVM.ViewModel.MainViewModel Application started.
+2023-08-18 13:06:06,102 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully connected to database.
+2023-08-18 13:06:06,115 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully selected languages info from database.
+2023-08-18 13:06:06,130 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully connected to database.
+2023-08-18 13:06:06,146 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully selected tests info from database.
+2023-08-18 13:06:06,146 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.LanguagesViewModel
+2023-08-18 13:06:06,586 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully connected to database.
+2023-08-18 13:06:06,586 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully selected languages info from database.
+2023-08-18 13:06:12,639 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully connected to database.
+2023-08-18 13:06:12,654 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully selected tests info from database.
+2023-08-18 13:06:12,654 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.TestsViewModel
+2023-08-18 13:06:12,654 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully connected to database.
+2023-08-18 13:06:12,654 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully selected tests info from database.
+2023-08-18 13:06:28,873 [1] INFO  Filian.MVVM.ViewModel.ThemesViewModel Successfully connected to database.
+2023-08-18 13:06:28,873 [1] INFO  Filian.MVVM.ViewModel.ThemesViewModel Successfully selected themes info from database.
+2023-08-18 13:06:28,873 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.ThemesViewModel
+2023-08-18 13:06:28,873 [1] INFO  Filian.MVVM.ViewModel.ThemesViewModel Successfully connected to database.
+2023-08-18 13:06:28,873 [1] INFO  Filian.MVVM.ViewModel.ThemesViewModel Successfully selected themes info from database.
+2023-08-18 13:06:34,689 [1] INFO  Filian.MVVM.ViewModel.MainViewModel Application started.
+2023-08-18 13:06:34,689 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully connected to database.
+2023-08-18 13:06:34,689 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully selected languages info from database.
+2023-08-18 13:06:34,689 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully connected to database.
+2023-08-18 13:06:34,689 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully selected tests info from database.
+2023-08-18 13:06:34,689 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.LanguagesViewModel
+2023-08-18 13:06:34,702 [1] INFO  Filian.MVVM.ViewModel.UnderThemesViewModel Successfully connected to database.
+2023-08-18 13:06:34,702 [1] INFO  Filian.MVVM.ViewModel.UnderThemesViewModel Successfully selected underThemes info from database.
+2023-08-18 13:06:34,702 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.UnderThemesViewModel
+2023-08-18 13:06:34,702 [1] INFO  Filian.MVVM.ViewModel.MainViewModel Application started.
+2023-08-18 13:06:34,718 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully connected to database.
+2023-08-18 13:06:34,718 [1] INFO  Filian.MVVM.ViewModel.LanguagesViewModel Successfully selected languages info from database.
+2023-08-18 13:06:34,718 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully connected to database.
+2023-08-18 13:06:34,718 [1] INFO  Filian.MVVM.ViewModel.TestsViewModel Successfully selected tests info from database.
+2023-08-18 13:06:34,718 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.LanguagesViewModel
+2023-08-18 13:06:34,718 [1] INFO  Filian.MVVM.ViewModel.UnderThemesViewModel Successfully connected to database.
+2023-08-18 13:06:34,718 [1] INFO  Filian.MVVM.ViewModel.UnderThemesViewModel Successfully selected underThemes info from database.
+2023-08-18 13:06:36,237 [1] INFO  Filian.MVVM.Model.OneFromFourListeningTest Successfully connected to database for OneFromFourTest.
+2023-08-18 13:06:36,252 [1] INFO  Filian.MVVM.Model.OneFromFourListeningTest Successfully selected words info from database for OneFromFourTest.
+2023-08-18 13:06:36,315 [1] INFO  Filian.MVVM.Model.OneFromFourListeningTest Successfully selected pictures info from database for OneFromFourTest.
+2023-08-18 13:06:36,315 [1] INFO  Filian.MVVM.ViewModel.OneFromFourListeningViewModel OneFromFourListeningTest successfully created.
+2023-08-18 13:06:36,315 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.OneFromFourListeningViewModel
+2023-08-18 13:06:36,325 [1] INFO  Filian.MVVM.ViewModel.OneFromFourListeningViewModel OneFromFourListeningTest successfully created.
+2023-08-18 13:06:44,233 [1] INFO  Filian.MVVM.ViewModel.OneFromFourListeningViewModel OneFromFourListeningTest successfully created.
+2023-08-18 13:06:44,487 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.View.OneFromFourListeningView
+2023-08-18 13:06:51,340 [1] INFO  Filian.MVVM.ViewModel.OneFromFourListeningViewModel OneFromFourListeningTest successfully created.
+2023-08-18 13:06:51,701 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.View.OneFromFourListeningView
+2023-08-18 13:06:56,686 [1] INFO  Filian.MVVM.ViewModel.OneFromFourListeningViewModel OneFromFourListeningTest successfully created.
+2023-08-18 13:06:56,985 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.View.OneFromFourListeningView
+2023-08-18 13:07:02,461 [1] INFO  Filian.MVVM.ViewModel.OneFromFourListeningViewModel OneFromFourListeningTest successfully created.
+2023-08-18 13:07:02,557 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.View.OneFromFourListeningView
+2023-08-18 13:07:07,609 [1] INFO  Filian.MVVM.ViewModel.OneFromFourListeningViewModel OneFromFourListeningTest successfully created.
+2023-08-18 13:07:07,719 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.View.OneFromFourListeningView
+2023-08-18 13:07:12,598 [1] INFO  Filian.MVVM.ViewModel.OneFromFourListeningViewModel OneFromFourListeningTest successfully created.
+2023-08-18 13:07:12,708 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.View.OneFromFourListeningView
+2023-08-18 13:07:19,145 [1] INFO  Filian.MVVM.ViewModel.OneFromFourListeningViewModel OneFromFourListeningTest successfully created.
+2023-08-18 13:07:19,162 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.View.OneFromFourListeningView
+2023-08-18 13:07:24,550 [1] INFO  Filian.MVVM.ViewModel.OneFromFourListeningViewModel OneFromFourListeningTest successfully created.
+2023-08-18 13:07:24,562 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.View.OneFromFourListeningView
+2023-08-18 13:07:30,186 [1] INFO  Filian.MVVM.ViewModel.OneFromFourListeningViewModel OneFromFourListeningTest successfully created.
+2023-08-18 13:07:30,327 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.View.OneFromFourListeningView
+2023-08-18 13:07:35,207 [1] INFO  Filian.MVVM.ViewModel.OneFromFourListeningViewModel OneFromFourListeningTest successfully created.
+2023-08-18 13:07:35,207 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.View.OneFromFourListeningView
+2023-08-18 13:07:39,853 [1] INFO  Filian.MVVM.ViewModel.OneFromFourListeningViewModel OneFromFourListeningTest successfully created.
+2023-08-18 13:07:39,870 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.View.OneFromFourListeningView
+2023-08-18 13:07:43,901 [1] INFO  Filian.MVVM.ViewModel.OneFromFourListeningViewModel OneFromFourListeningTest successfully created.
+2023-08-18 13:07:44,011 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.View.OneFromFourListeningView
+2023-08-18 13:07:48,120 [1] INFO  Filian.MVVM.ViewModel.OneFromFourListeningViewModel OneFromFourListeningTest successfully created.
+2023-08-18 13:07:48,140 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.View.OneFromFourListeningView
+2023-08-18 13:07:54,148 [1] INFO  Filian.MVVM.ViewModel.OneFromFourListeningViewModel OneFromFourListeningTest successfully created.
+2023-08-18 13:07:54,179 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.View.OneFromFourListeningView
+2023-08-18 13:07:59,906 [1] INFO  Filian.MVVM.ViewModel.OneFromFourListeningViewModel OneFromFourListeningTest successfully created.
+2023-08-18 13:07:59,906 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.View.OneFromFourListeningView
+2023-08-18 13:08:05,268 [1] INFO  Filian.MVVM.ViewModel.OneFromFourListeningViewModel OneFromFourListeningTest successfully created.
+2023-08-18 13:08:05,315 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.View.OneFromFourListeningView
+2023-08-18 13:08:09,151 [1] INFO  Filian.MVVM.ViewModel.OneFromFourListeningViewModel OneFromFourListeningTest successfully created.
+2023-08-18 13:08:09,167 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.View.OneFromFourListeningView
+2023-08-18 13:08:15,421 [1] INFO  Filian.MVVM.ViewModel.MainViewModel Test Filian.MVVM.View.OneFromFourListeningView successfully finished.
+2023-08-18 13:08:15,421 [1] INFO  Filian.MVVM.ViewModel.MainViewModel View successfully changed to Filian.MVVM.ViewModel.WelcomeViewModel
+2023-08-18 13:08:17,869 [1] INFO  Filian.MVVM.ViewModel.MainViewModel Application successfully closed.

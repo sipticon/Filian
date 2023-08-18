@@ -7,8 +7,8 @@ namespace Filian.MVVM.View
 {
     public partial class OneFromTwoView : UserControl
     {
-        private bool isSelected1;
-        private bool isSelected2;
+        private bool _isSelected1;
+        private bool _isSelected2;
         public OneFromTwoView()
         {
             InitializeComponent();
@@ -16,14 +16,14 @@ namespace Filian.MVVM.View
 
         private void Select1(object sender, MouseButtonEventArgs e)
         {
-            if(!isSelected2)
-                SelectAndMarkImage(sender, ref isSelected1);
+            if(!_isSelected2)
+                SelectAndMarkImage(sender, ref _isSelected1);
         }
 
         private void Select2(object sender, MouseButtonEventArgs e)
         {
-            if(!isSelected1)
-                SelectAndMarkImage(sender, ref isSelected2);
+            if(!_isSelected1)
+                SelectAndMarkImage(sender, ref _isSelected2);
         }
 
         private void SelectAndMarkImage(object sender, ref bool isSelected)

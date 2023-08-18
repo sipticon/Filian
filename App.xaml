@@ -4,13 +4,17 @@
              xmlns:local="clr-namespace:Filian"
              xmlns:viewModel="clr-namespace:Filian.MVVM.ViewModel"
              xmlns:view="clr-namespace:Filian.MVVM.View"
-             StartupUri="MainWindow.xaml"
+             StartupUri="/MVVM/View/MainWindow.xaml"
              ShutdownMode="OnExplicitShutdown">
     <Application.Resources>
          <ResourceDictionary>
              <ResourceDictionary.MergedDictionaries>
                  <ResourceDictionary Source="Themes/MenuButtonTheme.xaml"/>
              </ResourceDictionary.MergedDictionaries>
+
+             <DataTemplate DataType="{x:Type viewModel:LanguagesViewModel}">
+                 <view:LanguagesView/>
+             </DataTemplate>
 
             <DataTemplate DataType="{x:Type viewModel:TestsViewModel}">
                  <view:TestsView/>
@@ -30,6 +34,42 @@
 
              <DataTemplate DataType="{x:Type viewModel:OneFromTwoViewModel}">
                  <view:OneFromTwoView/>
+             </DataTemplate>
+
+             <DataTemplate DataType="{x:Type viewModel:OneFromFourViewModel}">
+                 <view:OneFromFourView/>
+             </DataTemplate>
+
+             <DataTemplate DataType="{x:Type viewModel:OneFromFourTextViewModel}">
+                 <view:OneFromFourTextView/>
+             </DataTemplate>
+
+             <DataTemplate DataType="{x:Type viewModel:OneFromFourListeningViewModel}">
+                 <view:OneFromFourListeningView/>
+             </DataTemplate>
+
+             <DataTemplate DataType="{x:Type viewModel:TrueOrFalseViewModel}">
+                 <view:TrueOrFalseView/>
+             </DataTemplate>
+
+             <DataTemplate DataType="{x:Type viewModel:SpellWithPictureViewModel}">
+                 <view:SpellWithPictureView/>
+             </DataTemplate>
+
+             <DataTemplate DataType="{x:Type viewModel:SpellWithVoiceViewModel}">
+                 <view:SpellWithVoiceView/>
+             </DataTemplate>
+
+             <DataTemplate DataType="{x:Type viewModel:TranslationTextViewModel}">
+                 <view:TranslationTextView/>
+             </DataTemplate>
+
+             <DataTemplate DataType="{x:Type viewModel:TranslationPronunciationViewModel}">
+                 <view:TranslationPronunciationView/>
+             </DataTemplate>
+
+             <DataTemplate DataType="{x:Type viewModel:FindPairTranslationViewModel}">
+                 <view:FindPairTranslationView/>
              </DataTemplate>
 
         </ResourceDictionary>

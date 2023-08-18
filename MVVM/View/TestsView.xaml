@@ -34,8 +34,8 @@
                                     Background="Brown" 
                                     CornerRadius="30">
                                 <StackPanel>
-                                    <Image Source="{Binding Path=Picture_Path}" Margin="30,5,30,0"/>
-                                    <TextBlock FontSize="20" Foreground="White" Text="{Binding Path=Name}" HorizontalAlignment="Center"/>
+                                    <Image Source="{Binding Path=PicturePath}" Margin="30,5,30,0"/>
+                                    <TextBlock FontSize="20" Foreground="#272537" Text="{Binding Path=Translation}" HorizontalAlignment="Center"/>
                                 </StackPanel>
                             </Border>
                         </StackPanel>

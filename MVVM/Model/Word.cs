@@ -3,6 +3,6 @@
     public class Word : DataBaseEntity
     {
         public int ThemeId { get; set; }
-        public string Pronunciation_Path { get; set; }
+        public string PronunciationPath { get; set; }
     }
 }

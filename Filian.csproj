@@ -38,8 +38,13 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net, Version=2.0.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>packages\log4net.2.0.15\lib\net45\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -61,25 +66,75 @@
     <Compile Include="Core\ObservableObject.cs" />
     <Compile Include="Core\RelayCommand.cs" />
     <Compile Include="MVVM\Model\DataBaseEntity.cs" />
-    <Compile Include="MVVM\Model\ListViewExtentions.cs" />
+    <Compile Include="MVVM\Model\FindPairTranslationTest.cs" />
+    <Compile Include="MVVM\Model\FindPairTranslationTestInfo.cs" />
+    <Compile Include="MVVM\Model\Language.cs" />
+    <Compile Include="Core\ListViewExtentions.cs" />
+    <Compile Include="MVVM\Model\OneFromFourListeningTest.cs" />
+    <Compile Include="MVVM\Model\OneFromFourListeningTestInfo.cs" />
+    <Compile Include="MVVM\Model\OneFromFourTest.cs" />
+    <Compile Include="MVVM\Model\OneFromFourTestInfo.cs" />
+    <Compile Include="MVVM\Model\OneFromFourTextTest.cs" />
+    <Compile Include="MVVM\Model\OneFromFourTextTestInfo.cs" />
     <Compile Include="MVVM\Model\OneFromTwoTestInfo.cs" />
     <Compile Include="MVVM\Model\OneFromTwoTest.cs" />
+    <Compile Include="MVVM\Model\SpellWithPictureTest.cs" />
+    <Compile Include="MVVM\Model\SpellWithVoiceTest.cs" />
     <Compile Include="MVVM\Model\Theme.cs" />
+    <Compile Include="MVVM\Model\TranslationPronunciationTest.cs" />
+    <Compile Include="MVVM\Model\TranslationTextTest.cs" />
+    <Compile Include="MVVM\Model\TrueOrFalseTest.cs" />
+    <Compile Include="MVVM\Model\TrueOrFalseTestInfo.cs" />
     <Compile Include="MVVM\Model\Word.cs" />
+    <Compile Include="MVVM\ViewModel\FindPairTranslationViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\LanguagesViewModel.cs" />
     <Compile Include="MVVM\ViewModel\MainViewModel.cs" />
     <Compile Include="MVVM\Model\Test.cs" />
+    <Compile Include="MVVM\ViewModel\OneFromFourListeningViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\OneFromFourTextViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\OneFromFourViewModel.cs" />
     <Compile Include="MVVM\ViewModel\OneFromTwoViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\SpellWithPictureViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\SpellWithVoiceViewModel.cs" />
     <Compile Include="MVVM\ViewModel\TestsViewModel.cs" />
     <Compile Include="MVVM\ViewModel\ThemesViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\TranslationPronunciationViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\TranslationTextViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\TrueOrFalseViewModel.cs" />
     <Compile Include="MVVM\ViewModel\UnderThemesViewModel.cs" />
     <Compile Include="MVVM\ViewModel\WelcomeViewModel.cs" />
+    <Compile Include="MVVM\View\FindPairTranslationView.xaml.cs">
+      <DependentUpon>FindPairTranslationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\LanguagesView.xaml.cs">
+      <DependentUpon>LanguagesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\OneFromFourListeningView.xaml.cs">
+      <DependentUpon>OneFromFourListeningView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\OneFromFourTextView.xaml.cs">
+      <DependentUpon>OneFromFourTextView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\OneFromFourView.xaml.cs">
+      <DependentUpon>OneFromFourView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MVVM\View\OneFromTwoView.xaml.cs">
       <DependentUpon>OneFromTwoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\SpellWithPictureView.xaml.cs">
+      <DependentUpon>SpellWithPictureView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\SpellWithVoiceView.xaml.cs">
+      <DependentUpon>SpellWithVoiceView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MVVM\View\TestsView.xaml.cs">
       <DependentUpon>TestsView.xaml</DependentUpon>
     </Compile>
-    <Page Include="MainWindow.xaml">
+    <Page Include="MVVM\View\FindPairTranslationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -87,11 +142,35 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="MVVM\View\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MVVM\View\LanguagesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\OneFromFourListeningView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\OneFromFourTextView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\OneFromFourView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MVVM\View\OneFromTwoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\SpellWithPictureView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\SpellWithVoiceView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -100,6 +179,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MVVM\View\ThemesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\TranslationPronunciationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\TranslationTextView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MVVM\View\TrueOrFalseView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -119,6 +210,15 @@
   <ItemGroup>
     <Compile Include="MVVM\View\ThemesView.xaml.cs">
       <DependentUpon>ThemesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\TranslationPronunciationView.xaml.cs">
+      <DependentUpon>TranslationPronunciationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\TranslationTextView.xaml.cs">
+      <DependentUpon>TranslationTextView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MVVM\View\TrueOrFalseView.xaml.cs">
+      <DependentUpon>TrueOrFalseView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MVVM\View\UnderThemesView.xaml.cs">
       <DependentUpon>UnderThemesView.xaml</DependentUpon>
@@ -143,6 +243,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

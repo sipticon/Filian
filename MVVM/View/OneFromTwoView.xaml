@@ -39,10 +39,10 @@
                        Stretch="Fill"/>
                 <Label Grid.Row="1" 
                        Grid.ColumnSpan="2"  
-                       Content="{Binding Word}" 
+                       Content="{Binding Translation}" 
                        FontSize="30" HorizontalAlignment="Center" 
                        VerticalAlignment="Center"
-                       Foreground="White"/>
+                       Foreground="#272537"/>
             </Grid>
         </Border>
     </Grid>
