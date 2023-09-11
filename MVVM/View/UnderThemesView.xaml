@@ -32,11 +32,11 @@
                             <Border Height="250" 
                                     Width="275"
                                     Margin="10" 
-                                    Background="Brown" 
+                                    Background="#393E46" 
                                     CornerRadius="30">
                                 <StackPanel>
                                     <Image Source="{Binding Path=PicturePath}" Width="200" Height="180" Margin="10,10,10,10"  Stretch="Fill"/>
-                                    <TextBlock FontSize="20" Foreground="#272537" Text="{Binding Path=Translation}" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+                                    <TextBlock FontSize="20" FontFamily="Comic Sans MS" Foreground="#00ADB5" Text="{Binding Path=Translation}" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
                                 </StackPanel>
                             </Border>
                         </StackPanel>

@@ -3,36 +3,23 @@ using Filian.MVVM.Model;
 using System.Collections.Generic;
 using System;
 using System.Linq;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media.Imaging;
+using Filian.MVVM.View;
 
 namespace Filian.MVVM.ViewModel
 {
-    public class OneFromTwoViewModel : ObservableObject
+    public class OneFromTwoViewModel : ViewModel
     {
-        private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
-
-        private readonly Random _random = new Random();
-
         private static string _word;
         private string _translation;
         private string _picturePath1;
         private string _picturePath2;
-
+        
         private readonly Queue<OneFromTwoTestInfo> _oneFromTwoTestInfos = OneFromTwoTest.OneFromTwoTestInfos;
 
-        private static string _selectedImage = "";
-        private static int _countOfTests;
-
-        public int CountOfTests
-        {
-            get => _countOfTests;
-            set => _countOfTests = value;
-        }
-
-        public static string SelectedImage
-        {
-            get => _selectedImage;
-            set => _selectedImage = value;
-        }
+        public static string SelectedImage { get; set; } = "";
 
         public string Word
         {

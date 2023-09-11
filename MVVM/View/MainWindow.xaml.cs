@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using Filian.MVVM.ViewModel;
 
 namespace Filian.MVVM.View
 {
@@ -11,6 +12,7 @@ namespace Filian.MVVM.View
         public MainWindow()
         {
             InitializeComponent();
+            MainViewModel.gr = Grid;
         }
     }
 }

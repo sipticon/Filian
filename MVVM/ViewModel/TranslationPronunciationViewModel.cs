@@ -6,25 +6,14 @@ using Filian.MVVM.Model;
 
 namespace Filian.MVVM.ViewModel
 {
-    public class TranslationPronunciationViewModel : ObservableObject
+    public class TranslationPronunciationViewModel : ViewModel
     {
-        private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
-
         public RelayCommand PlayPronunciationCommand { get; set; }
 
         private static string _word;
 
         public Queue<Word> Words = TranslationPronunciationTest.Words;
-
-        private static string _answer = "";
-        private static int _countOfTests;
-
-        public int CountOfTests
-        {
-            get => _countOfTests;
-            set => _countOfTests = value;
-        }
-
+        
         public string Answer
         {
             get => _answer;

@@ -14,7 +14,7 @@
     <Grid>
         <Border
             Margin="10" 
-            Background="Brown" 
+            Background="#393E46" 
             CornerRadius="30">
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -53,9 +53,10 @@
                         FontSize="30" HorizontalAlignment="Center" 
                         VerticalAlignment="Center"
                         Width="300"
-                        Height="50"
-                        Foreground="Brown"
-                        Background="#272537">
+                        Height="45"
+                        Foreground="#00ADB5"
+                        FontFamily="Comic Sans MS"
+                        Background="#222831">
                     <Button.Resources>
                         <Style TargetType="Border">
                             <Setter Property="CornerRadius" Value="15"></Setter>

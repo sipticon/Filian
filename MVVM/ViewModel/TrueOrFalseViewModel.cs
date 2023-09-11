@@ -5,25 +5,13 @@ using Filian.Core;
 
 namespace Filian.MVVM.ViewModel
 {
-    public class TrueOrFalseViewModel : ObservableObject
+    public class TrueOrFalseViewModel : ViewModel
     {
-        private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
-
-        private readonly Random _random = new Random();
-
         private static string _shownTranslation;
         private static string _correctTranslation;
         private string _picturePath;
 
         private readonly Queue<TrueOrFalseTestInfo> _trueOrFalseTestInfos = TrueOrFalseTest.TrueOrFalseTestInfos;
-
-        private static int _countOfTests;
-
-        public int CountOfTests
-        {
-            get => _countOfTests;
-            set => _countOfTests = value;
-        }
 
         public static Nullable<bool> IsCurrentWordRight { get; set; }
 

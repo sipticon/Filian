@@ -1,15 +1,12 @@
-﻿using Filian.Core;
-using Filian.MVVM.Model;
+﻿using Filian.MVVM.Model;
 using System;
 using System.Collections.ObjectModel;
 using System.Data.SqlClient;
 
 namespace Filian.MVVM.ViewModel
 {
-    public class ThemesViewModel : ObservableObject
+    public class ThemesViewModel : ViewModel
     {
-        private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
-
         public ObservableCollection<Theme> Themes { get; set; }
 
         private static Theme _selectedTheme;
@@ -27,9 +24,6 @@ namespace Filian.MVVM.ViewModel
         {
             string sqlForTheme = 
                 $"SELECT themes.id, name, picture_path, translation FROM themes LEFT JOIN themes_translations ON themes.id = themes_translations.theme_id WHERE themes_translations.language_id = {MainViewModel.LanguageId} AND  themes.id <= 20;";
-
-            string sqlConnectionString =
-                @"Data Source=OLEKSANDRM-T470;Initial Catalog=filian_database;Integrated Security=true";
             try
             {
                 SqlConnection sqlConnection = new SqlConnection(sqlConnectionString);

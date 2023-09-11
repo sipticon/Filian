@@ -5,64 +5,49 @@ using System.Data.SqlClient;
 
 namespace Filian.MVVM.Model
 {
-    public class SpellWithVoiceTest
+    public class SpellWithVoiceTest : TestModel
     {
-        private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
-        public static Queue<Word> Words { get; set; }
-
         public SpellWithVoiceTest(List<int> underThemeIds)
         {
-            string conditionForIds = "";
-
-            foreach (int underThemeId in underThemeIds)
-            {
-                conditionForIds += $" theme_id = {underThemeId} OR";
-            }
-
-            conditionForIds = conditionForIds.Remove(conditionForIds.Length - 3);
+            ConditionForIds = CreateConditionForIds(underThemeIds);
 
             string sqlForWords =
-                $"SELECT words.id, words.word, words.picture_path, words_translations.translation, words_translations.path_pronounce FROM words Inner JOIN words_translations ON words.id = words_translations.word_id AND language_id = {MainViewModel.LanguageId} WHERE {conditionForIds} ;";
+                $"SELECT words.id, words.word, words.picture_path, words_translations.translation, words_translations.path_pronounce FROM words Inner JOIN words_translations ON words.id = words_translations.word_id AND language_id = {MainViewModel.LanguageId} WHERE {ConditionForIds} ;";
 
-            string sqlConnectionString =
-                @"Data Source=OLEKSANDRM-T470;Initial Catalog=filian_database;Integrated Security=true";
-
-            SqlConnection sqlConnection = new SqlConnection(sqlConnectionString);
-            SqlCommand sqlCommand;
-            SqlDataReader sqlDataReader;
+            SqlConnection  = new SqlConnection(SqlConnectionString);
             try
             {
-                sqlConnection.Open();
+                SqlConnection.Open();
 
                 Log.Info("Successfully connected to database for SpellWithVoiceTest.");
 
-                sqlCommand = new SqlCommand(sqlForWords, sqlConnection);
+                SqlCommand = new SqlCommand(sqlForWords, SqlConnection);
 
-                sqlDataReader = sqlCommand.ExecuteReader();
+                SqlDataReader = SqlCommand.ExecuteReader();
 
                 Words = new Queue<Word>();
 
-                while (sqlDataReader.Read())
+                while (SqlDataReader.Read())
                 {
                     Words.Enqueue(new Word
                     {
-                        Id = sqlDataReader.GetInt32(0),
-                        Name = sqlDataReader.GetString(1),
-                        PicturePath = sqlDataReader.GetString(2),
-                        Translation = sqlDataReader.GetString(3),
-                        PronunciationPath = sqlDataReader.GetString(4)
+                        Id = SqlDataReader.GetInt32(0),
+                        Name = SqlDataReader.GetString(1),
+                        PicturePath = SqlDataReader.GetString(2),
+                        Translation = SqlDataReader.GetString(3),
+                        PronunciationPath = SqlDataReader.GetString(4)
                     });
                 }
 
                 Log.Info("Successfully selected words info from database for SpellWithVoiceTest.");
 
-                sqlDataReader.Close();
+                SqlDataReader.Close();
             }
             catch (Exception ex)
             {
                 Log.Error("Failed while trying to select words info from database for SpellWithVoiceTest: ", ex);
             }
-            sqlConnection.Close();
+            SqlConnection.Close();
         }
     }
 }

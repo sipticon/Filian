@@ -14,7 +14,7 @@
     <Grid>
         <Border
             Margin="10" 
-            Background="Brown" 
+            Background="#393E46" 
             CornerRadius="30">
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -36,8 +36,9 @@
                          Grid.Column="0"
                          Height="35" 
                          Width="250"
-                         Foreground="Brown"
-                         Background="#272537"
+                         Foreground="#00ADB5"
+                         FontFamily="Comic Sans MS"
+                         Background="#222831"
                          Text ="{Binding Answer, Mode=TwoWay}"
                          TextAlignment="Center"
                          FontSize="20">

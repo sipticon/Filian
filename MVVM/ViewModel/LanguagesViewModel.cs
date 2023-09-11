@@ -2,14 +2,11 @@
 using Filian.MVVM.Model;
 using System.Collections.ObjectModel;
 using System.Data.SqlClient;
-using Filian.Core;
 
 namespace Filian.MVVM.ViewModel
 {
-    public class LanguagesViewModel : ObservableObject
+    public class LanguagesViewModel : ViewModel
     {
-        private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
-
         public ObservableCollection<Language> Languages { get; set; }
 
         private static Language _selectedLanguage;
@@ -26,8 +23,7 @@ namespace Filian.MVVM.ViewModel
         public LanguagesViewModel()
         {
             string sqlForLanguages = " SELECT * FROM languages";
-            string sqlConnectionString =
-                @"Data Source=OLEKSANDRM-T470;Initial Catalog=filian_database;Integrated Security=true";
+            
             try
             {
                 SqlConnection sqlConnection = new SqlConnection(sqlConnectionString);

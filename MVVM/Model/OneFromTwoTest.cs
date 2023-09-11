@@ -1,71 +1,50 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Data.SqlClient;
 using Filian.MVVM.ViewModel;
 
 namespace Filian.MVVM.Model
 {
-    public class OneFromTwoTest
+    public class OneFromTwoTest : TestModel
     {
-        private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
-
-        private static Queue<OneFromTwoTestInfo> _oneFromTwoTestInfos;
-        public ObservableCollection<Word> Words { get; set; }
-        public static Queue<OneFromTwoTestInfo> OneFromTwoTestInfos
-        {
-            get => _oneFromTwoTestInfos;
-            set => _oneFromTwoTestInfos = value;
-        }
+        public static Queue<OneFromTwoTestInfo> OneFromTwoTestInfos { get; set; }
 
         public OneFromTwoTest(List<int> underThemeIds)
         {
-            _oneFromTwoTestInfos = new Queue<OneFromTwoTestInfo>();
+            OneFromTwoTestInfos = new Queue<OneFromTwoTestInfo>();
 
-            string conditionForIds = "";
-
-            foreach (int underThemeId in underThemeIds)
-            {
-                conditionForIds += $" theme_id = {underThemeId} OR";
-            }
-
-            conditionForIds = conditionForIds.Remove(conditionForIds.Length - 3);
+            ConditionForIds = CreateConditionForIds(underThemeIds);
 
             string sqlForWords = 
-                $"SELECT words.id, words.word, words.picture_path, words_translations.translation FROM words Inner JOIN words_translations ON words.id = words_translations.word_id AND language_id = {MainViewModel.LanguageId} WHERE {conditionForIds} ;";
+                $"SELECT words.id, words.word, words.picture_path, words_translations.translation FROM words Inner JOIN words_translations ON words.id = words_translations.word_id AND language_id = {MainViewModel.LanguageId} WHERE {ConditionForIds} ;";
 
-            string sqlConnectionString =
-                @"Data Source=OLEKSANDRM-T470;Initial Catalog=filian_database;Integrated Security=true";
-
-            SqlConnection sqlConnection = new SqlConnection(sqlConnectionString);
-            SqlCommand sqlCommand;
-            SqlDataReader sqlDataReader;
+            SqlConnection = new SqlConnection(SqlConnectionString);
             try
             {
-                sqlConnection.Open();
+                SqlConnection.Open();
 
                 Log.Info("Successfully connected to database for OneFromTwoTest.");
 
-                sqlCommand = new SqlCommand(sqlForWords, sqlConnection);
+                SqlCommand = new SqlCommand(sqlForWords, SqlConnection);
 
-                sqlDataReader = sqlCommand.ExecuteReader();
+                SqlDataReader = SqlCommand.ExecuteReader();
 
-                Words = new ObservableCollection<Word>();
+                Words = new Queue<Word>();
 
-                while (sqlDataReader.Read())
+                while (SqlDataReader.Read())
                 {
-                    Words.Add(new Word
+                    Words.Enqueue(new Word
                     {
-                        Id = sqlDataReader.GetInt32(0),
-                        Name = sqlDataReader.GetString(1),
-                        PicturePath = sqlDataReader.GetString(2),
-                        Translation = sqlDataReader.GetString(3)
+                        Id = SqlDataReader.GetInt32(0),
+                        Name = SqlDataReader.GetString(1),
+                        PicturePath = SqlDataReader.GetString(2),
+                        Translation = SqlDataReader.GetString(3)
                     });
                 }
 
                 Log.Info("Successfully selected words info from database for OneFromTwoTest.");
 
-                sqlDataReader.Close();
+                SqlDataReader.Close();
             }
             catch (Exception ex)
             {
@@ -80,25 +59,25 @@ namespace Filian.MVVM.Model
                         if (word.PicturePath.Contains("'"))
                             word.PicturePath = word.PicturePath.Replace("'", "''");
 
-                        string sqlForStruct = "SELECT TOP 1 picture_path FROM words WHERE (" + conditionForIds +
+                        string sqlForStruct = "SELECT TOP 1 picture_path FROM words WHERE (" + ConditionForIds +
                                               $") AND picture_path != '{word.PicturePath}' " +
                                               "ORDER BY NEWID()";
 
-                        sqlCommand = new SqlCommand(sqlForStruct, sqlConnection);
+                        SqlCommand = new SqlCommand(sqlForStruct, SqlConnection);
 
-                        sqlDataReader = sqlCommand.ExecuteReader();
+                        SqlDataReader = SqlCommand.ExecuteReader();
 
-                        while (sqlDataReader.Read())
+                        while (SqlDataReader.Read())
                         {
-                            _oneFromTwoTestInfos.Enqueue(new OneFromTwoTestInfo(
+                            OneFromTwoTestInfos.Enqueue(new OneFromTwoTestInfo(
                                 word.Name,
                                 word.Translation,
                                 word.PicturePath,
-                                sqlDataReader.GetString(0)
+                                SqlDataReader.GetString(0)
                             ));
                         }
 
-                        sqlDataReader.Close();
+                        SqlDataReader.Close();
                     }
 
                 Log.Info("Successfully selected pictures info from database for OneFromTwoTest.");
@@ -108,8 +87,7 @@ namespace Filian.MVVM.Model
                 Log.Error("Failed while trying to select pictures info from database for OneFromTwoTest: ", ex);
             }
 
-            sqlConnection.Close();
+            SqlConnection.Close();
         }
-        
     }
 }

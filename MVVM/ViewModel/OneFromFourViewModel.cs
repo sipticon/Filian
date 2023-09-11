@@ -1,17 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using Filian.Core;
 using Filian.MVVM.Model;
 
 namespace Filian.MVVM.ViewModel
 {
-    public class OneFromFourViewModel : ObservableObject
+    public class OneFromFourViewModel : ViewModel
     {
-        private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
-
-
-        private readonly Random _random = new Random();
-
         private static string _word;
         private static string _translation;
         private string _picturePath1;
@@ -20,14 +14,6 @@ namespace Filian.MVVM.ViewModel
         private string _picturePath4;
 
         private readonly Queue<OneFromFourTestInfo> _oneFromFourTestInfos = OneFromFourTest.OneFromFourTestInfos;
-
-        private static int _countOfTests;
-
-        public int CountOfTests
-        {
-            get => _countOfTests;
-            set => _countOfTests = value;
-        }
 
         public string Word
         {

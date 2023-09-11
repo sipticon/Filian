@@ -5,23 +5,12 @@ using Filian.MVVM.Model;
 
 namespace Filian.MVVM.ViewModel
 {
-    public class TranslationTextViewModel : ObservableObject
+    public class TranslationTextViewModel : ViewModel
     {
-        private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
-
         private static string _word;
         private static string _translation;
 
         public Queue<Word> Words = TranslationTextTest.Words;
-
-        private static string _answer = "";
-        private static int _countOfTests;
-
-        public int CountOfTests
-        {
-            get => _countOfTests;
-            set => _countOfTests = value;
-        }
 
         public string Answer
         {

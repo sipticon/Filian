@@ -15,7 +15,7 @@
     <Grid>
         <Border
             Margin="10" 
-            Background="Brown" 
+            Background="#393E46" 
             CornerRadius="30">
             <Grid>
                 <Grid.ColumnDefinitions>
@@ -38,28 +38,32 @@
                        Content="{Binding Word1}" 
                        FontSize="20" HorizontalAlignment="Center" 
                        VerticalAlignment="Center"
-                       Foreground="#272537"/>
+                       Foreground="#00ADB5"
+                       FontFamily="Comic Sans MS"/>
                 <Label Grid.Row="1" 
                        Grid.Column="1"  
                        MouseDown="Select2"
                        Content="{Binding Word2}" 
                        FontSize="20" HorizontalAlignment="Center" 
                        VerticalAlignment="Center"
-                       Foreground="#272537"/>
+                       Foreground="#00ADB5"
+                       FontFamily="Comic Sans MS"/>
                 <Label Grid.Row="2" 
                        Grid.Column="0"  
                        MouseDown="Select3"
                        Content="{Binding Word3}" 
                        FontSize="20" HorizontalAlignment="Center" 
                        VerticalAlignment="Center"
-                       Foreground="#272537"/>
+                       Foreground="#00ADB5"
+                       FontFamily="Comic Sans MS"/>
                 <Label Grid.Row="2" 
                        Grid.Column="1"  
                        MouseDown="Select4"
                        Content="{Binding Word4}" 
                        FontSize="20" HorizontalAlignment="Center" 
                        VerticalAlignment="Center"
-                       Foreground="#272537"/>
+                       Foreground="#00ADB5"
+                       FontFamily="Comic Sans MS"/>
             </Grid>
         </Border>
     </Grid>

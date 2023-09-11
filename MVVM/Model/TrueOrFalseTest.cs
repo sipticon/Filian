@@ -6,60 +6,46 @@ using System.Data.SqlClient;
 
 namespace Filian.MVVM.Model
 {
-    public class TrueOrFalseTest
+    public class TrueOrFalseTest : TestModel
     {
-        private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
-        public ObservableCollection<Word> Words { get; set; }
         public static Queue<TrueOrFalseTestInfo> TrueOrFalseTestInfos { get; set; }
 
         public TrueOrFalseTest(List<int> underThemeIds)
         {
             TrueOrFalseTestInfos = new Queue<TrueOrFalseTestInfo>();
-
-            string conditionForIds = "";
-
-            foreach (int underThemeId in underThemeIds)
-            {
-                conditionForIds += $" theme_id = {underThemeId} OR";
-            }
-
-            conditionForIds = conditionForIds.Remove(conditionForIds.Length - 3);
+            
+            ConditionForIds = CreateConditionForIds(underThemeIds);
 
             string sqlForWords =
-                $"SELECT words.id, words.word, words.picture_path, words_translations.translation FROM words Inner JOIN words_translations ON words.id = words_translations.word_id AND language_id = {MainViewModel.LanguageId} WHERE {conditionForIds};";
-
-            string sqlConnectionString =
-                @"Data Source=OLEKSANDRM-T470;Initial Catalog=filian_database;Integrated Security=true";
-
-            SqlConnection sqlConnection = new SqlConnection(sqlConnectionString);
-            SqlCommand sqlCommand;
-            SqlDataReader sqlDataReader;
+                $"SELECT words.id, words.word, words.picture_path, words_translations.translation FROM words Inner JOIN words_translations ON words.id = words_translations.word_id AND language_id = {MainViewModel.LanguageId} WHERE {ConditionForIds};";
+            
+            SqlConnection = new SqlConnection(SqlConnectionString);
             try
             {
-                sqlConnection.Open();
+                SqlConnection.Open();
 
                 Log.Info("Successfully connected to database for TrueOrFalseTest.");
 
-                sqlCommand = new SqlCommand(sqlForWords, sqlConnection);
+                SqlCommand = new SqlCommand(sqlForWords, SqlConnection);
 
-                sqlDataReader = sqlCommand.ExecuteReader();
+                SqlDataReader = SqlCommand.ExecuteReader();
 
-                Words = new ObservableCollection<Word>();
+                Words = new Queue<Word>();
 
-                while (sqlDataReader.Read())
+                while (SqlDataReader.Read())
                 {
-                    Words.Add(new Word
+                    Words.Enqueue(new Word
                     {
-                        Id = sqlDataReader.GetInt32(0),
-                        Name = sqlDataReader.GetString(1),
-                        PicturePath = sqlDataReader.GetString(2),
-                        Translation = sqlDataReader.GetString(3)
+                        Id = SqlDataReader.GetInt32(0),
+                        Name = SqlDataReader.GetString(1),
+                        PicturePath = SqlDataReader.GetString(2),
+                        Translation = SqlDataReader.GetString(3)
                     });
                 }
 
                 Log.Info("Successfully selected words info from database for TrueOrFalseTest.");
 
-                sqlDataReader.Close();
+                SqlDataReader.Close();
             }
             catch (Exception ex)
             {
@@ -76,21 +62,21 @@ namespace Filian.MVVM.Model
                             currentWordTranslation = currentWordTranslation.Replace("'", "''");
 
                         string sqlForStruct =
-                            $"SELECT TOP 1 translation FROM words_translations RIGHT JOIN words ON words_translations.word_id = words.id AND language_id = {MainViewModel.LanguageId} WHERE {conditionForIds} AND translation != '{currentWordTranslation}' ORDER BY NEWID()";
+                            $"SELECT TOP 1 translation FROM words_translations RIGHT JOIN words ON words_translations.word_id = words.id AND language_id = {MainViewModel.LanguageId} WHERE {ConditionForIds} AND translation != '{currentWordTranslation}' ORDER BY NEWID()";
 
-                        sqlCommand = new SqlCommand(sqlForStruct, sqlConnection);
-                        sqlDataReader = sqlCommand.ExecuteReader();
-                        if (sqlDataReader.Read())
+                        SqlCommand = new SqlCommand(sqlForStruct, SqlConnection);
+                        SqlDataReader = SqlCommand.ExecuteReader();
+                        if (SqlDataReader.Read())
                         {
                             TrueOrFalseTestInfos.Enqueue(new TrueOrFalseTestInfo(
                                 currentWord.Name,
                                 currentWord.Translation,
                                 currentWord.PicturePath,
-                                sqlDataReader.GetString(0)
+                                SqlDataReader.GetString(0)
                             ));
                         }
 
-                        sqlDataReader.Close();
+                        SqlDataReader.Close();
                     }
 
                 Log.Info("Successfully selected words info from database for TrueOrFalseTest.");
@@ -100,7 +86,7 @@ namespace Filian.MVVM.Model
                 Log.Error("Failed while trying to select words info from database for TrueOrFalseTest: ", ex);
             }
 
-            sqlConnection.Close();
+            SqlConnection.Close();
         }
     }
 }

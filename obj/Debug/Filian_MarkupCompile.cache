@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\oleksandrm\materials\Filian\App.xaml
-17-1767044936
+172139212114
 
-601264909543
-16-1467571624
+62-2001172512
+16796310025
 MVVM\View\FindPairTranslationView.xaml;MVVM\View\MainWindow.xaml;MVVM\View\LanguagesView.xaml;MVVM\View\OneFromFourListeningView.xaml;MVVM\View\OneFromFourTextView.xaml;MVVM\View\OneFromFourView.xaml;MVVM\View\OneFromTwoView.xaml;MVVM\View\SpellWithPictureView.xaml;MVVM\View\SpellWithVoiceView.xaml;MVVM\View\TestsView.xaml;MVVM\View\ThemesView.xaml;MVVM\View\TranslationPronunciationView.xaml;MVVM\View\TranslationTextView.xaml;MVVM\View\TrueOrFalseView.xaml;MVVM\View\UnderThemesView.xaml;MVVM\View\WelcomeView.xaml;Themes\MenuButtonTheme.xaml;
 
-True
+False
 

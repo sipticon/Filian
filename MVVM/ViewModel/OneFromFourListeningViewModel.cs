@@ -6,14 +6,10 @@ using Filian.MVVM.Model;
 
 namespace Filian.MVVM.ViewModel
 {
-    public class OneFromFourListeningViewModel : ObservableObject
+    public class OneFromFourListeningViewModel : ViewModel
     {
-        private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
-
         public RelayCommand PlayPronunciationCommand { get; set; }
-
-        private readonly Random _random = new Random();
-
+        
         private static string _word;
         private static string _pronunciationPath;
         private string _picturePath1;
@@ -22,14 +18,6 @@ namespace Filian.MVVM.ViewModel
         private string _picturePath4;
 
         private readonly Queue<OneFromFourListeningTestInfo> _oneFromFourListeningTestInfos = OneFromFourListeningTest.OneFromFourListeningTestInfos;
-
-        private static int _countOfTests;
-
-        public int CountOfTests
-        {
-            get => _countOfTests;
-            set => _countOfTests = value;
-        }
 
         public string Word
         {

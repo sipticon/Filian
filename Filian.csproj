@@ -80,6 +80,7 @@
     <Compile Include="MVVM\Model\OneFromTwoTest.cs" />
     <Compile Include="MVVM\Model\SpellWithPictureTest.cs" />
     <Compile Include="MVVM\Model\SpellWithVoiceTest.cs" />
+    <Compile Include="MVVM\Model\TestModel.cs" />
     <Compile Include="MVVM\Model\Theme.cs" />
     <Compile Include="MVVM\Model\TranslationPronunciationTest.cs" />
     <Compile Include="MVVM\Model\TranslationTextTest.cs" />
@@ -102,6 +103,7 @@
     <Compile Include="MVVM\ViewModel\TranslationTextViewModel.cs" />
     <Compile Include="MVVM\ViewModel\TrueOrFalseViewModel.cs" />
     <Compile Include="MVVM\ViewModel\UnderThemesViewModel.cs" />
+    <Compile Include="MVVM\ViewModel\ViewModel.cs" />
     <Compile Include="MVVM\ViewModel\WelcomeViewModel.cs" />
     <Compile Include="MVVM\View\FindPairTranslationView.xaml.cs">
       <DependentUpon>FindPairTranslationView.xaml</DependentUpon>

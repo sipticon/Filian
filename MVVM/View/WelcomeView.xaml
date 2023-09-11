@@ -13,7 +13,8 @@
     </UserControl.DataContext>
 
     <Grid>
-        <Label Foreground="Brown" 
+        <Label Foreground="#00ADB5" 
+               FontFamily="Comic Sans MS"
                FontSize="50" 
                VerticalAlignment="Center" 
                HorizontalAlignment="Center" 

@@ -14,7 +14,7 @@
     <Grid>
             <Border
             Margin="10" 
-            Background="Brown" 
+            Background="#393E46" 
             CornerRadius="30">
                 <Grid>
                     <Grid.ColumnDefinitions>
@@ -37,21 +37,25 @@
                        Content="{Binding ShownTranslation}" 
                        FontSize="30" HorizontalAlignment="Center" 
                        VerticalAlignment="Center"
-                       Foreground="#272537"/>
+                       Foreground="#00ADB5"
+                       FontFamily="Comic Sans MS"/>
                     <Label Grid.Row="2" 
                            Grid.Column="0"  
                            MouseDown="SelectTrue"
                            Content="True" 
                            FontSize="30" HorizontalAlignment="Center" 
                            VerticalAlignment="Center"
-                           Foreground="#272537"/>
+                           Foreground="#00ADB5"
+                           FontFamily="Comic Sans MS"
+                           />
                     <Label Grid.Row="2" 
                            Grid.Column="1"  
                            MouseDown="SelectFalse"
                            Content="False" 
                            FontSize="30" HorizontalAlignment="Center" 
                            VerticalAlignment="Center"
-                           Foreground="#272537"/>
+                           Foreground="#00ADB5"
+                           FontFamily="Comic Sans MS"/>
             </Grid>
             </Border>
         </Grid>

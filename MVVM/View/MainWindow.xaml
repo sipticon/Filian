@@ -17,8 +17,8 @@
         <viewModel:MainViewModel/>
     </Window.DataContext>
 
-    <Border Background="#272537" CornerRadius="30">
-        <Grid>
+    <Border Background="#222831" CornerRadius="30">
+        <Grid x:Name="Grid">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="150"/>
                 <ColumnDefinition/>
@@ -33,9 +33,10 @@
             <TextBlock Text="Filian"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Left"
-                       Foreground="Brown"
+                       Foreground="#00ADB5"
                        FontSize="30"
-                       Margin="20,0,0,0"/>
+                       Margin="20,0,0,0"
+                       FontFamily="Comic Sans MS"/>
 
             <Image Grid.Column="1" 
                    Source="C:\Users\oleksandrm\materials\Filian\Images\close.png"
@@ -49,8 +50,10 @@
             <Label x:Name="CountOfTestsLabel" 
                    Grid.Column="1" 
                    HorizontalAlignment="Center" 
+                   VerticalAlignment="Center"
                    Content="{Binding CountOfTestsLabel}" 
-                   Foreground="White" 
+                   Foreground="#00ADB5"
+                   FontFamily="Comic Sans MS"
                    FontSize="20"
                    Visibility="{Binding VisibilityOfCountOfTestsLabel}"/>
 
@@ -68,50 +71,49 @@
 
                 <RadioButton Content="Account"
                              Height="50"
-                             Foreground="Brown"
+                             Foreground="#00ADB5"
                              FontSize="16"
-                             Style="{StaticResource MenuButtonTheme}"/>
+                             Style="{StaticResource MenuButtonTheme}"
+                             FontFamily="Comic Sans MS"/>
 
                 <RadioButton Content="Languages"
                              Height="50"
-                             Foreground="Brown"
+                             Foreground="#00ADB5"
                              FontSize="16"
                              Style="{StaticResource MenuButtonTheme}" 
                              IsChecked="False"
-                             Command="{Binding LanguagesViewCommand}"/>
+                             Command="{Binding OpenLanguagesViewCommand}"
+                             FontFamily="Comic Sans MS"/>
 
                 <RadioButton Content="Tests"
                              Height="50"
-                             Foreground="Brown"
+                             Foreground="#00ADB5"
                              FontSize="16"
                              Style="{StaticResource MenuButtonTheme}" 
                              IsChecked="False"
-                             Command="{Binding TestsViewCommand}"/>
+                             Command="{Binding OpenTestsViewCommand}"
+                             FontFamily="Comic Sans MS"/>
 
                 <RadioButton Content="Progress"
                              Height="50"
-                             Foreground="Brown"
+                             Foreground="#00ADB5"
                              FontSize="16"
-                             Style="{StaticResource MenuButtonTheme}"/>
+                             Style="{StaticResource MenuButtonTheme}"
+                             FontFamily="Comic Sans MS"/>
 
                 <RadioButton Content="Settings"
                              Height="50"
-                             Foreground="Brown"
+                             Foreground="#00ADB5"
                              FontSize="16"
-                             Style="{StaticResource MenuButtonTheme}"/>
+                             Style="{StaticResource MenuButtonTheme}"
+                             FontFamily="Comic Sans MS"/>
 
                 <RadioButton Content="Sign out"
                              Height="50"
-                             Foreground="Brown"
+                             Foreground="#00ADB5"
                              FontSize="16"
-                             Style="{StaticResource MenuButtonTheme}"/>
-
-                <RadioButton x:Name="idi"
-                             Content=""
-                             Height="50"
-                             Foreground="White"
-                             FontSize="16"
-                             Style="{StaticResource MenuButtonTheme}"/>
+                             Style="{StaticResource MenuButtonTheme}"
+                             FontFamily="Comic Sans MS"/>
             </StackPanel>
 
             <ContentControl Grid.Column="1"
@@ -119,14 +121,14 @@
                             BorderBrush="Transparent"
                             Margin="0,0,0,2"
                             Content="{Binding CurrentView}"/>
-
             <Button Grid.Row="2" Grid.Column="1"
                     Width="100" 
-                    Background="Brown"
-                    Foreground="#272537"
+                    Background="#393E46"
                     BorderBrush="Transparent"
                     FontSize="16"
                     Content="Apply" 
+                    Foreground="#00ADB5"
+                    FontFamily="Comic Sans MS"
                     HorizontalAlignment="Right"
                     Margin="0,10,30,10" 
                     Command="{Binding ApplyCommand}">
@@ -136,7 +138,19 @@
                     </Style>
                 </Button.Resources>
             </Button>
+
+            <Label Grid.Row="2"
+                   Grid.Column="0" 
+                   HorizontalAlignment="Left" 
+                   VerticalAlignment="Center"
+                   Content="© sipticon"
+                   Margin="20,0,0,0"
+                   Foreground="#00ADB5"
+                   FontFamily="Comic Sans MS"
+                   Opacity="0.6"
+                   FontSize="13"/>
+
         </Grid>
     </Border>
-    
+
 </Window>

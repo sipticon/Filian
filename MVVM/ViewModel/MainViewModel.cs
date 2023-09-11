@@ -1,17 +1,19 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using Filian.Core;
 using System.Windows;
+using System.Windows.Controls;
 using Filian.MVVM.Model;
 using Filian.MVVM.View;
+using System.Windows.Media.Imaging;
+using Image = System.Windows.Controls.Image;
 
 namespace Filian.MVVM.ViewModel
 {
-    public class MainViewModel : ObservableObject
+    public class MainViewModel :  ViewModel
     {
-        private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
-
         public RelayCommand OpenLanguagesViewCommand { get; set; }
         public RelayCommand OpenTestsViewCommand { get; set; }
         public RelayCommand ApplyCommand { get; set; }
@@ -34,6 +36,8 @@ namespace Filian.MVVM.ViewModel
         public TranslationPronunciationViewModel TranslationPronunciationVm { get; set; }
         public FindPairTranslationViewModel FindPairTranslationVm { get; set; }
 
+        public static Grid gr;
+
         private object _currentView;
 
         private static int _themeId;
@@ -44,12 +48,18 @@ namespace Filian.MVVM.ViewModel
         private bool _backButtonActive = true;
         private bool _navigatePanelButtonsActive = true;
 
+        private bool isAnswerShown = false;
+
         private string _countOfTestsLabel;
 
         private static List<int> _underThemeIds = new List<int>();
         private Stack _previousViews;
 
         private Visibility _visibilityOfCountOfTestsLabel = Visibility.Hidden;
+
+        public static readonly string _correctAnswerImagesource = @"C:\Users\oleksandrm\materials\Test_Icons\grey\Checkbox_Yes.png";
+        public static readonly string _wrongAnswerImagesource = @"C:\Users\oleksandrm\materials\Test_Icons\grey\Checkbox_No.png";
+
 
         public object CurrentView
         {
@@ -75,8 +85,8 @@ namespace Filian.MVVM.ViewModel
                 _countOfTestsLabel = value;
                 OnPropertyChanged("CountOfTestsLabel");
             }
-
         }
+
 
         public List<int> UnderThemeIds
         {
@@ -106,6 +116,7 @@ namespace Filian.MVVM.ViewModel
 
             ChangeView(LanguagesVm);
 
+            
             OpenLanguagesViewCommand = new RelayCommand(o => { NavigateToLanguagesView(); });
             OpenTestsViewCommand = new RelayCommand(o => { NavigateToTestsView(); });
             ApplyCommand = new RelayCommand(o => { Apply_Click(); });
@@ -224,47 +235,49 @@ namespace Filian.MVVM.ViewModel
                     _navigatePanelButtonsActive = false;
                 }
             }
-            else if (_testId == 1)
+            else
             {
-                CheckResultOfChoice(OneFromTwoVm.Word, OneFromTwoViewModel.SelectedImage);
+                if (_testId == 1)
+                {
+                    MoveToTheNextStep(OneFromTwoVm.Word, OneFromTwoViewModel.SelectedImage);
+                }
+                else if (_testId == 2)
+                {
+                    CheckResultOfChoice(OneFromFourVm.Word, OneFromFourViewModel.SelectedImage);
+                }
+                else if (_testId == 3)
+                {
+                    CheckResultOfChoice(OneFromFourTextViewModel.CorrectTranslation, OneFromFourTextViewModel.SelectedWord);
+                }
+                else if (_testId == 4)
+                {
+                    CheckResultOfChoice(OneFromFourListeningVm.Word, OneFromFourListeningViewModel.SelectedImage);
+                }
+                else if (_testId == 5)
+                {
+                    CheckResultOfChoice((TrueOrFalseVm.ShownTranslation == TrueOrFalseVm.CorrectTranslation).ToString(), TrueOrFalseViewModel.IsCurrentWordRight.ToString());
+                }
+                else if (_testId == 6)
+                {
+                    CheckResultOfChoice(SpellWithPictureVm.Translation.ToLower(), SpellWithPictureVm.Answer.ToLower());
+                }
+                else if (_testId == 7)
+                {
+                    CheckResultOfChoice(SpellWithVoiceVm.Translation.ToLower(), SpellWithVoiceVm.Answer.ToLower());
+                }
+                else if (_testId == 8)
+                {
+                    CheckResultOfChoice(TranslationTextVm.Word.ToLower(), TranslationTextVm.Answer.ToLower());
+                }
+                else if (_testId == 9)
+                {
+                    CheckResultOfChoice(TranslationPronunciationVm.Word.ToLower(), TranslationPronunciationVm.Answer.ToLower());
+                }
+                else if (_testId == 10)
+                {
+                    CheckResultOfChoice(FindPairTranslationVm.CorrectWord, FindPairTranslationViewModel.SelectedWord);
+                }
             }
-            else if (_testId == 2)
-            {
-                CheckResultOfChoice(OneFromFourVm.Word, OneFromFourViewModel.SelectedImage);
-            }
-            else if (_testId == 3)
-            {
-                CheckResultOfChoice(OneFromFourTextViewModel.CorrectTranslation, OneFromFourTextViewModel.SelectedWord);
-            }
-            else if (_testId == 4)
-            {
-                CheckResultOfChoice(OneFromFourListeningVm.Word, OneFromFourListeningViewModel.SelectedImage);
-            }
-            else if (_testId == 5)
-            {
-                CheckResultOfChoice((TrueOrFalseVm.ShownTranslation == TrueOrFalseVm.CorrectTranslation).ToString(), TrueOrFalseViewModel.IsCurrentWordRight.ToString());
-            }
-            else if (_testId == 6)
-            {
-                CheckResultOfChoice(SpellWithPictureVm.Translation.ToLower(),SpellWithPictureVm.Answer.ToLower());
-            }
-            else if (_testId == 7)
-            {
-                CheckResultOfChoice(SpellWithVoiceVm.Translation.ToLower(), SpellWithVoiceVm.Answer.ToLower());
-            }
-            else if (_testId == 8)
-            {
-                CheckResultOfChoice(TranslationTextVm.Word.ToLower(), TranslationTextVm.Answer.ToLower());
-            }
-            else if (_testId == 9)
-            {
-                CheckResultOfChoice(TranslationPronunciationVm.Word.ToLower(), TranslationPronunciationVm.Answer.ToLower());
-            }
-            else if (_testId == 10)
-            {
-                CheckResultOfChoice(FindPairTranslationVm.CorrectWord, FindPairTranslationViewModel.SelectedWord);
-            }
-            else {}
         }
 
         private void Exit_Click()
@@ -333,39 +346,38 @@ namespace Filian.MVVM.ViewModel
 
         private void CheckResultOfChoice(string correctAnswer, string selectedAnswer)
         {
+            if (selectedAnswer == "")
+                MessageBox.Show("Please, select answer!");
+            else if (selectedAnswer.Contains(correctAnswer + ".") || selectedAnswer == correctAnswer)
+            {
+                _countOfCorrectAnswers++;
+                Grid.Children.Add(CreateImage(_correctAnswerImagesource));
+            }
+            else
+            {
+                Grid.Children.Add(CreateImage(_wrongAnswerImagesource));
+            }
+            CountOfTestsLabel = $"Tests left: {_countOfTests}";
+        }
+
+        private void MoveToTheNextStep(string correctAnswer, string selectedAnswer)
+        {
             if (_countOfTests == 1)
             {
-                if (selectedAnswer == "")
-                    MessageBox.Show("Please, select answer!");
-                else if (selectedAnswer.Contains(correctAnswer + ".") || selectedAnswer == correctAnswer)
-                {
-                    _countOfCorrectAnswers++;
-                    MessageBox.Show("Correct");
-                }
-                else
-                    MessageBox.Show("Incorrect");
-
+                CheckResultOfChoice(correctAnswer, selectedAnswer);
                 MessageBox.Show($"That's all! \n Count of correct answers - {_countOfCorrectAnswers}");
-
                 EndOfTest();
             }
             else
             {
-                if (selectedAnswer == "")
-                    MessageBox.Show("Please, select answer!");
-                else if (selectedAnswer.Contains(correctAnswer + ".") || selectedAnswer == correctAnswer)
+                if (!isAnswerShown)
                 {
-                    _countOfCorrectAnswers++;
-                    MessageBox.Show("Correct");
-                    MoveToTheNextTest();
+                    CheckResultOfChoice(correctAnswer, selectedAnswer);
+                    isAnswerShown = true;
                 }
                 else
-                {
-                    MessageBox.Show("Incorrect");
                     MoveToTheNextTest();
-                }
             }
-            CountOfTestsLabel = $"Tests left: {_countOfTests}";
         }
         private void MoveToTheNextTest()
         {
@@ -405,7 +417,23 @@ namespace Filian.MVVM.ViewModel
             }
             ChangeView(newView);
             _countOfTests--;
+            isAnswerShown = false;
         }
+
+        private Image CreateImage(string pathToImage)
+        {
+            Image myImage = new Image();
+            BitmapImage myBitmapImage = new BitmapImage();
+            myBitmapImage.BeginInit();
+            myBitmapImage.UriSource = new Uri(pathToImage);
+            myBitmapImage.EndInit();
+            myImage.Source = myBitmapImage;
+            myImage.Width = 100;
+            myImage.Height = 100;
+            Grid.SetColumn(myImage,Column);
+            Grid.SetRow(myImage, Row);
+            return myImage;
+        }    
 
         private void EndOfTest()
         {

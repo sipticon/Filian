@@ -5,12 +5,8 @@ using Filian.Core;
 
 namespace Filian.MVVM.ViewModel
 {
-    public class FindPairTranslationViewModel : ObservableObject
+    public class FindPairTranslationViewModel : ViewModel
     {
-        private static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
-
-        private readonly Random _random = new Random();
-
         private string _word1;
         private string _word2;
         private string _word3;
@@ -20,14 +16,6 @@ namespace Filian.MVVM.ViewModel
         private static string _correctWord;
 
         private readonly Queue<FindPairTranslationTestInfo> _findPairTranslationTestInfos = FindPairTranslationTest.FindPairTranslationTestInfos;
-
-        private static int _countOfTests;
-
-        public int CountOfTests
-        {
-            get => _countOfTests;
-            set => _countOfTests = value;
-        }
 
         public static string SelectedWord { get; set; } = "";
 
