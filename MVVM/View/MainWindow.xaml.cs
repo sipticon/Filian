@@ -12,7 +12,6 @@ namespace Filian.MVVM.View
         public MainWindow()
         {
             InitializeComponent();
-            MainViewModel.gr = Grid;
         }
     }
 }
