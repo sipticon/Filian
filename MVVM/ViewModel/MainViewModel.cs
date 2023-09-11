@@ -36,7 +36,6 @@ namespace Filian.MVVM.ViewModel
         public TranslationPronunciationViewModel TranslationPronunciationVm { get; set; }
         public FindPairTranslationViewModel FindPairTranslationVm { get; set; }
 
-        public static Grid gr;
 
         private object _currentView;
 

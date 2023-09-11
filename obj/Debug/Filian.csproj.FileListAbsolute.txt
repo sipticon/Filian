@@ -1,10 +1,12 @@
-C:\Users\oleksandrm\materials\Filian\bin\Debug\Filian.exe
-C:\Users\oleksandrm\materials\Filian\bin\Debug\log4net.dll
 C:\Users\oleksandrm\materials\Filian\bin\Debug\Filian.exe.config
+C:\Users\oleksandrm\materials\Filian\bin\Debug\Filian.exe
+C:\Users\oleksandrm\materials\Filian\bin\Debug\Filian.pdb
+C:\Users\oleksandrm\materials\Filian\bin\Debug\log4net.dll
 C:\Users\oleksandrm\materials\Filian\bin\Debug\log4net.xml
 C:\Users\oleksandrm\materials\Filian\obj\Debug\Filian.csproj.AssemblyReference.cache
 C:\Users\oleksandrm\materials\Filian\obj\Debug\Filian.csproj.SuggestedBindingRedirects.cache
 C:\Users\oleksandrm\materials\Filian\obj\Debug\Themes\MenuButtonTheme.baml
+C:\Users\oleksandrm\materials\Filian\obj\Debug\MVVM\View\FindPairTranslationView.g.cs
 C:\Users\oleksandrm\materials\Filian\obj\Debug\MVVM\View\MainWindow.g.cs
 C:\Users\oleksandrm\materials\Filian\obj\Debug\MVVM\View\LanguagesView.g.cs
 C:\Users\oleksandrm\materials\Filian\obj\Debug\MVVM\View\OneFromFourListeningView.g.cs
@@ -15,6 +17,7 @@ C:\Users\oleksandrm\materials\Filian\obj\Debug\MVVM\View\SpellWithPictureView.g.
 C:\Users\oleksandrm\materials\Filian\obj\Debug\MVVM\View\SpellWithVoiceView.g.cs
 C:\Users\oleksandrm\materials\Filian\obj\Debug\MVVM\View\TestsView.g.cs
 C:\Users\oleksandrm\materials\Filian\obj\Debug\MVVM\View\ThemesView.g.cs
+C:\Users\oleksandrm\materials\Filian\obj\Debug\MVVM\View\TranslationPronunciationView.g.cs
 C:\Users\oleksandrm\materials\Filian\obj\Debug\MVVM\View\TranslationTextView.g.cs
 C:\Users\oleksandrm\materials\Filian\obj\Debug\MVVM\View\TrueOrFalseView.g.cs
 C:\Users\oleksandrm\materials\Filian\obj\Debug\MVVM\View\UnderThemesView.g.cs
@@ -24,6 +27,7 @@ C:\Users\oleksandrm\materials\Filian\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\oleksandrm\materials\Filian\obj\Debug\Filian_MarkupCompile.cache
 C:\Users\oleksandrm\materials\Filian\obj\Debug\Filian_MarkupCompile.lref
 C:\Users\oleksandrm\materials\Filian\obj\Debug\App.baml
+C:\Users\oleksandrm\materials\Filian\obj\Debug\MVVM\View\FindPairTranslationView.baml
 C:\Users\oleksandrm\materials\Filian\obj\Debug\MVVM\View\MainWindow.baml
 C:\Users\oleksandrm\materials\Filian\obj\Debug\MVVM\View\LanguagesView.baml
 C:\Users\oleksandrm\materials\Filian\obj\Debug\MVVM\View\OneFromFourListeningView.baml
@@ -34,6 +38,7 @@ C:\Users\oleksandrm\materials\Filian\obj\Debug\MVVM\View\SpellWithPictureView.ba
 C:\Users\oleksandrm\materials\Filian\obj\Debug\MVVM\View\SpellWithVoiceView.baml
 C:\Users\oleksandrm\materials\Filian\obj\Debug\MVVM\View\TestsView.baml
 C:\Users\oleksandrm\materials\Filian\obj\Debug\MVVM\View\ThemesView.baml
+C:\Users\oleksandrm\materials\Filian\obj\Debug\MVVM\View\TranslationPronunciationView.baml
 C:\Users\oleksandrm\materials\Filian\obj\Debug\MVVM\View\TranslationTextView.baml
 C:\Users\oleksandrm\materials\Filian\obj\Debug\MVVM\View\TrueOrFalseView.baml
 C:\Users\oleksandrm\materials\Filian\obj\Debug\MVVM\View\UnderThemesView.baml
@@ -45,8 +50,3 @@ C:\Users\oleksandrm\materials\Filian\obj\Debug\Filian.csproj.CoreCompileInputs.c
 C:\Users\oleksandrm\materials\Filian\obj\Debug\Filian.csproj.CopyComplete
 C:\Users\oleksandrm\materials\Filian\obj\Debug\Filian.exe
 C:\Users\oleksandrm\materials\Filian\obj\Debug\Filian.pdb
-C:\Users\oleksandrm\materials\Filian\bin\Debug\Filian.pdb
-C:\Users\oleksandrm\materials\Filian\obj\Debug\MVVM\View\TranslationPronunciationView.g.cs
-C:\Users\oleksandrm\materials\Filian\obj\Debug\MVVM\View\TranslationPronunciationView.baml
-C:\Users\oleksandrm\materials\Filian\obj\Debug\MVVM\View\FindPairTranslationView.g.cs
-C:\Users\oleksandrm\materials\Filian\obj\Debug\MVVM\View\FindPairTranslationView.baml
