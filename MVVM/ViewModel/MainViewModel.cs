@@ -50,6 +50,7 @@ namespace Filian.MVVM.ViewModel
         private bool isAnswerShown = false;
 
         private string _countOfTestsLabel;
+        private string _textOnMainButton = "Apply";
 
         private static List<int> _underThemeIds = new List<int>();
         private Stack _previousViews;
@@ -86,6 +87,15 @@ namespace Filian.MVVM.ViewModel
             }
         }
 
+        public string TextOnMainButton
+        {
+            get => _textOnMainButton;
+            set
+            {
+                _textOnMainButton = value;
+                OnPropertyChanged("TextOnMainButton");
+            }
+        }
 
         public List<int> UnderThemeIds
         {
@@ -232,6 +242,7 @@ namespace Filian.MVVM.ViewModel
                     VisibilityOfCountOfTestsLabel = Visibility.Visible;
                     _backButtonActive = false;
                     _navigatePanelButtonsActive = false;
+                    TextOnMainButton = "Check";
                 }
             }
             else
@@ -373,6 +384,7 @@ namespace Filian.MVVM.ViewModel
                 {
                     CheckResultOfChoice(correctAnswer, selectedAnswer);
                     isAnswerShown = true;
+                    TextOnMainButton = "Next";
                 }
                 else
                     MoveToTheNextTest();
@@ -417,6 +429,7 @@ namespace Filian.MVVM.ViewModel
             ChangeView(newView);
             _countOfTests--;
             isAnswerShown = false;
+            TextOnMainButton = "Check";
         }
 
         private Image CreateImage(string pathToImage)

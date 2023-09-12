@@ -126,7 +126,7 @@
                     Background="#393E46"
                     BorderBrush="Transparent"
                     FontSize="16"
-                    Content="Apply" 
+                    Content="{Binding TextOnMainButton}" 
                     Foreground="#00ADB5"
                     FontFamily="Comic Sans MS"
                     HorizontalAlignment="Right"
