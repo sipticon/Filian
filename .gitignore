@@ -72,7 +72,6 @@ ipch/
 # Visual Studio profiler
 *.psess
 *.vsp
-*.vs
 *.vspx
 
 # TFS 2012 Local Workspace
@@ -189,5 +188,6 @@ git_stats/*
 
 *.ncrunchproject
 StyleCop.Cache
+.vs
 bin
 obj
