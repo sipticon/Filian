@@ -9,6 +9,7 @@ namespace Filian.MVVM.View
         public FindPairTranslationView()
         {
             InitializeComponent();
+            FindPairTranslationViewModel.Grid = MainGrid;
         }
         private bool _isSelected1;
         private bool _isSelected2;
@@ -45,6 +46,8 @@ namespace Filian.MVVM.View
             {
                 selectedWord.Opacity = 0.6;
                 FindPairTranslationViewModel.SelectedWord = ((Label)sender).Content.ToString();
+                FindPairTranslationViewModel.Column = Grid.GetColumn(selectedWord);
+                FindPairTranslationViewModel.Row = Grid.GetRow(selectedWord);
                 isSelected = true;
             }
             else

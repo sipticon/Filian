@@ -253,39 +253,39 @@ namespace Filian.MVVM.ViewModel
                 }
                 else if (_testId == 2)
                 {
-                    CheckResultOfChoice(OneFromFourVm.Word, OneFromFourViewModel.SelectedImage);
+                    MoveToTheNextStep(OneFromFourVm.Word, OneFromFourViewModel.SelectedImage);
                 }
                 else if (_testId == 3)
                 {
-                    CheckResultOfChoice(OneFromFourTextViewModel.CorrectTranslation, OneFromFourTextViewModel.SelectedWord);
+                    MoveToTheNextStep(OneFromFourTextViewModel.CorrectTranslation, OneFromFourTextViewModel.SelectedWord);
                 }
                 else if (_testId == 4)
                 {
-                    CheckResultOfChoice(OneFromFourListeningVm.Word, OneFromFourListeningViewModel.SelectedImage);
+                    MoveToTheNextStep(OneFromFourListeningVm.Word, OneFromFourListeningViewModel.SelectedImage);
                 }
                 else if (_testId == 5)
                 {
-                    CheckResultOfChoice((TrueOrFalseVm.ShownTranslation == TrueOrFalseVm.CorrectTranslation).ToString(), TrueOrFalseViewModel.IsCurrentWordRight.ToString());
+                    MoveToTheNextStep((TrueOrFalseVm.ShownTranslation == TrueOrFalseVm.CorrectTranslation).ToString(), TrueOrFalseViewModel.IsCurrentWordRight.ToString());
                 }
                 else if (_testId == 6)
                 {
-                    CheckResultOfChoice(SpellWithPictureVm.Translation.ToLower(), SpellWithPictureVm.Answer.ToLower());
+                    MoveToTheNextStep(SpellWithPictureVm.Translation.ToLower(), SpellWithPictureVm.Answer.ToLower());
                 }
                 else if (_testId == 7)
                 {
-                    CheckResultOfChoice(SpellWithVoiceVm.Translation.ToLower(), SpellWithVoiceVm.Answer.ToLower());
+                    MoveToTheNextStep(SpellWithVoiceVm.Translation.ToLower(), SpellWithVoiceVm.Answer.ToLower());
                 }
                 else if (_testId == 8)
                 {
-                    CheckResultOfChoice(TranslationTextVm.Word.ToLower(), TranslationTextVm.Answer.ToLower());
+                    MoveToTheNextStep(TranslationTextVm.Word.ToLower(), TranslationTextVm.Answer.ToLower());
                 }
                 else if (_testId == 9)
                 {
-                    CheckResultOfChoice(TranslationPronunciationVm.Word.ToLower(), TranslationPronunciationVm.Answer.ToLower());
+                    MoveToTheNextStep(TranslationPronunciationVm.Word.ToLower(), TranslationPronunciationVm.Answer.ToLower());
                 }
                 else if (_testId == 10)
                 {
-                    CheckResultOfChoice(FindPairTranslationVm.CorrectWord, FindPairTranslationViewModel.SelectedWord);
+                    MoveToTheNextStep(FindPairTranslationVm.CorrectWord, FindPairTranslationViewModel.SelectedWord);
                 }
             }
         }
@@ -440,8 +440,8 @@ namespace Filian.MVVM.ViewModel
             myBitmapImage.UriSource = new Uri(pathToImage);
             myBitmapImage.EndInit();
             myImage.Source = myBitmapImage;
-            myImage.Width = 100;
-            myImage.Height = 100;
+            myImage.Width = 70;
+            myImage.Height = 70;
             Grid.SetColumn(myImage,Column);
             Grid.SetRow(myImage, Row);
             return myImage;

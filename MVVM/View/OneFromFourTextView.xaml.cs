@@ -9,6 +9,7 @@ namespace Filian.MVVM.View
         public OneFromFourTextView()
         {
             InitializeComponent();
+            OneFromFourTextViewModel.Grid = MainGrid;
         }
         private bool _isSelected1;
         private bool _isSelected2;
@@ -45,6 +46,8 @@ namespace Filian.MVVM.View
             {
                 selectedWord.Opacity = 0.6;
                 OneFromFourTextViewModel.SelectedWord = ((Label)sender).Content.ToString();
+                OneFromFourViewModel.Column = Grid.GetColumn(selectedWord);
+                OneFromFourViewModel.Row = Grid.GetRow(selectedWord);
                 isSelected = true;
             }
             else

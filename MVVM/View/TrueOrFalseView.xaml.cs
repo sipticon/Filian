@@ -21,6 +21,7 @@ namespace Filian.MVVM.View
         public TrueOrFalseView()
         {
             InitializeComponent();
+            TrueOrFalseViewModel.Grid = MainGrid;
         }
 
         private bool _isSelectedTrue;
@@ -45,6 +46,8 @@ namespace Filian.MVVM.View
             {
                 selectedWord.Opacity = 0.6;
                 TrueOrFalseViewModel.IsCurrentWordRight = answer;
+                TrueOrFalseViewModel.Column = Grid.GetColumn(selectedWord);
+                TrueOrFalseViewModel.Row = Grid.GetRow(selectedWord);
                 isSelected = true;
             }
             else

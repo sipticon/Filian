@@ -1,4 +1,5 @@
 ﻿using System.Windows.Controls;
+using Filian.MVVM.ViewModel;
 
 namespace Filian.MVVM.View
 {
@@ -8,6 +9,9 @@ namespace Filian.MVVM.View
         {
             InitializeComponent();
             Answer.Text = "";
+            SpellWithPictureViewModel.Grid = MainGrid;
+            SpellWithPictureViewModel.Column = Grid.GetColumn(Answer);
+            SpellWithPictureViewModel.Row = Grid.GetRow(Answer);
         }
     }
 }

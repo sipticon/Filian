@@ -9,6 +9,7 @@ namespace Filian.MVVM.View
         public OneFromFourListeningView()
         {
             InitializeComponent();
+            OneFromFourListeningViewModel.Grid = MainGrid;
         }
         private bool _isSelected1;
         private bool _isSelected2;
@@ -45,6 +46,8 @@ namespace Filian.MVVM.View
             {
                 selectedImage.Opacity = 0.6;
                 OneFromFourListeningViewModel.SelectedImage = ((Image)sender).Source.ToString();
+                OneFromFourListeningViewModel.Column = Grid.GetColumn(selectedImage);
+                OneFromFourListeningViewModel.Row = Grid.GetRow(selectedImage);
                 isSelected = true;
             }
             else

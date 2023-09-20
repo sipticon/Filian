@@ -16,7 +16,7 @@
             Margin="10" 
             Background="#393E46" 
             CornerRadius="30">
-                <Grid>
+            <Grid x:Name="MainGrid">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                         <ColumnDefinition/>

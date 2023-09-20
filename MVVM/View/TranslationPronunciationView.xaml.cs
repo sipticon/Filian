@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Filian.MVVM.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,6 +22,9 @@ namespace Filian.MVVM.View
         {
             InitializeComponent();
             Answer.Text = "";
+            TranslationPronunciationViewModel.Grid = MainGrid;
+            TranslationPronunciationViewModel.Column = Grid.GetColumn(Answer);
+            TranslationPronunciationViewModel.Row = Grid.GetRow(Answer);
         }
     }
 }
