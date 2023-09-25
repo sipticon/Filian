@@ -41,7 +41,7 @@
             <Image Grid.Column="1" 
                    Source="C:\Users\oleksandrm\materials\Filian\Images\close.png"
                    HorizontalAlignment="Right"
-                   Margin="0,5,20,0">
+                   Margin="0,10,20,0">
                 <Image.InputBindings>
                     <MouseBinding Gesture="LeftClick" Command="{Binding ExitCommand, Mode=OneTime}" />
                 </Image.InputBindings>
@@ -74,6 +74,8 @@
                              Foreground="#00ADB5"
                              FontSize="16"
                              Style="{StaticResource MenuButtonTheme}"
+                             IsChecked="False"
+                             Command="{Binding OpenUserAccountViewCommand}"
                              FontFamily="Comic Sans MS"/>
 
                 <RadioButton Content="Languages"
@@ -119,7 +121,7 @@
             <ContentControl Grid.Column="1"
                             Grid.Row="1"
                             BorderBrush="Transparent"
-                            Margin="0,0,0,2"
+                            Margin="0,5,20,2"
                             Content="{Binding CurrentView}"/>
             <Button Grid.Row="2" Grid.Column="1"
                     Width="100" 

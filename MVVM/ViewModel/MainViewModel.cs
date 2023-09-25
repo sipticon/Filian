@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
 using Filian.Core;
 using System.Windows;
 using System.Windows.Controls;
@@ -16,6 +15,7 @@ namespace Filian.MVVM.ViewModel
     {
         public RelayCommand OpenLanguagesViewCommand { get; set; }
         public RelayCommand OpenTestsViewCommand { get; set; }
+        public RelayCommand OpenUserAccountViewCommand { get; set; }
         public RelayCommand ApplyCommand { get; set; }
         public RelayCommand ExitCommand { get; set; }
         public RelayCommand BackCommand { get; set; }
@@ -35,7 +35,7 @@ namespace Filian.MVVM.ViewModel
         public TranslationTextViewModel TranslationTextVm { get; set; }
         public TranslationPronunciationViewModel TranslationPronunciationVm { get; set; }
         public FindPairTranslationViewModel FindPairTranslationVm { get; set; }
-
+        public UserAccountViewModel UserAccountVm { get; set; }
 
         private object _currentView;
 
@@ -120,14 +120,14 @@ namespace Filian.MVVM.ViewModel
             LanguagesVm = new LanguagesViewModel();
             WelcomeVm = new WelcomeViewModel();
             TestsVm = new TestsViewModel();
-
+            UserAccountVm = new UserAccountViewModel();
             _previousViews = new Stack();
 
             ChangeView(LanguagesVm);
 
-            
             OpenLanguagesViewCommand = new RelayCommand(o => { NavigateToLanguagesView(); });
             OpenTestsViewCommand = new RelayCommand(o => { NavigateToTestsView(); });
+            OpenUserAccountViewCommand = new RelayCommand(o => { NavigateToUserAccountView(); });
             ApplyCommand = new RelayCommand(o => { Apply_Click(); });
             ExitCommand = new RelayCommand(o => { Exit_Click(); });
             BackCommand = new RelayCommand(o => { Back_Click(); });
@@ -335,6 +335,14 @@ namespace Filian.MVVM.ViewModel
         {
             if (_navigatePanelButtonsActive)
                 ChangeView(TestsVm);
+            else
+                MessageBox.Show("You are in the test!");
+        }
+
+        private void NavigateToUserAccountView()
+        {
+            if (_navigatePanelButtonsActive)
+                ChangeView(UserAccountVm);
             else
                 MessageBox.Show("You are in the test!");
         }
