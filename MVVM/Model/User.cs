@@ -8,16 +8,13 @@ namespace Filian.MVVM.Model
         private string userPassword;
         private string userName;
         private string userEmail;
-        
-        private static int userIdIncrement = 1;
+        private string userStatus;
+        private int countOfCorrectAnswers;
+
         public int UserId
         {
             get => userId;
-            set
-            {
-                if(value > 0)
-                    userId = value;
-            }
+            set => userId = value;
         }
 
         public string UserPassword
@@ -35,20 +32,35 @@ namespace Filian.MVVM.Model
         public string UserEmail
         {
             get => userEmail;
-            set => UserEmail = value;
+            set => userEmail = value;
+        }
+
+        public string UserStatus
+        {
+            get => userStatus;
+            set => userStatus = value;
+        }
+
+        public int CountOfCorrectAnswers
+        {
+            get => countOfCorrectAnswers;
+            set => countOfCorrectAnswers = value;
         }
 
         public User()
         {
-            this.userName = "test" + userIdIncrement;
-            this.userEmail = $"usertest{userIdIncrement}@gmail.com";
-            this.userPassword = "filiantestiser" + userIdIncrement;
-            userIdIncrement++;
         }
-        public User(string userName, string userEmail, string userPassword)
+        public User(string userName, string userEmail, string userStatus, string userPassword)
         {
             this.userName = userName;
             this.userEmail = userEmail;
+            this.userStatus = userStatus;
+            this.userPassword = userPassword;
+        }
+
+        public User(string userName, string userPassword)
+        {
+            this.userName = userName;
             this.userPassword = userPassword;
         }
     }

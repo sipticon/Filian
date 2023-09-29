@@ -8,12 +8,15 @@
              StartupUri="/MVVM/View/UserAuthorizationView.xaml"
              ShutdownMode="OnExplicitShutdown">
     <Application.Resources>
-         <ResourceDictionary>
+        <ResourceDictionary>
              <ResourceDictionary.MergedDictionaries>
                  <ResourceDictionary Source="Themes/MenuButtonTheme.xaml"/>
+                 <ResourceDictionary Source="Themes/CustomPasswordBoxTheme.xaml"/>
              </ResourceDictionary.MergedDictionaries>
 
-             <DataTemplate DataType="{x:Type viewModel:LanguagesViewModel}">
+            <FontFamily x:Key="PasswordFont">./Resources/password.ttf#password</FontFamily>
+
+            <DataTemplate DataType="{x:Type viewModel:LanguagesViewModel}">
                  <view:LanguagesView/>
              </DataTemplate>
 

@@ -81,7 +81,16 @@
                         </TextBox.Resources>
                     </TextBox>
 
-                    <TextBox x:Name="UserPassword"
+                    <PasswordBox x:Name="PasswordBox"
+                                 Style="{StaticResource CustomPasswordBox}"
+                                 Grid.Row="3" 
+                                 Height="45" 
+                                 Width="250"
+                                 FontSize="18"
+                                 HorizontalContentAlignment="Left"
+                                 VerticalContentAlignment="Center"/>
+
+                    <TextBox x:Name="ShownPassword" 
                              Grid.Row="3" 
                              Height="45" 
                              Width="250"
@@ -91,17 +100,29 @@
                              FontSize="18"
                              HorizontalContentAlignment="Left"
                              VerticalContentAlignment="Center"
-                             Text="{Binding UserPassword, Mode=TwoWay}">
+                             Visibility="Hidden">
                         <TextBox.ToolTip>
-                            <ToolTip Content="Enter your password..." Background="#393E46" Foreground="#00ADB5"
+                            <ToolTip Content="Enter your username..." Background="#393E46" Foreground="#00ADB5"
                                      FontFamily="Comic Sans MS" FontSize="15"/>
                         </TextBox.ToolTip>
                         <TextBox.Resources>
                             <Style TargetType="Border">
-                                <Setter Property="CornerRadius" Value="15"></Setter>
+                                <Setter Property="CornerRadius" Value="15"/>
                             </Style>
                         </TextBox.Resources>
                     </TextBox>
+
+                    <Image x:Name="EyeImage" 
+                           Grid.Row="3"
+                           Height="40"
+                           Width="40"
+                           Margin="300,5,0,0"
+                           VerticalAlignment="Center"
+                           PreviewMouseDown="ShowPassword_PreviewMouseDown" 
+                           PreviewMouseUp="ShowPassword_PreviewMouseUp" 
+                           MouseLeave="ShowPassword_MouseLeave"
+                           Source="C:\Users\oleksandrm\materials\Filian\Images\closed_eye.png"/>
+
                     <Button x:Name="SignUpButton"
                         Grid.Row="4"
                         Height="45" 
@@ -111,7 +132,8 @@
                         Background="#393E46" 
                         FontSize="20"
                         Content="Sign up"
-                        Command="{Binding SignUp}">
+                        Command="{Binding SignUp}"
+                        Click="SignUpButton_OnClick">
                         <Button.Resources>
                             <Style TargetType="Border">
                                 <Setter Property="CornerRadius" Value="15"></Setter>

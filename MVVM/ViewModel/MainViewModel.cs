@@ -8,6 +8,7 @@ using Filian.MVVM.Model;
 using Filian.MVVM.View;
 using System.Windows.Media.Imaging;
 using Image = System.Windows.Controls.Image;
+using System.Linq;
 
 namespace Filian.MVVM.ViewModel
 {
@@ -19,6 +20,7 @@ namespace Filian.MVVM.ViewModel
         public RelayCommand ApplyCommand { get; set; }
         public RelayCommand ExitCommand { get; set; }
         public RelayCommand BackCommand { get; set; }
+        public RelayCommand SignOutCommand { get; set; }
 
         public LanguagesViewModel LanguagesVm { get; set; }
         public TestsViewModel TestsVm { get; set; }
@@ -37,29 +39,35 @@ namespace Filian.MVVM.ViewModel
         public FindPairTranslationViewModel FindPairTranslationVm { get; set; }
         public UserAccountViewModel UserAccountVm { get; set; }
 
+        public UserAuthorizationView UserAuthorizationView { get; set; }
+
         private object _currentView;
 
         private static int _themeId;
         private int _testId;
-        private int _countOfTests = 0;
+        private new int _countOfTests = 0;
         private int _countOfCorrectAnswers = 0;
 
         private bool _backButtonActive = true;
         private bool _navigatePanelButtonsActive = true;
 
-        private bool isAnswerShown = false;
+        private bool _isAnswerShown = false;
 
         private string _countOfTestsLabel;
         private string _textOnMainButton = "Apply";
 
         private static List<int> _underThemeIds = new List<int>();
-        private Stack _previousViews;
+        private readonly Stack _previousViews;
 
         private Visibility _visibilityOfCountOfTestsLabel = Visibility.Hidden;
 
         public static readonly string _correctAnswerImagesource = @"C:\Users\oleksandrm\materials\Test_Icons\grey\Checkbox_Yes.png";
         public static readonly string _wrongAnswerImagesource = @"C:\Users\oleksandrm\materials\Test_Icons\grey\Checkbox_No.png";
 
+        public static string userName;
+        public static string userEmail;
+        public static string userStatus;
+        public static string countOfCorrectAnswers;
 
         public object CurrentView
         {
@@ -120,7 +128,7 @@ namespace Filian.MVVM.ViewModel
             LanguagesVm = new LanguagesViewModel();
             WelcomeVm = new WelcomeViewModel();
             TestsVm = new TestsViewModel();
-            UserAccountVm = new UserAccountViewModel();
+
             _previousViews = new Stack();
 
             ChangeView(LanguagesVm);
@@ -131,6 +139,7 @@ namespace Filian.MVVM.ViewModel
             ApplyCommand = new RelayCommand(o => { Apply_Click(); });
             ExitCommand = new RelayCommand(o => { Exit_Click(); });
             BackCommand = new RelayCommand(o => { Back_Click(); });
+            SignOutCommand = new RelayCommand(o => { SignOut(); });
         }
 
         private void Apply_Click()
@@ -172,6 +181,7 @@ namespace Filian.MVVM.ViewModel
                 {
                     foreach (Theme underTheme in underThemes)
                     {
+                        UnderThemeIds.Add(underTheme.Id);
                         UnderThemeIds.Add(underTheme.Id);
                     }
 
@@ -323,6 +333,13 @@ namespace Filian.MVVM.ViewModel
             }
         }
 
+        private void SignOut()
+        {
+            UserAuthorizationView = new UserAuthorizationView();
+            UserAuthorizationView.Show();
+            Application.Current.Windows.OfType<MainWindow>().First().Close();
+        }
+
         private void NavigateToLanguagesView()
         {
             if (_navigatePanelButtonsActive)
@@ -342,7 +359,16 @@ namespace Filian.MVVM.ViewModel
         private void NavigateToUserAccountView()
         {
             if (_navigatePanelButtonsActive)
+            {
+                UserAccountVm = new UserAccountViewModel()
+                {
+                    UserName = userName,
+                    UserEmail = userEmail,
+                    UserStatus = userStatus,
+                    CountOfCorrectAnswers = countOfCorrectAnswers
+                };
                 ChangeView(UserAccountVm);
+            }
             else
                 MessageBox.Show("You are in the test!");
         }
@@ -388,10 +414,10 @@ namespace Filian.MVVM.ViewModel
             }
             else
             {
-                if (!isAnswerShown)
+                if (!_isAnswerShown)
                 {
                     CheckResultOfChoice(correctAnswer, selectedAnswer);
-                    isAnswerShown = true;
+                    _isAnswerShown = true;
                     TextOnMainButton = "Next";
                 }
                 else
@@ -436,7 +462,7 @@ namespace Filian.MVVM.ViewModel
             }
             ChangeView(newView);
             _countOfTests--;
-            isAnswerShown = false;
+            _isAnswerShown = false;
             TextOnMainButton = "Check";
         }
 

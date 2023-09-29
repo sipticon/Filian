@@ -115,7 +115,8 @@
                              Foreground="#00ADB5"
                              FontSize="16"
                              Style="{StaticResource MenuButtonTheme}"
-                             FontFamily="Comic Sans MS"/>
+                             FontFamily="Comic Sans MS"
+                             Command="{Binding SignOutCommand}"/>
             </StackPanel>
 
             <ContentControl Grid.Column="1"

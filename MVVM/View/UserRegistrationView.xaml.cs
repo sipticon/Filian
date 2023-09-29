@@ -1,27 +1,49 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Filian.MVVM.ViewModel;
+using System;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Filian.MVVM.View
 {
-    /// <summary>
-    /// Interaction logic for UserRegistrationView.xaml
-    /// </summary>
     public partial class UserRegistrationView : Window
     {
         public UserRegistrationView()
         {
             InitializeComponent();
+        }
+
+        private void SignUpButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            UserRegistrationViewModel.UserPassword = PasswordBox.Password;
+        }
+
+        private void ShowPassword_PreviewMouseDown(object sender, MouseButtonEventArgs e) => ShowPasswordFunction();
+        private void ShowPassword_PreviewMouseUp(object sender, MouseButtonEventArgs e) => HidePasswordFunction();
+        private void ShowPassword_MouseLeave(object sender, MouseEventArgs e) => HidePasswordFunction();
+
+        private void ShowPasswordFunction()
+        {
+            ShownPassword.Visibility = Visibility.Visible;
+            PasswordBox.Visibility = Visibility.Hidden;
+            ShownPassword.Text = PasswordBox.Password;
+            EyeImage.Source = ChangeImageSource(@"C:\Users\oleksandrm\materials\Filian\Images\opened_eye.png");
+        }
+
+        private void HidePasswordFunction()
+        {
+            ShownPassword.Visibility = Visibility.Hidden;
+            PasswordBox.Visibility = Visibility.Visible;
+            EyeImage.Source = ChangeImageSource(@"C:\Users\oleksandrm\materials\Filian\Images\closed_eye.png");
+        }
+
+        private BitmapImage ChangeImageSource(string sourcePath)
+        {
+            BitmapImage bitImg = new BitmapImage();
+            bitImg.BeginInit();
+            bitImg.UriSource = new Uri(sourcePath);
+            bitImg.EndInit();
+            return bitImg;
         }
     }
 }
