@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.SqlClient;
+using System.Linq;
 using Filian.Core;
 
 namespace Filian.MVVM.ViewModel
@@ -17,6 +18,7 @@ namespace Filian.MVVM.ViewModel
         private string countOfCorrectAnswersLabel;
 
         private string newUsername;
+        private static string newUserPassword;
 
         public string UserName
         {
@@ -88,13 +90,23 @@ namespace Filian.MVVM.ViewModel
             get => newUsername;
             set
             {
-                if(value.Length > 3)
-                    newUsername = value;
+                newUsername = (value.Length >= 5 && value.Length <= 10) ? value : null;
                 OnPropertyChanged();
             }
         }
 
-        public static string NewUserPassword { get; set; }
+        public static string NewUserPassword
+        {
+            get => newUserPassword;
+            set
+            {
+                if (value.Length >= 5 && value.Any(char.IsUpper) && value.Any(char.IsLower) && value.Any(char.IsDigit) &&
+                    value.Length <= 20 && !value.Contains("'"))
+                    newUserPassword = value;
+                else
+                    newUserPassword = null;
+            }
+        }
 
         public RelayCommand ChangeUsername { get; set; }
         public RelayCommand ChangePassword { get; set; }
@@ -111,7 +123,11 @@ namespace Filian.MVVM.ViewModel
 
         private void CreateNewUsername()
         {
-            if(string.IsNullOrEmpty(NewUsername)) return;
+            if (string.IsNullOrEmpty(NewUsername))
+            {
+                CreateUserNotificationBox("You entered incorrect new username!", "Your username have to be between 5 and 10 characters.");
+                return;
+            }
 
             string sqlChangeUsername = $"UPDATE users SET username='{NewUsername}' WHERE username = '{UserName}'";
             SqlConnection sqlConnection = new SqlConnection(sqlConnectionString);
@@ -126,18 +142,24 @@ namespace Filian.MVVM.ViewModel
             }
             catch (Exception ex)
             {
+                CreateUserNotificationBox("User with current username already exists!",
+                    "Please, select other username.");
                 Log.Error("Error while trying to change username: "+ex);
             }
             finally
             {
                 sqlConnection.Close();
             }
-            
         }
 
         private void CreateNewPassword()
         {
-            if (string.IsNullOrEmpty(NewUserPassword)) return;
+            if (string.IsNullOrEmpty(NewUserPassword))
+            {
+                CreateUserNotificationBox("You entered incorrect new password!",
+                    "Your password has to be between 5 and 20 characters, contains uppercase and lowercase letter and digits.");
+                return;
+            }
 
             string sqlChangeUserPassword = $"UPDATE users SET user_password='{NewUserPassword}' WHERE username = '{UserName}'";
             SqlConnection sqlConnection = new SqlConnection(sqlConnectionString);

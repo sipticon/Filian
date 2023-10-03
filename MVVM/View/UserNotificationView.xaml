@@ -1,0 +1,97 @@
+﻿<Window x:Class="Filian.MVVM.View.UserNotificationView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Filian.MVVM.View"
+        xmlns:viewModel="clr-namespace:Filian.MVVM.ViewModel"
+        mc:Ignorable="d"
+        Height="300" Width="500"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen">
+
+    <Window.DataContext>
+        <viewModel:UserNotificationViewModel/>
+    </Window.DataContext>
+
+    <Border Background="#222831" BorderBrush="#393E46" BorderThickness="5" CornerRadius="20">
+        <Grid x:Name="Grid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.3*"/>
+                <RowDefinition/>
+                <RowDefinition Height="0.3*"/>
+            </Grid.RowDefinitions>
+
+
+            <Label Grid.Column="0"
+                   Grid.Row="0"
+                   Grid.ColumnSpan="2"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   Margin="10,0,0,0"
+                   Foreground="#00ADB5"
+                   FontSize="20"
+                   FontFamily="Comic Sans MS"
+                   Content="Notification message"/>
+
+            <Image Grid.Column="0"
+                   Grid.Row="1"
+                   Source="C:\Users\oleksandrm\materials\Filian\Images\owl_exclamation.png"
+                   Height="150"></Image>
+
+            <Label Grid.Column="1"
+                   Grid.Row="1"
+                   Foreground="#00ADB5"
+                   FontSize="17"
+                   FontFamily="Comic Sans MS">
+                <Label.Content>
+                    <AccessText TextWrapping="Wrap"
+                                Text="{Binding NotificationMessage}" 
+                                Width="320" 
+                                Height="80"/>
+                </Label.Content>
+            </Label>
+
+            <Label Grid.Column="1"
+                   Grid.Row="1"
+                   Foreground="#00ADB5"
+                   FontSize="17"
+                   VerticalAlignment="Bottom"
+                   FontFamily="Comic Sans MS">
+                <Label.Content>
+                    <AccessText TextWrapping="Wrap" 
+                                Text="{Binding NotificationAdvice}"
+                                Width="320" 
+                                Height="90"/>
+                </Label.Content>
+            </Label>
+
+            <Button Grid.Row="2" 
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Width="120" 
+                    Height="35"
+                    Background="#393E46"
+                    BorderBrush="Transparent"
+                    FontSize="17"
+                    Content="OK" 
+                    Foreground="#00ADB5"
+                    FontFamily="Comic Sans MS"
+                    Command="{Binding CloseNotificationBoxCommand}">
+                <Button.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="CornerRadius" Value="15"></Setter>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </Grid>
+        </Border>
+</Window>

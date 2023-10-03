@@ -48,7 +48,7 @@
                              FontSize="18"
                              HorizontalContentAlignment="Left"
                              VerticalContentAlignment="Center"
-                             Text="{Binding UserName, Mode=TwoWay}">
+                             Text="{Binding UserName, Mode=OneWayToSource}">
                         <TextBox.ToolTip>
                             <ToolTip Content="Enter your username..." Background="#393E46" Foreground="#00ADB5"
                                      FontFamily="Comic Sans MS" FontSize="15"/>
@@ -67,7 +67,8 @@
                         Width="250"
                         FontSize="18"
                         HorizontalContentAlignment="Left"
-                        VerticalContentAlignment="Center"/>
+                        VerticalContentAlignment="Center"
+                        CommandManager.PreviewExecuted="passwordBox_PreviewExecuted"/>
 
                     <TextBox x:Name="ShownPassword" 
                         Grid.Row="2" 

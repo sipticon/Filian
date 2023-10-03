@@ -24,12 +24,14 @@
                 CornerRadius="30">
                 <Grid x:Name="MainGrid">
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="1.5*"/>
+                        <RowDefinition Height="1.2*"/>
                         <RowDefinition/>
                         <RowDefinition/>
                         <RowDefinition/>
                         <RowDefinition/>
+                        <RowDefinition Height="0.5*"/>
                     </Grid.RowDefinitions>
+
                     <Label Grid.Row="0"
                            FontSize="50"
                            Foreground="#00ADB5"
@@ -37,6 +39,7 @@
                            Content="Become a Filian member"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"/>
+
                     <TextBox x:Name="UserName"
                              Grid.Row="1" 
                              Height="45" 
@@ -47,7 +50,7 @@
                              FontSize="18"
                              HorizontalContentAlignment="Left"
                              VerticalContentAlignment="Center"
-                             Text="{Binding UserName, Mode=TwoWay}">
+                             Text="{Binding UserName, Mode=OneWayToSource}">
                         <TextBox.ToolTip>
                             <ToolTip Content="Enter your username..." Background="#393E46" Foreground="#00ADB5"
                                      FontFamily="Comic Sans MS" FontSize="15"/>
@@ -69,7 +72,7 @@
                              FontSize="18"
                              HorizontalContentAlignment="Left"
                              VerticalContentAlignment="Center"
-                             Text="{Binding UserEmail, Mode=TwoWay}">
+                             Text="{Binding UserEmail, Mode=OneWayToSource}">
                         <TextBox.ToolTip>
                             <ToolTip Content="Enter your email..." Background="#393E46" Foreground="#00ADB5"
                                      FontFamily="Comic Sans MS" FontSize="15"/>
@@ -88,7 +91,8 @@
                                  Width="250"
                                  FontSize="18"
                                  HorizontalContentAlignment="Left"
-                                 VerticalContentAlignment="Center"/>
+                                 VerticalContentAlignment="Center"
+                                 CommandManager.PreviewExecuted="passwordBox_PreviewExecuted"/>
 
                     <TextBox x:Name="ShownPassword" 
                              Grid.Row="3" 
@@ -140,6 +144,29 @@
                             </Style>
                         </Button.Resources>
                     </Button>
+
+                    <Label Grid.Row="5"
+                           Foreground="#00ADB5"
+                           FontFamily="Comic Sans MS"
+                           VerticalAlignment="Top"
+                           HorizontalAlignment="Center"
+                           FontSize="15">
+                        <TextBlock TextDecorations="Underline">Sign in</TextBlock>
+                        <Label.InputBindings>
+                            <MouseBinding Command="{Binding OpenSingInViewCommand}" MouseAction="LeftClick" />
+                        </Label.InputBindings>
+                        <Label.Style>
+                            <Style TargetType="Label">
+                                <Setter Property="Foreground" Value="#222831"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="FontWeight"  Value="Bold"/>
+                                        <Setter Property="BorderThickness" Value="2"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Label.Style>
+                    </Label>
                 </Grid>
             </Border>
         </Grid>

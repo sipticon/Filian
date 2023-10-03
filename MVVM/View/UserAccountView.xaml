@@ -69,10 +69,16 @@
                            FontSize="20"
                            Foreground="#00ADB5"
                            FontFamily="Comic Sans MS"
-                           Content="{Binding CountOfCorrectAnswersLabel}"
                            Margin="10,180,0,0"
                            HorizontalAlignment="left"
-                           VerticalAlignment="Top"/>
+                           VerticalAlignment="Top">
+                        <Label.Content>
+                            <AccessText TextWrapping="Wrap" 
+                                        Text="{Binding CountOfCorrectAnswersLabel}"
+                                        Width="260" 
+                                        Height="70"/>
+                        </Label.Content>
+                    </Label>
 
                     <TextBox x:Name="NewUsername"
                         Grid.Column="0"
@@ -105,7 +111,8 @@
                                  Width="250"
                                  FontSize="15"
                                  HorizontalContentAlignment="Left"
-                                 VerticalContentAlignment="Center"/>
+                                 VerticalContentAlignment="Center"
+                                 CommandManager.PreviewExecuted="passwordBox_PreviewExecuted"/>
 
                     <TextBox x:Name="ShownPassword" 
                              Grid.Column="0"

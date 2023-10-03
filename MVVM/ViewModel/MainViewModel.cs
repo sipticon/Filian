@@ -9,6 +9,9 @@ using Filian.MVVM.View;
 using System.Windows.Media.Imaging;
 using Image = System.Windows.Controls.Image;
 using System.Linq;
+using static System.Net.Mime.MediaTypeNames;
+using Application = System.Windows.Application;
+using System.Data.SqlClient;
 
 namespace Filian.MVVM.ViewModel
 {
@@ -69,6 +72,8 @@ namespace Filian.MVVM.ViewModel
         public static string userStatus;
         public static string countOfCorrectAnswers;
 
+        private int _userCountOfCorrectAnswers;
+
         public object CurrentView
         {
             get => _currentView;
@@ -128,6 +133,8 @@ namespace Filian.MVVM.ViewModel
             LanguagesVm = new LanguagesViewModel();
             WelcomeVm = new WelcomeViewModel();
             TestsVm = new TestsViewModel();
+            
+            _userCountOfCorrectAnswers = Int32.Parse(countOfCorrectAnswers);
 
             _previousViews = new Stack();
 
@@ -304,6 +311,7 @@ namespace Filian.MVVM.ViewModel
         {
             try
             {
+                UpdateUserCorrectAnswers();
                 Application.Current.Shutdown();
                 Log.Info("Application successfully closed.");
             }
@@ -324,7 +332,7 @@ namespace Filian.MVVM.ViewModel
                 }
                 else
                 {
-                    MessageBox.Show("Can't go back!");
+                    CreateUserNotificationBox("Can't go back!", "You can't navigate to back!");
                 }
             }
             catch (Exception ex)
@@ -335,6 +343,7 @@ namespace Filian.MVVM.ViewModel
 
         private void SignOut()
         {
+            UpdateUserCorrectAnswers();
             UserAuthorizationView = new UserAuthorizationView();
             UserAuthorizationView.Show();
             Application.Current.Windows.OfType<MainWindow>().First().Close();
@@ -345,7 +354,7 @@ namespace Filian.MVVM.ViewModel
             if (_navigatePanelButtonsActive)
                 ChangeView(LanguagesVm);
             else
-                MessageBox.Show("You are in the test!");
+                CreateUserNotificationBox("You are in the test!", "You can't navigate to other tabs while test is running!");
         }
 
         private void NavigateToTestsView()
@@ -353,7 +362,7 @@ namespace Filian.MVVM.ViewModel
             if (_navigatePanelButtonsActive)
                 ChangeView(TestsVm);
             else
-                MessageBox.Show("You are in the test!");
+                CreateUserNotificationBox("You are in the test!", "You can't navigate to other tabs while test is running!");
         }
 
         private void NavigateToUserAccountView()
@@ -365,12 +374,12 @@ namespace Filian.MVVM.ViewModel
                     UserName = userName,
                     UserEmail = userEmail,
                     UserStatus = userStatus,
-                    CountOfCorrectAnswers = countOfCorrectAnswers
+                    CountOfCorrectAnswers = _userCountOfCorrectAnswers.ToString()
                 };
                 ChangeView(UserAccountVm);
             }
             else
-                MessageBox.Show("You are in the test!");
+                CreateUserNotificationBox("You are in the test!", "You can't navigate to other tabs while test is running!");
         }
 
         private void ChangeView(object newView)
@@ -487,10 +496,47 @@ namespace Filian.MVVM.ViewModel
             ChangeView(WelcomeVm);
             _previousViews.Clear();
             VisibilityOfCountOfTestsLabel = Visibility.Hidden;
+            _userCountOfCorrectAnswers += _countOfCorrectAnswers;
             _countOfCorrectAnswers = 0;
             _countOfTests = 0;
             _backButtonActive = true;
             _navigatePanelButtonsActive = true;
+        }
+
+        private void UpdateUserCorrectAnswers()
+        {
+            string newUserStatus = "";
+            string sqlChangeUsername = "";
+            if (_userCountOfCorrectAnswers >= 200 && _countOfCorrectAnswers < 500)
+                newUserStatus = "Owl";
+            else if (_userCountOfCorrectAnswers >= 500 && _countOfCorrectAnswers < 1000)
+                newUserStatus = "Old owl";
+            else if (_userCountOfCorrectAnswers >= 1000)
+                newUserStatus = "Legend owl";
+            else
+                newUserStatus = "";
+
+            sqlChangeUsername = !string.IsNullOrEmpty(newUserStatus) 
+                ? $"UPDATE users SET correct_answers='{_userCountOfCorrectAnswers}', user_status='{newUserStatus}' WHERE username = '{userName}'" 
+                : $"UPDATE users SET correct_answers='{_userCountOfCorrectAnswers}' WHERE username = '{userName}'";
+
+            SqlConnection sqlConnection = new SqlConnection(sqlConnectionString);
+            sqlConnection.Open();
+
+            SqlCommand sqlCommand = new SqlCommand(sqlChangeUsername, sqlConnection);
+            try
+            {
+                sqlCommand.ExecuteNonQuery();
+                _userCountOfCorrectAnswers = 0;
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Error while trying to change username: " + ex);
+            }
+            finally
+            {
+                sqlConnection.Close();
+            }
         }
     }
 }

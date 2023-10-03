@@ -19,10 +19,6 @@ namespace Filian.MVVM.View
         private void LogInButton_OnClick(object sender, RoutedEventArgs e)
         {
             UserAuthorizationViewModel.UserPassword = PasswordBox.Password;
-            if (!UserAuthorizationViewModel.IsDataCorrect)
-            {
-                LogInButton.BorderBrush = new SolidColorBrush(Colors.Red);
-            }
         }
 
         private void ShowPassword_PreviewMouseDown(object sender, MouseButtonEventArgs e) => ShowPasswordFunction();
@@ -51,6 +47,15 @@ namespace Filian.MVVM.View
             bitImg.UriSource = new Uri(sourcePath);
             bitImg.EndInit();
             return bitImg;
+        }
+        private void passwordBox_PreviewExecuted(object sender, ExecutedRoutedEventArgs e)
+        {
+            if (e.Command == ApplicationCommands.Copy ||
+                e.Command == ApplicationCommands.Cut ||
+                e.Command == ApplicationCommands.Paste)
+            {
+                e.Handled = true;
+            }
         }
     }
 }

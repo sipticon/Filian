@@ -59,34 +59,5 @@ namespace Filian.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] ChouetteAlors_JVoo {
-            get {
-                object obj = ResourceManager.GetObject("ChouetteAlors_JVoo", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] password {
-            get {
-                object obj = ResourceManager.GetObject("password", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        internal static string passwordFont {
-            get {
-                return ResourceManager.GetString("passwordFont", resourceCulture);
-            }
-        }
     }
 }

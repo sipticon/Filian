@@ -10,14 +10,12 @@ namespace Filian.MVVM.ViewModel
     {
         private string userName;
         private static string userPassword;
-        public static bool IsDataCorrect;
         public string UserName
         {
             get => userName;
             set
             {
-                if (value.Length > 3)
-                    userName = value;
+                userName = (value.Length >= 5 && value.Length <= 10) ? value : null;
                 OnPropertyChanged();
             }
         }
@@ -25,7 +23,14 @@ namespace Filian.MVVM.ViewModel
         public static string UserPassword
         {
             get => userPassword;
-            set => userPassword = value;
+            set
+            {
+                if (value.Length >= 5 && value.Any(char.IsUpper) && value.Any(char.IsLower) && value.Any(char.IsDigit) &&
+                    value.Length <= 20 && !value.Contains("'"))
+                    userPassword = value;
+                else
+                    userPassword = null;
+            }
         }
 
         public RelayCommand OpenSingUpViewCommand { get; set; }
@@ -41,6 +46,18 @@ namespace Filian.MVVM.ViewModel
 
         private void LogIn()
         {
+            if (string.IsNullOrEmpty(userName))
+            {
+                CreateUserNotificationBox("You entered incorrect username!", "Your username have to be between 5 and 10 characters.");
+                return;
+            }
+            if (string.IsNullOrEmpty(userPassword))
+            {
+                CreateUserNotificationBox("You entered incorrect password!",
+                    "Your password has to be between 5 and 20 characters, contains uppercase and lowercase letter and digits.");
+                return;
+            }
+
             User logInUser = new User(userName, userPassword);
 
             string sqlGetUser = $"SELECT * FROM users WHERE username = '{logInUser.UserName}'";
@@ -56,6 +73,12 @@ namespace Filian.MVVM.ViewModel
 
                 SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
 
+                if (!sqlDataReader.HasRows)
+                {
+                    CreateUserNotificationBox("Current user does not exist!", "Please, check your credentials or create account.");
+                    return;
+                }
+
                 while (sqlDataReader.Read())
                 {
                     gotUser.UserName = sqlDataReader.GetString(1);
@@ -67,9 +90,14 @@ namespace Filian.MVVM.ViewModel
 
                 if (gotUser.UserPassword == logInUser.UserPassword)
                 {
-                    IsDataCorrect = true;
                     SetAccountData(gotUser);
                     OpenMainWindow();
+                }
+                else
+                {
+                    CreateUserNotificationBox("You entered incorrect password!",
+                        "Please, check your credentials.");
+                    return;
                 }
                 
                 Log.Info("Successfully sign in.");
@@ -77,7 +105,7 @@ namespace Filian.MVVM.ViewModel
             }
             catch (Exception ex)
             {
-                IsDataCorrect = false;
+                
                 Log.Error("Failed while trying to sign in: ", ex);
             }
             finally

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Controls;
 using Filian.Core;
+using Filian.MVVM.View;
 
 namespace Filian.MVVM.ViewModel
 {
@@ -30,5 +31,14 @@ namespace Filian.MVVM.ViewModel
 
         public static int Column { get; set; }
         public static int Row { get; set; }
+
+        public void CreateUserNotificationBox(string notification, string advice)
+        {
+            UserNotificationViewModel userNotificationViewModel = new UserNotificationViewModel();
+            userNotificationViewModel.NotificationMessage = notification;
+            userNotificationViewModel.NotificationAdvice = advice;
+            UserNotificationView userNotificationView = new UserNotificationView();
+            userNotificationView.Show();
+        }
     }
 }

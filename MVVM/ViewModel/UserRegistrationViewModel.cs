@@ -20,9 +20,21 @@ namespace Filian.MVVM.ViewModel
             get => userName;
             set
             {
-                if (value.Length > 3)
-                    userName = value;
+                userName = (value.Length >= 5 && value.Length <= 10) ? value : null;
                 OnPropertyChanged();
+            }
+        }
+
+        public static string UserPassword
+        {
+            get => userPassword;
+            set
+            {
+                if (value.Length >= 5 && value.Any(char.IsUpper) && value.Any(char.IsLower) && value.Any(char.IsDigit) &&
+                    value.Length <= 20 && !value.Contains("'"))
+                    userPassword = value;
+                else
+                    userPassword = null;
             }
         }
 
@@ -38,18 +50,15 @@ namespace Filian.MVVM.ViewModel
             }
         }
 
-        public static string UserPassword
-        {
-            get => userPassword;
-            set => userPassword = value;
-        }
-
         public RelayCommand SignUp { get; set; }
+        public RelayCommand OpenSingInViewCommand { get; set; }
         public MainWindow MainWindow { get; set; }
+        public UserAuthorizationView UserAuthorizationView { get; set; }
         
         public UserRegistrationViewModel()
         {
             SignUp = new RelayCommand(o => AddNewUserToDataBase());
+            OpenSingInViewCommand = new RelayCommand(o => OpenUserAuthorizationView());
         }
 
         private void AddNewUserToDataBase()
@@ -57,7 +66,8 @@ namespace Filian.MVVM.ViewModel
             User newUser = CreateNewUser();
             if (newUser != null)
             {
-                string sqlNewUser = "INSERT INTO users (username , email, user_status, user_password) VALUES (@username, @email, @status, @password)";
+                string sqlNewUser = 
+                    $"INSERT INTO users (username , email, user_status, user_password) VALUES ({newUser.UserName}, {newUser.UserEmail}, {newUser.UserStatus}, {newUser.UserPassword})";
 
                 SqlConnection sqlConnection = new SqlConnection(sqlConnectionString);
                 sqlConnection.Open();
@@ -65,10 +75,6 @@ namespace Filian.MVVM.ViewModel
                 try
                 {
                     SqlCommand sqlCommand = new SqlCommand(sqlNewUser, sqlConnection);
-                    sqlCommand.Parameters.AddWithValue("@username",newUser.UserName);
-                    sqlCommand.Parameters.AddWithValue("@email",newUser.UserEmail);
-                    sqlCommand.Parameters.AddWithValue("@status",newUser.UserStatus);
-                    sqlCommand.Parameters.AddWithValue("@password", newUser.UserPassword);
                     sqlCommand.ExecuteNonQuery();
 
                     Log.Info("Successfully add new user to database.");
@@ -79,6 +85,8 @@ namespace Filian.MVVM.ViewModel
                 }
                 catch (Exception ex)
                 {
+                    CreateUserNotificationBox("User with current username or email address already exists!",
+                        "Create new username or sign up.");
                     Log.Error("Failed while trying to add new user to database: ", ex);
                 }
                 finally
@@ -100,9 +108,14 @@ namespace Filian.MVVM.ViewModel
                         User newUser = new User(userName, userEmail, "Owlet", UserPassword);
                         return newUser;
                     }
+                    CreateUserNotificationBox("You entered incorrect password!",
+                        "Your password has to be between 5 and 20 characters, contains uppercase and lowercase letter and digits.");
+                    return null;
                 }
+                CreateUserNotificationBox("You entered incorrect email!", "Please, enter correct email address.");
+                return null;
             }
-
+            CreateUserNotificationBox("You entered incorrect username!", "Your username have to be between 5 and 10 characters.");
             return null;
         }
 
@@ -110,6 +123,13 @@ namespace Filian.MVVM.ViewModel
         {
             MainWindow = new MainWindow();
             MainWindow.Show();
+            Application.Current.Windows.OfType<UserRegistrationView>().First().Close();
+        }
+
+        private void OpenUserAuthorizationView()
+        {
+            UserAuthorizationView = new UserAuthorizationView();
+            UserAuthorizationView.Show();
             Application.Current.Windows.OfType<UserRegistrationView>().First().Close();
         }
 
