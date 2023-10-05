@@ -46,7 +46,7 @@ namespace Filian.MVVM.View
             return bitImg;
         }
 
-        private void passwordBox_PreviewExecuted(object sender, ExecutedRoutedEventArgs e)
+        private void PasswordBox_PreviewExecuted(object sender, ExecutedRoutedEventArgs e)
         {
             if (e.Command == ApplicationCommands.Copy ||
                 e.Command == ApplicationCommands.Cut ||

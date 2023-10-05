@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace Filian.MVVM.Model
+﻿namespace Filian.MVVM.Model
 {
     public class User
     {

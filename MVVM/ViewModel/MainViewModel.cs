@@ -9,7 +9,6 @@ using Filian.MVVM.View;
 using System.Windows.Media.Imaging;
 using Image = System.Windows.Controls.Image;
 using System.Linq;
-using static System.Net.Mime.MediaTypeNames;
 using Application = System.Windows.Application;
 using System.Data.SqlClient;
 
@@ -134,7 +133,7 @@ namespace Filian.MVVM.ViewModel
             WelcomeVm = new WelcomeViewModel();
             TestsVm = new TestsViewModel();
             
-            _userCountOfCorrectAnswers = Int32.Parse(countOfCorrectAnswers);
+            _userCountOfCorrectAnswers = Convert.ToInt32(countOfCorrectAnswers);
 
             _previousViews = new Stack();
 

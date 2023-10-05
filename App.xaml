@@ -11,11 +11,13 @@
         <ResourceDictionary>
              <ResourceDictionary.MergedDictionaries>
                  <ResourceDictionary Source="Themes/MenuButtonTheme.xaml"/>
-                 <ResourceDictionary Source="Themes/CustomPasswordBoxTheme.xaml"/>
+                 <ResourceDictionary Source="Themes/PasswordBoxTheme.xaml"/>
+                 <ResourceDictionary Source="Themes/TextBoxTheme.xaml"/>
+                 <ResourceDictionary Source="Themes/ToolTipTheme.xaml"/>
+                 <ResourceDictionary Source="Themes/LabelTheme.xaml"/>
+                 <ResourceDictionary Source="Themes/ButtonTheme.xaml"/>
              </ResourceDictionary.MergedDictionaries>
-
-            <FontFamily x:Key="PasswordFont">./Resources/password.ttf#password</FontFamily>
-
+            
             <DataTemplate DataType="{x:Type viewModel:LanguagesViewModel}">
                  <view:LanguagesView/>
              </DataTemplate>

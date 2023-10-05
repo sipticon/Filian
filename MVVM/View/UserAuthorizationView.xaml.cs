@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using Filian.MVVM.ViewModel;
 
@@ -48,7 +45,7 @@ namespace Filian.MVVM.View
             bitImg.EndInit();
             return bitImg;
         }
-        private void passwordBox_PreviewExecuted(object sender, ExecutedRoutedEventArgs e)
+        private void PasswordBox_PreviewExecuted(object sender, ExecutedRoutedEventArgs e)
         {
             if (e.Command == ApplicationCommands.Copy ||
                 e.Command == ApplicationCommands.Cut ||

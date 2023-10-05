@@ -37,8 +37,7 @@
                     <Label Grid.Column ="1" 
                            Grid.Row="0"
                            FontSize="20"
-                           Foreground="#00ADB5"
-                           FontFamily="Comic Sans MS"
+                           Style="{StaticResource CustomLabel}"
                            Content="{Binding  UserNameLabel}"
                            Margin="10,30,0,0"
                            HorizontalAlignment="left"
@@ -46,96 +45,68 @@
 
                     <Label Grid.Column ="1" 
                            Grid.Row="0"
-                           FontSize="20"
-                           Foreground="#00ADB5"
-                           FontFamily="Comic Sans MS"
-                           Content="{Binding UserEmailLabel}"
-                           Margin="10,80,0,0"
+                           FontSize="20" 
+                           Style="{StaticResource WrapCustomLabel}"
+                           Margin="15,145,0,0"
                            HorizontalAlignment="left"
-                           VerticalAlignment="Top"/>
+                           VerticalAlignment="Top"
+                           Content="{Binding UserEmailLabel}"/>
 
                     <Label Grid.Column ="1" 
                            Grid.Row="0"
                            FontSize="20"
-                           Foreground="#00ADB5"
-                           FontFamily="Comic Sans MS"
+                           Style="{StaticResource CustomLabel}"
                            Content="{Binding UserStatusLabel}"
-                           Margin="10,130,0,0"
+                           Margin="10,90,0,0"
                            HorizontalAlignment="left"
                            VerticalAlignment="Top"/>
 
                     <Label Grid.Column ="1" 
                            Grid.Row="0"
                            FontSize="20"
-                           Foreground="#00ADB5"
-                           FontFamily="Comic Sans MS"
-                           Margin="10,180,0,0"
+                           Style="{StaticResource WrapCustomLabel}"
+                           Content="{Binding CountOfCorrectAnswersLabel}"
+                           Margin="15,200,0,0"
                            HorizontalAlignment="left"
-                           VerticalAlignment="Top">
-                        <Label.Content>
-                            <AccessText TextWrapping="Wrap" 
-                                        Text="{Binding CountOfCorrectAnswersLabel}"
-                                        Width="260" 
-                                        Height="70"/>
-                        </Label.Content>
-                    </Label>
+                           VerticalAlignment="Top"/>
 
                     <TextBox x:Name="NewUsername"
-                        Grid.Column="0"
+                             Grid.Column="0"
                              Grid.Row="1" 
                              Height="35" 
                              Width="250"
-                             Foreground="#00ADB5"
-                             FontFamily="Comic Sans MS"
                              Background="#222831" 
                              FontSize="15"
                              HorizontalContentAlignment="Left"
                              VerticalContentAlignment="Center"
-                             Text="{Binding NewUsername, Mode=OneWayToSource}">
-                        <TextBox.ToolTip>
-                            <ToolTip Content="Enter new username..." Background="#393E46" Foreground="#00ADB5"
-                                     FontFamily="Comic Sans MS" FontSize="15"/>
-                        </TextBox.ToolTip>
-                        <TextBox.Resources>
-                            <Style TargetType="Border">
-                                <Setter Property="CornerRadius" Value="15"></Setter>
-                            </Style>
-                        </TextBox.Resources>
-                    </TextBox>
+                             Style="{StaticResource CustomTextBox}"
+                             Text="{Binding NewUsername, Mode=OneWayToSource}"
+                             ToolTip="{StaticResource UsernameToolTip}"/>
 
-                    <PasswordBox x:Name="PasswordBox"
-                                 Style="{StaticResource CustomPasswordBox2}"
-                                 Grid.Column="0"
-                                 Grid.Row="2" 
-                                 Height="35" 
-                                 Width="250"
-                                 FontSize="15"
-                                 HorizontalContentAlignment="Left"
-                                 VerticalContentAlignment="Center"
-                                 CommandManager.PreviewExecuted="passwordBox_PreviewExecuted"/>
+                        <PasswordBox x:Name="PasswordBox"
+                                     Style="{StaticResource CustomPasswordBox}"
+                                     Grid.Column="0"
+                                     Grid.Row="2" 
+                                     Height="35" 
+                                     Width="250"
+                                     FontSize="15"
+                                     Background="#222831" 
+                                     HorizontalContentAlignment="Left"
+                                     VerticalContentAlignment="Center"
+                                     CommandManager.PreviewExecuted="PasswordBox_PreviewExecuted"
+                                     ToolTip="{StaticResource PasswordToolTip}"/>
 
                     <TextBox x:Name="ShownPassword" 
                              Grid.Column="0"
                              Grid.Row="2" 
                              Height="35" 
                              Width="250"
-                             Foreground="#00ADB5"
-                             FontFamily="Comic Sans MS"
+                             Style="{StaticResource CustomTextBox}"
                              Background="#222831" 
                              FontSize="15"
                              HorizontalContentAlignment="Left"
                              VerticalContentAlignment="Center"
-                             Visibility="Hidden">
-                        <TextBox.ToolTip>
-                            <ToolTip Content="Enter your username..." Background="#393E46" Foreground="#00ADB5"
-                                     FontFamily="Comic Sans MS" FontSize="15"/>
-                        </TextBox.ToolTip>
-                        <TextBox.Resources>
-                            <Style TargetType="Border">
-                                <Setter Property="CornerRadius" Value="15"/>
-                            </Style>
-                        </TextBox.Resources>
-                    </TextBox>
+                             Visibility="Hidden"/>
 
                     <Image x:Name="EyeImage" 
                            Grid.Column="0"
@@ -153,38 +124,24 @@
                             Grid.Row="1"
                             Height="35" 
                             Width="250"
-                            Foreground="#00ADB5"
-                            FontFamily="Comic Sans MS"
+                            Style="{StaticResource CustomButton}"
                             Background="#222831" 
                             FontSize="20"
                             Content="Change username"
                             Command="{Binding ChangeUsername}"
-                            Click="ChangeUsername_OnClick">
-                        <Button.Resources>
-                            <Style TargetType="Border">
-                                <Setter Property="CornerRadius" Value="15"></Setter>
-                            </Style>
-                        </Button.Resources>
-                    </Button>
+                            Click="ChangeUsername_OnClick"/>
+                      
 
                     <Button Grid.Column="1"
                             Grid.Row="2"
                             Height="35" 
                             Width="250"
-                            Foreground="#00ADB5"
-                            FontFamily="Comic Sans MS"
+                            Style="{StaticResource CustomButton}"
                             Background="#222831" 
                             FontSize="20"
                             Content="Change password"
                             Click="ChangePassword_OnClick"
-                            Command="{Binding ChangePassword}">
-                        <Button.Resources>
-                            <Style TargetType="Border">
-                                <Setter Property="CornerRadius" Value="15"></Setter>
-                            </Style>
-                        </Button.Resources>
-                    </Button>
-
+                            Command="{Binding ChangePassword}"/>
                 </Grid>
             </Border>
         </Grid>

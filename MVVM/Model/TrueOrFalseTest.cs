@@ -1,7 +1,6 @@
 ﻿using Filian.MVVM.ViewModel;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Data.SqlClient;
 
 namespace Filian.MVVM.Model

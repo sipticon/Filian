@@ -1,5 +1,4 @@
 ﻿using System;
-using Filian.Core;
 using System.Collections.ObjectModel;
 using Filian.MVVM.Model;
 using System.Data.SqlClient;

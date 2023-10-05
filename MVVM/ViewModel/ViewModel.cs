@@ -34,9 +34,11 @@ namespace Filian.MVVM.ViewModel
 
         public void CreateUserNotificationBox(string notification, string advice)
         {
-            UserNotificationViewModel userNotificationViewModel = new UserNotificationViewModel();
-            userNotificationViewModel.NotificationMessage = notification;
-            userNotificationViewModel.NotificationAdvice = advice;
+            UserNotificationViewModel userNotificationViewModel = new UserNotificationViewModel
+            {
+             NotificationMessage = notification,
+             NotificationAdvice = advice
+            };
             UserNotificationView userNotificationView = new UserNotificationView();
             userNotificationView.Show();
         }

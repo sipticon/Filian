@@ -13,8 +13,6 @@ namespace Filian.MVVM.View
         {
             InitializeComponent();
         }
-
-
         private void ChangePassword_OnClick(object sender, RoutedEventArgs e)
         {
             UserAccountViewModel.NewUserPassword = PasswordBox.Password;
@@ -53,7 +51,7 @@ namespace Filian.MVVM.View
             bitImg.EndInit();
             return bitImg;
         }
-        private void passwordBox_PreviewExecuted(object sender, ExecutedRoutedEventArgs e)
+        private void PasswordBox_PreviewExecuted(object sender, ExecutedRoutedEventArgs e)
         {
             if (e.Command == ApplicationCommands.Copy ||
                 e.Command == ApplicationCommands.Cut ||
