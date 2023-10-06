@@ -37,9 +37,8 @@
                    VerticalAlignment="Center"
                    HorizontalAlignment="Center"
                    Margin="10,0,0,0"
-                   Foreground="#00ADB5"
+                   Style="{StaticResource CustomLabel}"
                    FontSize="20"
-                   FontFamily="Comic Sans MS"
                    Content="Notification message"/>
 
             <Image Grid.Column="0"
@@ -49,49 +48,32 @@
 
             <Label Grid.Column="1"
                    Grid.Row="1"
-                   Foreground="#00ADB5"
                    FontSize="17"
-                   FontFamily="Comic Sans MS">
-                <Label.Content>
-                    <AccessText TextWrapping="Wrap"
-                                Text="{Binding NotificationMessage}" 
-                                Width="320" 
-                                Height="80"/>
-                </Label.Content>
-            </Label>
+                   Height="90"
+                   VerticalAlignment="Top"
+                   Style="{StaticResource WrapCustomLabel}"
+                   Content="{Binding NotificationMessage}"/>
 
             <Label Grid.Column="1"
                    Grid.Row="1"
-                   Foreground="#00ADB5"
                    FontSize="17"
+                   Height="90"
                    VerticalAlignment="Bottom"
-                   FontFamily="Comic Sans MS">
-                <Label.Content>
-                    <AccessText TextWrapping="Wrap" 
-                                Text="{Binding NotificationAdvice}"
-                                Width="320" 
-                                Height="90"/>
-                </Label.Content>
-            </Label>
+                   Content="{Binding NotificationAdvice}"
+                   Style="{StaticResource WrapCustomLabel}"/>
+            
 
             <Button Grid.Row="2" 
                     Grid.Column="0"
                     Grid.ColumnSpan="2"
                     Width="120" 
                     Height="35"
-                    Background="#393E46"
                     BorderBrush="Transparent"
                     FontSize="17"
                     Content="OK" 
-                    Foreground="#00ADB5"
-                    FontFamily="Comic Sans MS"
-                    Command="{Binding CloseNotificationBoxCommand}">
-                <Button.Resources>
-                    <Style TargetType="Border">
-                        <Setter Property="CornerRadius" Value="15"></Setter>
-                    </Style>
-                </Button.Resources>
-            </Button>
+                    Style="{StaticResource CustomButton}"
+                    Command="{Binding CloseNotificationBoxCommand}"/>
+            
         </Grid>
-        </Border>
+    </Border>
 </Window>

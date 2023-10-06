@@ -8,7 +8,9 @@
         mc:Ignorable="d"
         Height="500" Width="800"
         WindowStyle="None"
+        Title="Filian registration"
         ResizeMode="NoResize"
+        MouseDown="Window_MouseDown"
         Background="Transparent"
         AllowsTransparency="True"
         WindowStartupLocation="CenterScreen">

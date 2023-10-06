@@ -34,8 +34,9 @@
                                     CornerRadius="30">
                                 <StackPanel>
                                     <Image Source="{Binding Path=PicturePath}" Width="200" Height="180" Margin="10,10,10,10"  Stretch="Fill"/>
-                                    <TextBlock FontSize="20" Foreground="#00ADB5"
-                                               FontFamily="Comic Sans MS" Text="{Binding Path=Translation}" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+                                    <Label FontSize="20" Style="{StaticResource CustomLabel}" 
+                                           Content="{Binding Path=Translation}" HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                                           Margin="0,-5,0,0"/>
                                 </StackPanel>
                             </Border>
                         </StackPanel>

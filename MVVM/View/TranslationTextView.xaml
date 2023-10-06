@@ -7,6 +7,7 @@
              xmlns:viewModel="clr-namespace:Filian.MVVM.ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+
     <UserControl.DataContext>
         <viewModel:TranslationTextViewModel/>
     </UserControl.DataContext>
@@ -25,31 +26,25 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <Label Grid.Row="0" Grid.ColumnSpan="2" 
+
+                <Label Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" 
                        FontSize="40"
-                       Foreground="#00ADB5"
-                       FontFamily="Comic Sans MS"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"
-                       Content="{Binding Translation}"/>
+                       Content="{Binding Translation}"
+                       Style="{StaticResource CustomLabel}"/>
+
                 <TextBox x:Name="Answer"
                          Grid.Row="1" 
                          Grid.ColumnSpan="2" 
                          Grid.Column="0"
                          Height="35" 
                          Width="250"
-                         Foreground="#00ADB5"
-                         FontFamily="Comic Sans MS"
                          Background="#222831"
                          Text ="{Binding Answer, Mode=TwoWay}"
                          TextAlignment="Center"
-                         FontSize="20">
-                    <TextBox.Resources>
-                        <Style TargetType="Border">
-                            <Setter Property="CornerRadius" Value="15"></Setter>
-                        </Style>
-                    </TextBox.Resources>
-                </TextBox>
+                         FontSize="20"
+                         Style="{StaticResource CustomTextBox}"/>
             </Grid>
         </Border>
     </Grid>

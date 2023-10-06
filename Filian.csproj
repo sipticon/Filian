@@ -39,6 +39,9 @@
   <PropertyGroup>
     <StartupObject />
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>owlicon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="log4net, Version=2.0.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>packages\log4net.2.0.15\lib\net45\log4net.dll</HintPath>
@@ -125,7 +128,6 @@
     <Compile Include="MVVM\ViewModel\UserNotificationViewModel.cs" />
     <Compile Include="MVVM\ViewModel\UserRegistrationViewModel.cs" />
     <Compile Include="MVVM\ViewModel\ViewModel.cs" />
-    <Compile Include="MVVM\ViewModel\WelcomeViewModel.cs" />
     <Compile Include="MVVM\View\FindPairTranslationView.xaml.cs">
       <DependentUpon>FindPairTranslationView.xaml</DependentUpon>
     </Compile>
@@ -237,10 +239,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MVVM\View\WelcomeView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Themes\ButtonTheme.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -294,9 +292,6 @@
     <Compile Include="MVVM\View\UserRegistrationView.xaml.cs">
       <DependentUpon>UserRegistrationView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MVVM\View\WelcomeView.xaml.cs">
-      <DependentUpon>WelcomeView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -328,6 +323,9 @@
     <Folder Include="Fonts\" />
     <Folder Include="Images\" />
     <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="owlicon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

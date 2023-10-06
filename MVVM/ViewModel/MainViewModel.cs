@@ -28,7 +28,6 @@ namespace Filian.MVVM.ViewModel
         public TestsViewModel TestsVm { get; set; }
         public ThemesViewModel ThemesVm { get; set; }
         public UnderThemesViewModel UnderThemesVm { get; set; }
-        public WelcomeViewModel WelcomeVm { get; set; }
         public OneFromTwoViewModel OneFromTwoVm { get; set; }
         public OneFromFourViewModel OneFromFourVm { get; set; }
         public OneFromFourTextViewModel OneFromFourTextVm { get; set; }
@@ -130,7 +129,6 @@ namespace Filian.MVVM.ViewModel
             Log.Info("Application started.");
 
             LanguagesVm = new LanguagesViewModel();
-            WelcomeVm = new WelcomeViewModel();
             TestsVm = new TestsViewModel();
             
             _userCountOfCorrectAnswers = Convert.ToInt32(countOfCorrectAnswers);
@@ -310,7 +308,7 @@ namespace Filian.MVVM.ViewModel
         {
             try
             {
-                UpdateUserCorrectAnswers();
+                UpdateUserInfo();
                 Application.Current.Shutdown();
                 Log.Info("Application successfully closed.");
             }
@@ -342,10 +340,15 @@ namespace Filian.MVVM.ViewModel
 
         private void SignOut()
         {
-            UpdateUserCorrectAnswers();
-            UserAuthorizationView = new UserAuthorizationView();
-            UserAuthorizationView.Show();
-            Application.Current.Windows.OfType<MainWindow>().First().Close();
+            if (_navigatePanelButtonsActive)
+            {
+                UpdateUserInfo();
+                UserAuthorizationView = new UserAuthorizationView();
+                UserAuthorizationView.Show();
+                Application.Current.Windows.OfType<MainWindow>().First().Close();
+            }
+            else
+                CreateUserNotificationBox("You are in the test!", "You can't sign out while test is running!");
         }
 
         private void NavigateToLanguagesView()
@@ -399,17 +402,14 @@ namespace Filian.MVVM.ViewModel
         private void CheckResultOfChoice(string correctAnswer, string selectedAnswer)
         {
             if (selectedAnswer == "")
-                MessageBox.Show("Please, select answer!");
+                CreateUserNotificationBox("You didn't select the answer!", "Please, select answer!");
             else if (selectedAnswer.Contains(correctAnswer + ".") || selectedAnswer == correctAnswer)
             {
                 _countOfCorrectAnswers++;
                 Grid.Children.Add(CreateImage(_correctAnswerImagesource));
             }
             else
-            {
                 Grid.Children.Add(CreateImage(_wrongAnswerImagesource));
-            }
-            CountOfTestsLabel = $"Tests left: {_countOfTests}";
         }
 
         private void MoveToTheNextStep(string correctAnswer, string selectedAnswer)
@@ -417,7 +417,7 @@ namespace Filian.MVVM.ViewModel
             if (_countOfTests == 1)
             {
                 CheckResultOfChoice(correctAnswer, selectedAnswer);
-                MessageBox.Show($"That's all! \n Count of correct answers - {_countOfCorrectAnswers}");
+                CreateUserNotificationBox("The test is completed!", $"Count of correct answers - {_countOfCorrectAnswers}");
                 EndOfTest();
             }
             else
@@ -431,6 +431,7 @@ namespace Filian.MVVM.ViewModel
                 else
                     MoveToTheNextTest();
             }
+            
         }
         private void MoveToTheNextTest()
         {
@@ -468,8 +469,9 @@ namespace Filian.MVVM.ViewModel
                     newView = new FindPairTranslationView();
                     break;
             }
-            ChangeView(newView);
             _countOfTests--;
+            CountOfTestsLabel = $"Tests left: {_countOfTests}";
+            ChangeView(newView);
             _isAnswerShown = false;
             TextOnMainButton = "Check";
         }
@@ -492,7 +494,7 @@ namespace Filian.MVVM.ViewModel
         private void EndOfTest()
         {
             Log.Info($"Test {CurrentView} successfully finished.");
-            ChangeView(WelcomeVm);
+            ChangeView(TestsVm);
             _previousViews.Clear();
             VisibilityOfCountOfTestsLabel = Visibility.Hidden;
             _userCountOfCorrectAnswers += _countOfCorrectAnswers;
@@ -502,10 +504,10 @@ namespace Filian.MVVM.ViewModel
             _navigatePanelButtonsActive = true;
         }
 
-        private void UpdateUserCorrectAnswers()
+        private void UpdateUserInfo()
         {
             string newUserStatus = "";
-            string sqlChangeUsername = "";
+            string sqlChangeUserInfo = "";
             if (_userCountOfCorrectAnswers >= 200 && _countOfCorrectAnswers < 500)
                 newUserStatus = "Owl";
             else if (_userCountOfCorrectAnswers >= 500 && _countOfCorrectAnswers < 1000)
@@ -515,14 +517,14 @@ namespace Filian.MVVM.ViewModel
             else
                 newUserStatus = "";
 
-            sqlChangeUsername = !string.IsNullOrEmpty(newUserStatus) 
+            sqlChangeUserInfo = !string.IsNullOrEmpty(newUserStatus) 
                 ? $"UPDATE users SET correct_answers='{_userCountOfCorrectAnswers}', user_status='{newUserStatus}' WHERE username = '{userName}'" 
                 : $"UPDATE users SET correct_answers='{_userCountOfCorrectAnswers}' WHERE username = '{userName}'";
 
             SqlConnection sqlConnection = new SqlConnection(sqlConnectionString);
             sqlConnection.Open();
 
-            SqlCommand sqlCommand = new SqlCommand(sqlChangeUsername, sqlConnection);
+            SqlCommand sqlCommand = new SqlCommand(sqlChangeUserInfo, sqlConnection);
             try
             {
                 sqlCommand.ExecuteNonQuery();

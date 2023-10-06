@@ -27,43 +27,44 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <Image Grid.Row="0"
+
+                <Image Grid.Column="0" Grid.Row="0"
                        Grid.ColumnSpan="2"
                        Source="{Binding PicturePath }" 
                        Height="200" Width="220" 
                        Stretch="Fill"/>
+
                 <Label Grid.Row="1" 
                        Grid.Column="0"  
                        MouseDown="Select1"
                        Content="{Binding Word1}" 
                        FontSize="20" HorizontalAlignment="Center" 
                        VerticalAlignment="Center"
-                       Foreground="#00ADB5"
-                       FontFamily="Comic Sans MS"/>
+                       Style="{StaticResource CustomLabel}"/>
+
                 <Label Grid.Row="1" 
                        Grid.Column="1"  
                        MouseDown="Select2"
                        Content="{Binding Word2}" 
                        FontSize="20" HorizontalAlignment="Center" 
                        VerticalAlignment="Center"
-                       Foreground="#00ADB5"
-                       FontFamily="Comic Sans MS"/>
+                       Style="{StaticResource CustomLabel}"/>
+
                 <Label Grid.Row="2" 
                        Grid.Column="0"  
                        MouseDown="Select3"
                        Content="{Binding Word3}" 
                        FontSize="20" HorizontalAlignment="Center" 
                        VerticalAlignment="Center"
-                       Foreground="#00ADB5"
-                       FontFamily="Comic Sans MS"/>
+                       Style="{StaticResource CustomLabel}"/>
+
                 <Label Grid.Row="2" 
                        Grid.Column="1"  
                        MouseDown="Select4"
                        Content="{Binding Word4}" 
                        FontSize="20" HorizontalAlignment="Center" 
                        VerticalAlignment="Center"
-                       Foreground="#00ADB5"
-                       FontFamily="Comic Sans MS"/>
+                       Style="{StaticResource CustomLabel}"/>
             </Grid>
         </Border>
     </Grid>

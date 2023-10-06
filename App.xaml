@@ -6,6 +6,7 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:view="clr-namespace:Filian.MVVM.View"
              StartupUri="/MVVM/View/UserAuthorizationView.xaml"
+             
              ShutdownMode="OnExplicitShutdown">
     <Application.Resources>
         <ResourceDictionary>
@@ -30,11 +31,7 @@
                  <view:ThemesView/>
              </DataTemplate>
 
-             <DataTemplate DataType="{x:Type viewModel:WelcomeViewModel}">
-                 <view:WelcomeView/>
-             </DataTemplate>
-
-             <DataTemplate DataType="{x:Type viewModel:UnderThemesViewModel}">
+            <DataTemplate DataType="{x:Type viewModel:UnderThemesViewModel}">
                  <view:UnderThemesView/>
              </DataTemplate>
 
