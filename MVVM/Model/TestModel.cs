@@ -20,8 +20,6 @@ namespace Filian.MVVM.Model
 
         protected string CreateConditionForIds(List<int> underThemeIds)
         {
-            string conditionForIds = "";
-
             foreach (int underThemeId in underThemeIds)
             {
                 ConditionForIds += $" theme_id = {underThemeId} OR";

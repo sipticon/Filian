@@ -11,8 +11,9 @@
         <UserControl.DataContext>
             <viewModel:TrueOrFalseViewModel/>
         </UserControl.DataContext>
+
     <Grid>
-            <Border
+        <Border
             Margin="10" 
             Background="#393E46" 
             CornerRadius="30">
@@ -26,37 +27,38 @@
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <Image Grid.Row="0"
+
+                    <Image Grid.Column="0" Grid.Row="0"
                        Grid.ColumnSpan="2"
                        Source="{Binding PicturePath }" 
                        Height="240" Width="260" 
                        Stretch="Fill"/>
-                    <Label x:Name="CurrentWord" 
+
+                    <Label Grid.Column="0" 
+                           x:Name="CurrentWord" 
                            Grid.Row="1" 
-                       Grid.ColumnSpan="2"  
-                       Content="{Binding ShownTranslation}" 
-                       FontSize="30" HorizontalAlignment="Center" 
-                       VerticalAlignment="Center"
-                       Foreground="#00ADB5"
-                       FontFamily="Comic Sans MS"/>
+                           Grid.ColumnSpan="2"  
+                           Content="{Binding ShownTranslation}" 
+                           FontSize="30" HorizontalAlignment="Center" 
+                           VerticalAlignment="Center"
+                           Style="{StaticResource CustomLabel}"/>
+
                     <Label Grid.Row="2" 
                            Grid.Column="0"  
                            MouseDown="SelectTrue"
                            Content="True" 
                            FontSize="30" HorizontalAlignment="Center" 
                            VerticalAlignment="Center"
-                           Foreground="#00ADB5"
-                           FontFamily="Comic Sans MS"
-                           />
+                           Style="{StaticResource CustomLabel}"/>
+
                     <Label Grid.Row="2" 
                            Grid.Column="1"  
                            MouseDown="SelectFalse"
                            Content="False" 
                            FontSize="30" HorizontalAlignment="Center" 
                            VerticalAlignment="Center"
-                           Foreground="#00ADB5"
-                           FontFamily="Comic Sans MS"/>
+                           Style="{StaticResource CustomLabel}"/>
             </Grid>
-            </Border>
-        </Grid>
+        </Border>
+    </Grid>
 </UserControl>

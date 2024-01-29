@@ -1,12 +1,7 @@
-﻿using Filian.Core;
-using Filian.MVVM.Model;
+﻿using Filian.MVVM.Model;
 using System.Collections.Generic;
 using System;
 using System.Linq;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Media.Imaging;
-using Filian.MVVM.View;
 
 namespace Filian.MVVM.ViewModel
 {

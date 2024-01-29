@@ -7,6 +7,7 @@
              xmlns:viewModel="clr-namespace:Filian.MVVM.ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+
     <UserControl.DataContext>
         <viewModel:SpellWithPictureViewModel/>
     </UserControl.DataContext>
@@ -25,29 +26,25 @@
                     <RowDefinition/>
                     <RowDefinition Height="0.3*"/>
                 </Grid.RowDefinitions>
-                <Image Grid.Row="0" Grid.ColumnSpan="2" 
+
+                <Image Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2" 
                        Source="{Binding PicturePath }" 
                        Height="280" 
                        Width="320"
                        Stretch="Fill"/>
+
                 <TextBox x:Name="Answer"
                          Grid.Row="1" 
                          Grid.ColumnSpan="2" 
                          Grid.Column="0"
                          Height="35" 
                          Width="250"
-                         Foreground="#00ADB5"
-                         FontFamily="Comic Sans MS"
                          Background="#222831"
+                         Style="{StaticResource CustomTextBox}"
                          Text ="{Binding Answer, Mode=TwoWay}"
                          TextAlignment="Center"
-                         FontSize="20">
-                    <TextBox.Resources>
-                        <Style TargetType="Border">
-                            <Setter Property="CornerRadius" Value="15"></Setter>
-                        </Style>
-                    </TextBox.Resources>
-                </TextBox>
+                         FontSize="20"/>
+                
             </Grid>
         </Border>
     </Grid>

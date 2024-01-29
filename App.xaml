@@ -3,16 +3,23 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Filian"
              xmlns:viewModel="clr-namespace:Filian.MVVM.ViewModel"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:view="clr-namespace:Filian.MVVM.View"
-             StartupUri="/MVVM/View/MainWindow.xaml"
+             StartupUri="/MVVM/View/UserAuthorizationView.xaml"
+             
              ShutdownMode="OnExplicitShutdown">
     <Application.Resources>
-         <ResourceDictionary>
+        <ResourceDictionary>
              <ResourceDictionary.MergedDictionaries>
                  <ResourceDictionary Source="Themes/MenuButtonTheme.xaml"/>
+                 <ResourceDictionary Source="Themes/PasswordBoxTheme.xaml"/>
+                 <ResourceDictionary Source="Themes/TextBoxTheme.xaml"/>
+                 <ResourceDictionary Source="Themes/ToolTipTheme.xaml"/>
+                 <ResourceDictionary Source="Themes/LabelTheme.xaml"/>
+                 <ResourceDictionary Source="Themes/ButtonTheme.xaml"/>
              </ResourceDictionary.MergedDictionaries>
-
-             <DataTemplate DataType="{x:Type viewModel:LanguagesViewModel}">
+            
+            <DataTemplate DataType="{x:Type viewModel:LanguagesViewModel}">
                  <view:LanguagesView/>
              </DataTemplate>
 
@@ -24,11 +31,7 @@
                  <view:ThemesView/>
              </DataTemplate>
 
-             <DataTemplate DataType="{x:Type viewModel:WelcomeViewModel}">
-                 <view:WelcomeView/>
-             </DataTemplate>
-
-             <DataTemplate DataType="{x:Type viewModel:UnderThemesViewModel}">
+            <DataTemplate DataType="{x:Type viewModel:UnderThemesViewModel}">
                  <view:UnderThemesView/>
              </DataTemplate>
 
@@ -70,6 +73,18 @@
 
              <DataTemplate DataType="{x:Type viewModel:FindPairTranslationViewModel}">
                  <view:FindPairTranslationView/>
+             </DataTemplate>
+
+             <DataTemplate DataType="{x:Type viewModel:UserAuthorizationViewModel}">
+                 <view:UserAuthorizationView/>
+             </DataTemplate>
+
+             <DataTemplate DataType="{x:Type viewModel:UserRegistrationViewModel}">
+                 <view:UserRegistrationView/>
+             </DataTemplate>
+
+             <DataTemplate DataType="{x:Type viewModel:UserAccountViewModel}">
+                 <view:UserAccountView/>
              </DataTemplate>
 
         </ResourceDictionary>

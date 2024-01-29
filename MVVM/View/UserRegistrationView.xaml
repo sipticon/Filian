@@ -1,0 +1,125 @@
+﻿<Window x:Class="Filian.MVVM.View.UserRegistrationView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Filian.MVVM.View"
+        xmlns:viewModel="clr-namespace:Filian.MVVM.ViewModel"
+        mc:Ignorable="d"
+        Height="500" Width="800"
+        WindowStyle="None"
+        Title="Filian registration"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen">
+    <WindowChrome.WindowChrome>
+        <WindowChrome />
+    </WindowChrome.WindowChrome>
+    <Window.DataContext>
+        <viewModel:UserRegistrationViewModel/>
+    </Window.DataContext>
+
+    <Border Background="Transparent" CornerRadius="0,0,30,0">
+        <Grid>
+            <Border
+                Background="#222831"
+                CornerRadius="30">
+                <Grid x:Name="MainGrid">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1.2*"/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition Height="0.5*"/>
+                    </Grid.RowDefinitions>
+
+                    <Label Grid.Row="0"
+                           FontSize="50"
+                           Style ="{StaticResource CustomLabel}"
+                           Content="Become a Filian member"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"/>
+
+                    <TextBox x:Name="UserName"
+                             Grid.Row="1" 
+                             Height="45" 
+                             Width="250"
+                             Style ="{StaticResource CustomTextBox}"
+                             FontSize="18"
+                             HorizontalContentAlignment="Left"
+                             VerticalContentAlignment="Center"
+                             Text="{Binding UserName, Mode=OneWayToSource}"
+                             ToolTip="{StaticResource UsernameToolTip}"/>
+
+                    <TextBox x:Name="UserEmail"
+                             Grid.Row="2" 
+                             Height="45" 
+                             Width="250"
+                             Style="{StaticResource CustomTextBox}"
+                             ToolTip="{StaticResource EmailToolTip}"
+                             FontSize="18"
+                             HorizontalContentAlignment="Left"
+                             VerticalContentAlignment="Center"
+                             Text="{Binding UserEmail, Mode=OneWayToSource}"/>
+
+                        <PasswordBox x:Name="PasswordBox"
+                                     Style="{StaticResource CustomPasswordBox}"
+                                     Grid.Row="3" 
+                                     Height="45" 
+                                     Width="250"
+                                     FontSize="18"
+                                     HorizontalContentAlignment="Left"
+                                     VerticalContentAlignment="Center"
+                                     Background="#393E46"
+                                     CommandManager.PreviewExecuted="PasswordBox_PreviewExecuted"
+                                     ToolTip="{StaticResource PasswordToolTip}"/>
+
+                    <TextBox x:Name="ShownPassword" 
+                             Grid.Row="3" 
+                             Height="45" 
+                             Width="250"
+                             Style="{StaticResource CustomTextBox}"
+                             FontSize="18"
+                             HorizontalContentAlignment="Left"
+                             VerticalContentAlignment="Center"
+                             Visibility="Hidden"/>
+
+                    <Image x:Name="EyeImage" 
+                           Grid.Row="3"
+                           Height="40"
+                           Width="40"
+                           Margin="300,5,0,0"
+                           VerticalAlignment="Center"
+                           PreviewMouseDown="ShowPassword_PreviewMouseDown" 
+                           PreviewMouseUp="ShowPassword_PreviewMouseUp" 
+                           MouseLeave="ShowPassword_MouseLeave"
+                           Source="C:\Users\oleksandrm\materials\Filian\Images\closed_eye.png"/>
+
+                    <Button x:Name="SignUpButton"
+                        Grid.Row="4"
+                        Height="45" 
+                        Width="250"
+                        Style="{StaticResource CustomButton}"
+                        FontSize="20"
+                        Content="Sign up"
+                        Command="{Binding SignUp}"
+                        Click="SignUpButton_OnClick"/>
+
+                    <Label Grid.Row="5"
+                           Style="{StaticResource CustomLinkLabel}"
+                           Content="Sign in"
+                           VerticalAlignment="Top"
+                           HorizontalAlignment="Center"
+                           FontSize="15">
+                        <Label.InputBindings>
+                            <MouseBinding Command="{Binding OpenSingInViewCommand}" MouseAction="LeftClick" />
+                        </Label.InputBindings>
+                    </Label>
+
+                </Grid>
+            </Border>
+        </Grid>
+    </Border>
+</Window>

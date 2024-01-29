@@ -27,33 +27,37 @@
                     <RowDefinition/>
                     <RowDefinition Height="0.3*"/>
                 </Grid.RowDefinitions>
-                <Image Grid.Column="0" 
+
+                <Image Grid.Row="0" Grid.Column="0" 
                        MouseDown="Select1"  
                        Source="{Binding PicturePath1 }" 
                        Height="150" Width="150" 
                        Stretch="Fill"/>
-                <Image Grid.Column="1" 
+
+                <Image Grid.Row="0" Grid.Column="1" 
                        MouseDown="Select2" 
                        Source="{Binding PicturePath2}" 
                        Height="150" Width="150" 
                        Stretch="Fill"/>
+
                 <Image Grid.Column="0" Grid.Row="1"
                        MouseDown="Select3" 
                        Source="{Binding PicturePath3}" 
                        Height="150" Width="150" 
                        Stretch="Fill"/>
+
                 <Image Grid.Column="1" Grid.Row="1"
                        MouseDown="Select4" 
                        Source="{Binding PicturePath4}" 
                        Height="150" Width="150" 
                        Stretch="Fill"/>
-                <Label Grid.Row="2" 
+
+                <Label Grid.Column="0" Grid.Row="2" 
                        Grid.ColumnSpan="2"  
                        Content="{Binding Translation}" 
                        FontSize="30" HorizontalAlignment="Center" 
                        VerticalAlignment="Center"
-                       Foreground="#00ADB5"
-                       FontFamily="Comic Sans MS"/>
+                       Style="{StaticResource CustomLabel}"/>
             </Grid>
         </Border>
     </Grid>
