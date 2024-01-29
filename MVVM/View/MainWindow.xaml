@@ -7,15 +7,15 @@
         xmlns:local="clr-namespace:Filian.MVVM.View"
         mc:Ignorable="d"
         Height="500" Width="800"
-        MouseDown="Window_MouseDown"
         WindowStyle="None"
         ResizeMode="NoResize"
         Title="Filian"
         Background="Transparent"
         AllowsTransparency="True"
-        WindowStartupLocation="CenterScreen"
->
-
+        WindowStartupLocation="CenterScreen">
+    <WindowChrome.WindowChrome>
+        <WindowChrome />
+    </WindowChrome.WindowChrome>
     <Window.DataContext>
         <viewModel:MainViewModel/>
     </Window.DataContext>

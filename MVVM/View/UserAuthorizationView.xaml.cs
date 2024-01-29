@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
 using Filian.MVVM.ViewModel;
@@ -53,12 +54,6 @@ namespace Filian.MVVM.View
             {
                 e.Handled = true;
             }
-        }
-
-        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (Mouse.LeftButton == MouseButtonState.Pressed)
-                this.DragMove();
         }
     }
 }

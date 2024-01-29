@@ -10,11 +10,12 @@
         WindowStyle="None"
         Title="Filian registration"
         ResizeMode="NoResize"
-        MouseDown="Window_MouseDown"
         Background="Transparent"
         AllowsTransparency="True"
         WindowStartupLocation="CenterScreen">
-
+    <WindowChrome.WindowChrome>
+        <WindowChrome />
+    </WindowChrome.WindowChrome>
     <Window.DataContext>
         <viewModel:UserRegistrationViewModel/>
     </Window.DataContext>

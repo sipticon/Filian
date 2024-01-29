@@ -10,11 +10,12 @@
              WindowStyle="None"
              ResizeMode="NoResize"
              Title="Filian authorization"
-             MouseDown="Window_MouseDown"
              Background="Transparent"
              AllowsTransparency="True"
              WindowStartupLocation="CenterScreen">
-
+    <WindowChrome.WindowChrome>
+        <WindowChrome />
+    </WindowChrome.WindowChrome>
     <Window.DataContext>
         <viewModel:UserAuthorizationViewModel/>
     </Window.DataContext>
