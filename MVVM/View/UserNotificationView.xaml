@@ -1,0 +1,81 @@
+﻿<Window x:Class="Filian.MVVM.View.UserNotificationView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Filian.MVVM.View"
+        xmlns:viewModel="clr-namespace:Filian.MVVM.ViewModel"
+        mc:Ignorable="d"
+        Height="300" Width="500"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen">
+    <WindowChrome.WindowChrome>
+        <WindowChrome />
+    </WindowChrome.WindowChrome>
+    <Window.DataContext>
+        <viewModel:UserNotificationViewModel/>
+    </Window.DataContext>
+
+    <Border Background="#222831" BorderBrush="#393E46" BorderThickness="5" CornerRadius="20">
+        <Grid x:Name="Grid">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.5*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.3*"/>
+                <RowDefinition/>
+                <RowDefinition Height="0.3*"/>
+            </Grid.RowDefinitions>
+
+
+            <Label Grid.Column="0"
+                   Grid.Row="0"
+                   Grid.ColumnSpan="2"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   Margin="10,0,0,0"
+                   Style="{StaticResource CustomLabel}"
+                   FontSize="20"
+                   Content="Notification message"/>
+
+            <Image Grid.Column="0"
+                   Grid.Row="1"
+                   Source="C:\Users\oleksandrm\materials\Filian\Images\owl_exclamation.png"
+                   Height="150"></Image>
+
+            <Label Grid.Column="1"
+                   Grid.Row="1"
+                   FontSize="17"
+                   Height="90"
+                   VerticalAlignment="Top"
+                   Style="{StaticResource WrapCustomLabel}"
+                   Content="{Binding NotificationMessage}"/>
+
+            <Label Grid.Column="1"
+                   Grid.Row="1"
+                   FontSize="17"
+                   Height="90"
+                   VerticalAlignment="Bottom"
+                   Content="{Binding NotificationAdvice}"
+                   Style="{StaticResource WrapCustomLabel}"/>
+            
+
+            <Button Grid.Row="2" 
+                    Grid.Column="0"
+                    Grid.ColumnSpan="2"
+                    Width="120" 
+                    Height="35"
+                    BorderBrush="Transparent"
+                    FontSize="17"
+                    Content="OK" 
+                    Style="{StaticResource CustomButton}"
+                    Command="{Binding CloseNotificationBoxCommand}"/>
+            
+        </Grid>
+    </Border>
+</Window>

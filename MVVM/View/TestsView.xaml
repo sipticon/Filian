@@ -31,11 +31,14 @@
                             <Border Height="250" 
                                     Width="275"
                                     Margin="10" 
-                                    Background="Brown" 
+                                    Background="#393E46" 
                                     CornerRadius="30">
                                 <StackPanel>
-                                    <Image Source="{Binding Path=Picture_Path}" Margin="30,5,30,0"/>
-                                    <TextBlock FontSize="20" Foreground="White" Text="{Binding Path=Name}" HorizontalAlignment="Center"/>
+                                    <Image Source="{Binding Path=PicturePath}" Margin="30,5,30,0"/>
+                                    <Label FontSize="20" Style="{StaticResource CustomLabel}" 
+                                           Content="{Binding Path=Translation}" 
+                                           HorizontalAlignment="Center"
+                                           Margin="0,-5,0,0"/>
                                 </StackPanel>
                             </Border>
                         </StackPanel>

@@ -7,6 +7,6 @@ namespace Filian.MVVM.Model
         public int Id { get; set; }
         public string Name { get; set; }
         public string Translation { get; set; }
-        public string Picture_Path { get; set; }
+        public string PicturePath { get; set; }
     }
 }

@@ -1,0 +1,24 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style x:Key="CustomTooltip"
+           TargetType="{x:Type ToolTip}">
+        <Setter Property="FontFamily"
+                Value="Comic Sans MS" />
+        <Setter Property="Foreground"
+                Value="#00ADB5"/>
+        <Setter Property="Background"
+                Value="#393E46"/>
+        <Setter Property="FontSize"
+                Value="10"/>
+    </Style>
+
+    <ToolTip x:Key="UsernameToolTip" 
+             Style="{StaticResource CustomTooltip}"
+             Content="Enter your username"/>
+    <ToolTip x:Key="EmailToolTip" 
+             Style="{StaticResource CustomTooltip}"
+             Content="Enter your email"/>
+    <ToolTip x:Key="PasswordToolTip" 
+             Style="{StaticResource CustomTooltip}"
+             Content="Enter your password"/>
+</ResourceDictionary>

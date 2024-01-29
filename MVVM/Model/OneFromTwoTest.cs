@@ -1,80 +1,93 @@
-﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.SqlClient;
+using Filian.MVVM.ViewModel;
 
 namespace Filian.MVVM.Model
 {
-    public class OneFromTwoTest
+    public class OneFromTwoTest : TestModel
     {
-        private static Queue<OneFromTwoTestInfo> oneFromTwoTestInfos;
-        public ObservableCollection<Word> Words { get; set; }
-        public static Queue<OneFromTwoTestInfo> OneFromTwoTestInfos
+        public static Queue<OneFromTwoTestInfo> OneFromTwoTestInfos { get; set; }
+
+        public OneFromTwoTest(List<int> underThemeIds)
         {
-            get => oneFromTwoTestInfos;
-            set => oneFromTwoTestInfos = value;
-        }
+            OneFromTwoTestInfos = new Queue<OneFromTwoTestInfo>();
 
-        public OneFromTwoTest(List<int> underthemeIds)
-        {
-            oneFromTwoTestInfos = new Queue<OneFromTwoTestInfo>();
+            ConditionForIds = CreateConditionForIds(underThemeIds);
 
-            string conditionForIds = "";
+            string sqlForWords = 
+                $"SELECT words.id, words.word, words.picture_path, words_translations.translation FROM words Inner JOIN words_translations ON words.id = words_translations.word_id AND language_id = {MainViewModel.LanguageId} WHERE {ConditionForIds} ;";
 
-            foreach (int underThemeId in underthemeIds)
+            SqlConnection = new SqlConnection(SqlConnectionString);
+            try
             {
-                conditionForIds += $" theme_id = {underThemeId} OR";
-            }
+                SqlConnection.Open();
 
-            conditionForIds = conditionForIds.Remove(conditionForIds.Length - 3);
+                Log.Info("Successfully connected to database for OneFromTwoTest.");
 
-            string sqlForWords = " SELECT * FROM words WHERE"+conditionForIds;
+                SqlCommand = new SqlCommand(sqlForWords, SqlConnection);
 
-            string ssqlConnectionString =
-                @"Data Source=OLEKSANDRM-T470;Initial Catalog=filian_database;Integrated Security=true";
+                SqlDataReader = SqlCommand.ExecuteReader();
 
-            SqlConnection sqlConnection = new SqlConnection(ssqlConnectionString);
-            sqlConnection.Open();
+                Words = new Queue<Word>();
 
-            SqlCommand sqlCommand = new SqlCommand(sqlForWords, sqlConnection);
-
-            SqlDataReader sqlDataReader = sqlCommand.ExecuteReader();
-
-            Words = new ObservableCollection<Word>();
-
-            while (sqlDataReader.Read())
-            {
-                Words.Add(new Word { 
-                    Id = sqlDataReader.GetInt32(0),
-                    Name = sqlDataReader.GetString(1) ,
-                    Picture_Path = sqlDataReader.GetString(2)
-                });
-
-            }
-            sqlDataReader.Close();
-            foreach (Word word in Words)
-            {
-                if (word.Picture_Path.Contains("'"))
-                    word.Picture_Path = word.Picture_Path.Replace("'", "''");
-
-                string sqlForStruct = "SELECT TOP 1 picture_path FROM words WHERE (" + conditionForIds+
-                              $") AND picture_path != '{word.Picture_Path}' " +
-                              "ORDER BY NEWID()";
-
-                sqlCommand = new SqlCommand(sqlForStruct, sqlConnection);
-                sqlDataReader = sqlCommand.ExecuteReader();
-
-                while (sqlDataReader.Read())
+                while (SqlDataReader.Read())
                 {
-                    oneFromTwoTestInfos.Enqueue(new OneFromTwoTestInfo(
-                        word.Name,
-                        word.Picture_Path,
-                        sqlDataReader.GetString(0)
-                    ));
+                    Words.Enqueue(new Word
+                    {
+                        Id = SqlDataReader.GetInt32(0),
+                        Name = SqlDataReader.GetString(1),
+                        PicturePath = SqlDataReader.GetString(2),
+                        Translation = SqlDataReader.GetString(3)
+                    });
                 }
-                sqlDataReader.Close();
+
+                Log.Info("Successfully selected words info from database for OneFromTwoTest.");
+
+                SqlDataReader.Close();
             }
-            sqlConnection.Close();
+            catch (Exception ex)
+            {
+                Log.Error("Failed while trying to select words info from database for OneFromTwoTest: ", ex);
+            }
+
+            try
+            {
+                if (Words != null)
+                    foreach (Word word in Words)
+                    {
+                        if (word.PicturePath.Contains("'"))
+                            word.PicturePath = word.PicturePath.Replace("'", "''");
+
+                        string sqlForStruct = "SELECT TOP 1 picture_path FROM words WHERE (" + ConditionForIds +
+                                              $") AND picture_path != '{word.PicturePath}' " +
+                                              "ORDER BY NEWID()";
+
+                        SqlCommand = new SqlCommand(sqlForStruct, SqlConnection);
+
+                        SqlDataReader = SqlCommand.ExecuteReader();
+
+                        while (SqlDataReader.Read())
+                        {
+                            OneFromTwoTestInfos.Enqueue(new OneFromTwoTestInfo(
+                                word.Name,
+                                word.Translation,
+                                word.PicturePath,
+                                SqlDataReader.GetString(0)
+                            ));
+                        }
+
+                        SqlDataReader.Close();
+                    }
+
+                Log.Info("Successfully selected pictures info from database for OneFromTwoTest.");
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Failed while trying to select pictures info from database for OneFromTwoTest: ", ex);
+            }
+
+            SqlConnection.Close();
         }
-         
     }
 }

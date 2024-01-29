@@ -1,0 +1,149 @@
+﻿<UserControl x:Class="Filian.MVVM.View.UserAccountView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Filian.MVVM.View"
+             xmlns:viewModel="clr-namespace:Filian.MVVM.ViewModel"
+             mc:Ignorable="d" 
+             d:DesignHeight="400" d:DesignWidth="630">
+
+    <UserControl.DataContext>
+        <viewModel:UserAccountViewModel/>
+    </UserControl.DataContext>
+
+    <Border Background="Transparent" CornerRadius="0,0,30,0">
+        <Grid>
+            <Border
+                Background="#393E46"
+                CornerRadius="30">
+                <Grid x:Name="MainGrid">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="4*"/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1.2*"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Image  Grid.Column ="0" 
+                            Grid.Row="0"
+                            Height="250"
+                            Width="250"
+                            Source="C:\Users\oleksandrm\materials\Filian\Images\usericon.png"/>
+
+                    <Label Grid.Column ="1" 
+                           Grid.Row="0"
+                           FontSize="20"
+                           Style="{StaticResource CustomLabel}"
+                           Content="{Binding  UserNameLabel}"
+                           Margin="10,30,0,0"
+                           HorizontalAlignment="left"
+                           VerticalAlignment="Top"/>
+
+                    <Label Grid.Column ="1" 
+                           Grid.Row="0"
+                           FontSize="20" 
+                           Style="{StaticResource WrapCustomLabel}"
+                           Margin="15,145,0,0"
+                           HorizontalAlignment="left"
+                           VerticalAlignment="Top"
+                           Content="{Binding UserEmailLabel}"/>
+
+                    <Label Grid.Column ="1" 
+                           Grid.Row="0"
+                           FontSize="20"
+                           Style="{StaticResource CustomLabel}"
+                           Content="{Binding UserStatusLabel}"
+                           Margin="10,90,0,0"
+                           HorizontalAlignment="left"
+                           VerticalAlignment="Top"/>
+
+                    <Label Grid.Column ="1" 
+                           Grid.Row="0"
+                           FontSize="20"
+                           Style="{StaticResource WrapCustomLabel}"
+                           Content="{Binding CountOfCorrectAnswersLabel}"
+                           Margin="15,200,0,0"
+                           HorizontalAlignment="left"
+                           VerticalAlignment="Top"/>
+
+                    <TextBox x:Name="NewUsername"
+                             Grid.Column="0"
+                             Grid.Row="1" 
+                             Height="35" 
+                             Width="250"
+                             Background="#222831" 
+                             FontSize="15"
+                             HorizontalContentAlignment="Left"
+                             VerticalContentAlignment="Center"
+                             Style="{StaticResource CustomTextBox}"
+                             Text="{Binding NewUsername, Mode=OneWayToSource}"
+                             ToolTip="{StaticResource UsernameToolTip}"/>
+
+                        <PasswordBox x:Name="PasswordBox"
+                                     Style="{StaticResource CustomPasswordBox}"
+                                     Grid.Column="0"
+                                     Grid.Row="2" 
+                                     Height="35" 
+                                     Width="250"
+                                     FontSize="15"
+                                     Background="#222831" 
+                                     HorizontalContentAlignment="Left"
+                                     VerticalContentAlignment="Center"
+                                     CommandManager.PreviewExecuted="PasswordBox_PreviewExecuted"
+                                     ToolTip="{StaticResource PasswordToolTip}"/>
+
+                    <TextBox x:Name="ShownPassword" 
+                             Grid.Column="0"
+                             Grid.Row="2" 
+                             Height="35" 
+                             Width="250"
+                             Style="{StaticResource CustomTextBox}"
+                             Background="#222831" 
+                             FontSize="15"
+                             HorizontalContentAlignment="Left"
+                             VerticalContentAlignment="Center"
+                             Visibility="Hidden"/>
+
+                    <Image x:Name="EyeImage" 
+                           Grid.Column="0"
+                           Grid.Row="2"
+                           Height="35"
+                           Width="35"
+                           Margin="290,5,0,0"
+                           VerticalAlignment="Center"
+                           PreviewMouseDown="ShowPassword_PreviewMouseDown" 
+                           PreviewMouseUp="ShowPassword_PreviewMouseUp" 
+                           MouseLeave="ShowPassword_MouseLeave"
+                           Source="C:\Users\oleksandrm\materials\Filian\Images\closed_eye.png"/>
+
+                    <Button Grid.Column="1"
+                            Grid.Row="1"
+                            Height="35" 
+                            Width="250"
+                            Style="{StaticResource CustomButton}"
+                            Background="#222831" 
+                            FontSize="20"
+                            Content="Change username"
+                            Command="{Binding ChangeUsername}"
+                            Click="ChangeUsername_OnClick"/>
+                      
+
+                    <Button Grid.Column="1"
+                            Grid.Row="2"
+                            Height="35" 
+                            Width="250"
+                            Style="{StaticResource CustomButton}"
+                            Background="#222831" 
+                            FontSize="20"
+                            Content="Change password"
+                            Click="ChangePassword_OnClick"
+                            Command="{Binding ChangePassword}"/>
+                </Grid>
+            </Border>
+        </Grid>
+    </Border>
+</UserControl>

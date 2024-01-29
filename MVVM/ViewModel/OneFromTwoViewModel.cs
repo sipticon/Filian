@@ -1,82 +1,82 @@
-﻿using Filian.Core;
-using Filian.MVVM.Model;
+﻿using Filian.MVVM.Model;
 using System.Collections.Generic;
 using System;
 using System.Linq;
 
 namespace Filian.MVVM.ViewModel
 {
-    public class OneFromTwoViewModel : ObservableObject
+    public class OneFromTwoViewModel : ViewModel
     {
-        private OneFromTwoTestInfo oneFromTwoTestInfo;
-        private Random random = new Random();
-        private static string word;
-        private string picture_Path1;
-        private string picture_Path2;
-        private Queue<OneFromTwoTestInfo> oneFromTwoTestInfos = OneFromTwoTest.OneFromTwoTestInfos;
-        private static string selectedImage = "";
-        private static int countOftests;
+        private static string _word;
+        private string _translation;
+        private string _picturePath1;
+        private string _picturePath2;
+        
+        private readonly Queue<OneFromTwoTestInfo> _oneFromTwoTestInfos = OneFromTwoTest.OneFromTwoTestInfos;
 
-        public int CountOftests
-        {
-            get => countOftests;
-            set => countOftests = value;
-        }
-
-        public static string SelectedImage
-        {
-            get => selectedImage;
-            set
-            {
-                selectedImage = value;
-            }
-        }
+        public static string SelectedImage { get; set; } = "";
 
         public string Word
         {
-            get => word;
+            get => _word;
+            set => _word = value;
+        }
+
+        public string Translation
+        {
+            get => _translation;
             set
-            { 
-                word = value;
+            {
+                _translation = value;
                 OnPropertyChanged();
-            } 
+            }
         }
 
         public string PicturePath1
         {
-            get => picture_Path1;
+            get => _picturePath1;
             set
             {
-                picture_Path1 = value;
+                _picturePath1 = value;
                 OnPropertyChanged();
             }
         }
 
         public string PicturePath2
         {
-            get => picture_Path2;
+            get => _picturePath2;
             set
             {
-                picture_Path2 = value;
+                _picturePath2 = value;
                 OnPropertyChanged();
             }
         }
 
         public OneFromTwoViewModel()
         {
-            if (oneFromTwoTestInfos != null)
+            try
             {
-                CountOftests = oneFromTwoTestInfos.Count;
-                if (CountOftests > 0)
+                if (_oneFromTwoTestInfos != null)
                 {
-                    oneFromTwoTestInfo = oneFromTwoTestInfos.Dequeue();
-                    Word = oneFromTwoTestInfo.word_Name;
-                    var paths = new List<string> { oneFromTwoTestInfo.picture_Path1, oneFromTwoTestInfo.picture_Path2 };
-                    int index = random.Next(0, paths.Count);
-                    PicturePath1 = paths[index];
-                    paths.RemoveAt(index);
-                    PicturePath2 = paths.FirstOrDefault();
+                    CountOfTests = _oneFromTwoTestInfos.Count;
+                    if (CountOfTests > 0)
+                    {
+                        OneFromTwoTestInfo oneFromTwoTestInfo = _oneFromTwoTestInfos.Dequeue();
+                        Word = oneFromTwoTestInfo.WordName;
+                        Translation = oneFromTwoTestInfo.WordTranslation;
+                        var paths = new List<string>
+                            { oneFromTwoTestInfo.PicturePath1, oneFromTwoTestInfo.PicturePath2 };
+                        int index = _random.Next(0, paths.Count);
+                        PicturePath1 = paths[index];
+                        paths.RemoveAt(index);
+                        PicturePath2 = paths.FirstOrDefault();
+                        Log.Info("OneFromTwoTest successfully created.");
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Failed while creating OneFromTwoTest: ",ex);
             }
         }
     }

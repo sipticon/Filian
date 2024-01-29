@@ -3,14 +3,25 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:Filian"
              xmlns:viewModel="clr-namespace:Filian.MVVM.ViewModel"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:view="clr-namespace:Filian.MVVM.View"
-             StartupUri="MainWindow.xaml"
+             StartupUri="/MVVM/View/UserAuthorizationView.xaml"
+             
              ShutdownMode="OnExplicitShutdown">
     <Application.Resources>
-         <ResourceDictionary>
+        <ResourceDictionary>
              <ResourceDictionary.MergedDictionaries>
                  <ResourceDictionary Source="Themes/MenuButtonTheme.xaml"/>
+                 <ResourceDictionary Source="Themes/PasswordBoxTheme.xaml"/>
+                 <ResourceDictionary Source="Themes/TextBoxTheme.xaml"/>
+                 <ResourceDictionary Source="Themes/ToolTipTheme.xaml"/>
+                 <ResourceDictionary Source="Themes/LabelTheme.xaml"/>
+                 <ResourceDictionary Source="Themes/ButtonTheme.xaml"/>
              </ResourceDictionary.MergedDictionaries>
+            
+            <DataTemplate DataType="{x:Type viewModel:LanguagesViewModel}">
+                 <view:LanguagesView/>
+             </DataTemplate>
 
             <DataTemplate DataType="{x:Type viewModel:TestsViewModel}">
                  <view:TestsView/>
@@ -20,16 +31,60 @@
                  <view:ThemesView/>
              </DataTemplate>
 
-             <DataTemplate DataType="{x:Type viewModel:WelcomeViewModel}">
-                 <view:WelcomeView/>
-             </DataTemplate>
-
-             <DataTemplate DataType="{x:Type viewModel:UnderThemesViewModel}">
+            <DataTemplate DataType="{x:Type viewModel:UnderThemesViewModel}">
                  <view:UnderThemesView/>
              </DataTemplate>
 
              <DataTemplate DataType="{x:Type viewModel:OneFromTwoViewModel}">
                  <view:OneFromTwoView/>
+             </DataTemplate>
+
+             <DataTemplate DataType="{x:Type viewModel:OneFromFourViewModel}">
+                 <view:OneFromFourView/>
+             </DataTemplate>
+
+             <DataTemplate DataType="{x:Type viewModel:OneFromFourTextViewModel}">
+                 <view:OneFromFourTextView/>
+             </DataTemplate>
+
+             <DataTemplate DataType="{x:Type viewModel:OneFromFourListeningViewModel}">
+                 <view:OneFromFourListeningView/>
+             </DataTemplate>
+
+             <DataTemplate DataType="{x:Type viewModel:TrueOrFalseViewModel}">
+                 <view:TrueOrFalseView/>
+             </DataTemplate>
+
+             <DataTemplate DataType="{x:Type viewModel:SpellWithPictureViewModel}">
+                 <view:SpellWithPictureView/>
+             </DataTemplate>
+
+             <DataTemplate DataType="{x:Type viewModel:SpellWithVoiceViewModel}">
+                 <view:SpellWithVoiceView/>
+             </DataTemplate>
+
+             <DataTemplate DataType="{x:Type viewModel:TranslationTextViewModel}">
+                 <view:TranslationTextView/>
+             </DataTemplate>
+
+             <DataTemplate DataType="{x:Type viewModel:TranslationPronunciationViewModel}">
+                 <view:TranslationPronunciationView/>
+             </DataTemplate>
+
+             <DataTemplate DataType="{x:Type viewModel:FindPairTranslationViewModel}">
+                 <view:FindPairTranslationView/>
+             </DataTemplate>
+
+             <DataTemplate DataType="{x:Type viewModel:UserAuthorizationViewModel}">
+                 <view:UserAuthorizationView/>
+             </DataTemplate>
+
+             <DataTemplate DataType="{x:Type viewModel:UserRegistrationViewModel}">
+                 <view:UserRegistrationView/>
+             </DataTemplate>
+
+             <DataTemplate DataType="{x:Type viewModel:UserAccountViewModel}">
+                 <view:UserAccountView/>
              </DataTemplate>
 
         </ResourceDictionary>

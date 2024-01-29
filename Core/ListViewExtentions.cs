@@ -3,7 +3,7 @@ using System.Linq;
 using System.Windows.Controls;
 using System.Windows;
 
-namespace Filian.MVVM.Model
+namespace Filian.Core
 {
     public static class ListViewExtentions
     {

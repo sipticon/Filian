@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Filian.MVVM.View"
              xmlns:viewModel="clr-namespace:Filian.MVVM.ViewModel"
-             xmlns:model="clr-namespace:Filian.MVVM.Model"
+             xmlns:model="clr-namespace:Filian.Core"
              mc:Ignorable="d" 
              d:DesignHeight="400" d:DesignWidth="630">
 
@@ -32,11 +32,15 @@
                             <Border Height="250" 
                                     Width="275"
                                     Margin="10" 
-                                    Background="Brown" 
+                                    Background="#393E46" 
                                     CornerRadius="30">
                                 <StackPanel>
-                                    <Image Source="{Binding Path=Picture_Path}" Width="200" Height="180" Margin="10,10,10,10"  Stretch="Fill"/>
-                                    <TextBlock FontSize="20" Foreground="White" Text="{Binding Path=Name}" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+                                    <Image Source="{Binding Path=PicturePath}" Width="200" Height="180" Margin="10,10,10,10"  Stretch="Fill"/>
+                                    <Label FontSize="20"
+                                           Margin="0,-5,0,0"
+                                           Content="{Binding Path=Translation}"
+                                           HorizontalAlignment="Center" VerticalAlignment="Bottom"
+                                           Style="{StaticResource CustomLabel}"/>
                                 </StackPanel>
                             </Border>
                         </StackPanel>
