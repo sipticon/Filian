@@ -11,6 +11,7 @@ using Image = System.Windows.Controls.Image;
 using System.Linq;
 using Application = System.Windows.Application;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace Filian.MVVM.ViewModel
 {
@@ -62,8 +63,8 @@ namespace Filian.MVVM.ViewModel
 
         private Visibility _visibilityOfCountOfTestsLabel = Visibility.Hidden;
 
-        public static readonly string _correctAnswerImagesource = @"C:\Users\oleksandrm\materials\Test_Icons\grey\Checkbox_Yes.png";
-        public static readonly string _wrongAnswerImagesource = @"C:\Users\oleksandrm\materials\Test_Icons\grey\Checkbox_No.png";
+        public static readonly string _correctAnswerImagesource = Path.GetFullPath(@"FilianFiles\Test_Icons\grey\Checkbox_Yes.png");
+        public static readonly string _wrongAnswerImagesource = Path.GetFullPath(@"FilianFiles\Test_Icons\grey\Checkbox_No.png");
 
         public static string userName;
         public static string userEmail;
@@ -185,7 +186,6 @@ namespace Filian.MVVM.ViewModel
                 {
                     foreach (Theme underTheme in underThemes)
                     {
-                        UnderThemeIds.Add(underTheme.Id);
                         UnderThemeIds.Add(underTheme.Id);
                     }
 
@@ -401,7 +401,7 @@ namespace Filian.MVVM.ViewModel
 
         private void CheckResultOfChoice(string correctAnswer, string selectedAnswer)
         {
-            if (selectedAnswer == "")
+            if (String.IsNullOrEmpty(selectedAnswer))
                 CreateUserNotificationBox("You didn't select the answer!", "Please, select answer!");
             else if (selectedAnswer.Contains(correctAnswer + ".") || selectedAnswer == correctAnswer)
             {
@@ -502,6 +502,7 @@ namespace Filian.MVVM.ViewModel
             _countOfTests = 0;
             _backButtonActive = true;
             _navigatePanelButtonsActive = true;
+            UnderThemeIds = new List<int>();
         }
 
         private void UpdateUserInfo()

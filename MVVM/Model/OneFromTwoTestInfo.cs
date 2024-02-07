@@ -1,4 +1,6 @@
-﻿namespace Filian.MVVM.Model
+﻿using System.IO;
+
+namespace Filian.MVVM.Model
 {
     public struct OneFromTwoTestInfo
     {
@@ -10,9 +12,9 @@
         public OneFromTwoTestInfo(string wordName, string wordTranslation, string picturePath1, string picturePath2)
         {
             this.WordName = wordName;
-            this.WordTranslation = wordTranslation;
-            this.PicturePath1 = picturePath1;
-            this.PicturePath2 = picturePath2;
+            this.WordTranslation = Path.GetFullPath(wordTranslation);
+            this.PicturePath1 = Path.GetFullPath(picturePath1);
+            this.PicturePath2 = Path.GetFullPath(picturePath2);
         }
     }
 }
