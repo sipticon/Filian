@@ -61,12 +61,10 @@ namespace Filian.MVVM.ViewModel
             User logInUser = new User(userName, userPassword);
 
             string sqlGetUser = $"SELECT * FROM users WHERE username = '{logInUser.UserName}'";
-
             SqlConnection sqlConnection = new SqlConnection(sqlConnectionString);
-            sqlConnection.Open();
-
             try
             {
+                sqlConnection.Open();
                 SqlCommand sqlCommand = new SqlCommand(sqlGetUser, sqlConnection);
 
                 User gotUser = new User();
@@ -107,6 +105,7 @@ namespace Filian.MVVM.ViewModel
             {
                 
                 Log.Error("Failed while trying to sign in: ", ex);
+                CreateUserNotificationBox("Something went wrong while tying to sign in!", "Please, check your connection to internet!");
             }
             finally
             {

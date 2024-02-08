@@ -9,7 +9,7 @@ namespace Filian.MVVM.ViewModel
     {
         protected static readonly log4net.ILog Log = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod()?.DeclaringType);
 
-        public readonly string sqlConnectionString = @"Data Source=OLEKSANDRM-T470;Initial Catalog=filian_database;Integrated Security=true";
+        public readonly string sqlConnectionString = "Data Source=filian-database.c5ce82k0wnfb.us-west-2.rds.amazonaws.com,1433;Initial Catalog=filian_db;User ID=admin;Password=filian_admin;";
 
         public readonly Random _random = new Random();
 

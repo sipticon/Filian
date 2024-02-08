@@ -67,13 +67,13 @@ namespace Filian.MVVM.ViewModel
             if (newUser != null)
             {
                 string sqlNewUser = 
-                    $"INSERT INTO users (username , email, user_status, user_password) VALUES ({newUser.UserName}, {newUser.UserEmail}, {newUser.UserStatus}, {newUser.UserPassword})";
+                    $"INSERT INTO users (username , email, user_status, user_password) VALUES ('{newUser.UserName}', '{newUser.UserEmail}', '{newUser.UserStatus}', '{newUser.UserPassword}')";
 
                 SqlConnection sqlConnection = new SqlConnection(sqlConnectionString);
-                sqlConnection.Open();
-
+                
                 try
                 {
+                    sqlConnection.Open();
                     SqlCommand sqlCommand = new SqlCommand(sqlNewUser, sqlConnection);
                     sqlCommand.ExecuteNonQuery();
 
@@ -86,8 +86,9 @@ namespace Filian.MVVM.ViewModel
                 catch (Exception ex)
                 {
                     CreateUserNotificationBox("User with current username or email address already exists!",
-                        "Create new username or sign up.");
+                        "Create new username or sign in.");
                     Log.Error("Failed while trying to add new user to database: ", ex);
+                    CreateUserNotificationBox("Something went wrong while tying to register you!", "Please, check your connection to internet!");
                 }
                 finally
                 {

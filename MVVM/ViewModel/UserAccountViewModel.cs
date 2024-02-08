@@ -138,6 +138,7 @@ namespace Filian.MVVM.ViewModel
             {
                 sqlCommand.ExecuteNonQuery();
                 UserNameLabel = $"Username: {NewUsername}";
+                UserName = NewUsername;
                 NewUsername = "";
             }
             catch (Exception ex)
@@ -172,7 +173,7 @@ namespace Filian.MVVM.ViewModel
             }
             catch (Exception ex)
             {
-                Log.Error("Error while trying to change user password: " + ex);
+                CreateUserNotificationBox("Something went wrong while tying to change password!", "Please, check your connection to internet!");
             }
             finally
             {
