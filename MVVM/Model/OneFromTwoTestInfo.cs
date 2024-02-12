@@ -12,7 +12,7 @@ namespace Filian.MVVM.Model
         public OneFromTwoTestInfo(string wordName, string wordTranslation, string picturePath1, string picturePath2)
         {
             this.WordName = wordName;
-            this.WordTranslation = Path.GetFullPath(wordTranslation);
+            this.WordTranslation = wordTranslation;
             this.PicturePath1 = Path.GetFullPath(picturePath1);
             this.PicturePath2 = Path.GetFullPath(picturePath2);
         }

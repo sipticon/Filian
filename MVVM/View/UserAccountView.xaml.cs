@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -12,6 +13,8 @@ namespace Filian.MVVM.View
         public UserAccountView()
         {
             InitializeComponent();
+            EyeImage.Source = ChangeImageSource(@"Images\closed_eye.png");
+            UserIcon.Source = ChangeImageSource(@"Images\usericon.png");
         }
         private void ChangePassword_OnClick(object sender, RoutedEventArgs e)
         {
@@ -33,21 +36,21 @@ namespace Filian.MVVM.View
             ShownPassword.Visibility = Visibility.Visible;
             PasswordBox.Visibility = Visibility.Hidden;
             ShownPassword.Text = PasswordBox.Password;
-            EyeImage.Source = ChangeImageSource(@"C:\Users\oleksandrm\materials\Filian\Images\opened_eye.png");
+            EyeImage.Source = ChangeImageSource(@"Images\opened_eye.png");
         }
 
         private void HidePasswordFunction()
         {
             ShownPassword.Visibility = Visibility.Hidden;
             PasswordBox.Visibility = Visibility.Visible;
-            EyeImage.Source = ChangeImageSource(@"C:\Users\oleksandrm\materials\Filian\Images\closed_eye.png");
+            EyeImage.Source = ChangeImageSource(@"Images\closed_eye.png");
         }
 
         private BitmapImage ChangeImageSource(string sourcePath)
         {
             BitmapImage bitImg = new BitmapImage();
             bitImg.BeginInit();
-            bitImg.UriSource = new Uri(sourcePath);
+            bitImg.UriSource = new Uri(Path.GetFullPath(sourcePath));
             bitImg.EndInit();
             return bitImg;
         }

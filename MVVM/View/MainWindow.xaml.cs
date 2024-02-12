@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Input;
 
 namespace Filian.MVVM.View
@@ -8,6 +9,11 @@ namespace Filian.MVVM.View
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        protected override void OnClosed(EventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }

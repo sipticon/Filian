@@ -15,7 +15,7 @@ namespace Filian.MVVM.ViewModel
             get => userName;
             set
             {
-                userName = (value.Length >= 5 && value.Length <= 10) ? value : null;
+                userName = (value.Length >= 2 && value.Length <= 20) ? value : null;
                 OnPropertyChanged();
             }
         }
@@ -26,7 +26,7 @@ namespace Filian.MVVM.ViewModel
             set
             {
                 if (value.Length >= 5 && value.Any(char.IsUpper) && value.Any(char.IsLower) && value.Any(char.IsDigit) &&
-                    value.Length <= 20 && !value.Contains("'"))
+                    value.Length <= 25 && !value.Contains("'"))
                     userPassword = value;
                 else
                     userPassword = null;
@@ -48,13 +48,13 @@ namespace Filian.MVVM.ViewModel
         {
             if (string.IsNullOrEmpty(userName))
             {
-                CreateUserNotificationBox("You entered incorrect username!", "Your username have to be between 5 and 10 characters.");
+                CreateUserNotificationBox("You entered incorrect username!", "Your username have to be between 2 and 20 characters.");
                 return;
             }
             if (string.IsNullOrEmpty(userPassword))
             {
                 CreateUserNotificationBox("You entered incorrect password!",
-                    "Your password has to be between 5 and 20 characters, contains uppercase and lowercase letter and digits.");
+                    "Your password has to be between 5 and 25 characters, contains uppercase and lowercase letter and digits.");
                 return;
             }
 
@@ -65,6 +65,7 @@ namespace Filian.MVVM.ViewModel
             try
             {
                 sqlConnection.Open();
+
                 SqlCommand sqlCommand = new SqlCommand(sqlGetUser, sqlConnection);
 
                 User gotUser = new User();
@@ -105,7 +106,7 @@ namespace Filian.MVVM.ViewModel
             {
                 
                 Log.Error("Failed while trying to sign in: ", ex);
-                CreateUserNotificationBox("Something went wrong while tying to sign in!", "Please, check your connection to internet!");
+                CreateUserNotificationBox("Something went wrong while tying to sign in!", "Please, check your credentials and connection to internet!");
             }
             finally
             {

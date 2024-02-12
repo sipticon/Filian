@@ -45,7 +45,7 @@
 
             <Image Grid.Column="0"
                    Grid.Row="1"
-                   Source="C:\Users\oleksandrm\materials\Filian\Images\owl_exclamation.png"
+                   Source="{Binding ImagePath}"
                    Height="150"></Image>
 
             <Label Grid.Column="1"

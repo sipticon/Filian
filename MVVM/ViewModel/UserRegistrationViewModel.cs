@@ -20,7 +20,7 @@ namespace Filian.MVVM.ViewModel
             get => userName;
             set
             {
-                userName = (value.Length >= 5 && value.Length <= 10) ? value : null;
+                userName = (value.Length >= 2 && value.Length <= 20) ? value : null;
                 OnPropertyChanged();
             }
         }
@@ -31,7 +31,7 @@ namespace Filian.MVVM.ViewModel
             set
             {
                 if (value.Length >= 5 && value.Any(char.IsUpper) && value.Any(char.IsLower) && value.Any(char.IsDigit) &&
-                    value.Length <= 20 && !value.Contains("'"))
+                    value.Length <= 25 && !value.Contains("'"))
                     userPassword = value;
                 else
                     userPassword = null;
@@ -110,13 +110,13 @@ namespace Filian.MVVM.ViewModel
                         return newUser;
                     }
                     CreateUserNotificationBox("You entered incorrect password!",
-                        "Your password has to be between 5 and 20 characters, contains uppercase and lowercase letter and digits.");
+                        "Your password has to be between 5 and 25 characters, contains uppercase and lowercase letter and digits.");
                     return null;
                 }
                 CreateUserNotificationBox("You entered incorrect email!", "Please, enter correct email address.");
                 return null;
             }
-            CreateUserNotificationBox("You entered incorrect username!", "Your username have to be between 5 and 10 characters.");
+            CreateUserNotificationBox("You entered incorrect username!", "Your username have to be between 2 and 20 characters.");
             return null;
         }
 

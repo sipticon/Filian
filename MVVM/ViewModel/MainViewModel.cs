@@ -66,6 +66,29 @@ namespace Filian.MVVM.ViewModel
         public static readonly string _correctAnswerImagesource = Path.GetFullPath(@"FilianFiles\Test_Icons\grey\Checkbox_Yes.png");
         public static readonly string _wrongAnswerImagesource = Path.GetFullPath(@"FilianFiles\Test_Icons\grey\Checkbox_No.png");
 
+        private string backButtonImagePath = Path.GetFullPath(@"Images\back.png");
+        private string closeButtonImagePath = Path.GetFullPath(@"Images\close.png");
+
+        public string BackButtonImagePath
+        {
+            get => backButtonImagePath;
+            set
+            {
+                backButtonImagePath = Path.GetFullPath(value);
+                OnPropertyChanged("BackButtonImagePath");
+            }
+        }
+
+        public string CloseButtonImagePath
+        {
+            get => closeButtonImagePath;
+            set
+            {
+                closeButtonImagePath = Path.GetFullPath(value);
+                OnPropertyChanged("CloseButtonImagePath");
+            }
+        }
+
         public static string userName;
         public static string userEmail;
         public static string userStatus;
@@ -481,7 +504,7 @@ namespace Filian.MVVM.ViewModel
             Image myImage = new Image();
             BitmapImage myBitmapImage = new BitmapImage();
             myBitmapImage.BeginInit();
-            myBitmapImage.UriSource = new Uri(pathToImage);
+            myBitmapImage.UriSource = new Uri(Path.GetFullPath(pathToImage));
             myBitmapImage.EndInit();
             myImage.Source = myBitmapImage;
             myImage.Width = 70;
@@ -503,6 +526,7 @@ namespace Filian.MVVM.ViewModel
             _backButtonActive = true;
             _navigatePanelButtonsActive = true;
             UnderThemeIds = new List<int>();
+            TextOnMainButton = "Apply";
         }
 
         private void UpdateUserInfo()
