@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows;
-using System.Windows.Input;
+using Filian.MVVM.ViewModel;
 
 namespace Filian.MVVM.View
 {
@@ -13,7 +13,12 @@ namespace Filian.MVVM.View
 
         protected override void OnClosed(EventArgs e)
         {
-            Application.Current.Shutdown();
+            MainViewModel mvm = this.DataContext as MainViewModel;
+            if (mvm != null)
+            {
+                mvm.Dispose();
+                Application.Current.Shutdown();
+            }
         }
     }
 }

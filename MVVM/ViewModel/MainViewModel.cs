@@ -15,7 +15,7 @@ using System.IO;
 
 namespace Filian.MVVM.ViewModel
 {
-    public class MainViewModel :  ViewModel
+    public class MainViewModel :  ViewModel, IDisposable
     {
         public RelayCommand OpenLanguagesViewCommand { get; set; }
         public RelayCommand OpenTestsViewCommand { get; set; }
@@ -329,16 +329,8 @@ namespace Filian.MVVM.ViewModel
 
         private void Exit_Click()
         {
-            try
-            {
-                UpdateUserInfo();
-                Application.Current.Shutdown();
-                Log.Info("Application successfully closed.");
-            }
-            catch (Exception ex)
-            {
-                Log.Error("Failed while closing application",ex);
-            }
+           Dispose();
+           Application.Current.Shutdown();
         }
 
         private void Back_Click()
@@ -529,7 +521,7 @@ namespace Filian.MVVM.ViewModel
             TextOnMainButton = "Apply";
         }
 
-        private void UpdateUserInfo()
+        public void UpdateUserInfo()
         {
             string newUserStatus = "";
             string sqlChangeUserInfo = "";
@@ -562,6 +554,19 @@ namespace Filian.MVVM.ViewModel
             finally
             {
                 sqlConnection.Close();
+            }
+        }
+
+        public void Dispose()
+        {
+            try
+            {
+                UpdateUserInfo();
+                Log.Info("Application successfully closed.");
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Failed while closing application", ex);
             }
         }
     }
