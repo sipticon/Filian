@@ -55,10 +55,9 @@
                    Grid.Column="1" 
                    HorizontalAlignment="Center" 
                    VerticalAlignment="Center"
-                   Content="{Binding CountOfTestsLabel}" 
+                   Content="{Binding PageHeader}" 
                    FontSize="20"
-                   Style="{StaticResource CustomLabel}"
-                   Visibility="{Binding VisibilityOfCountOfTestsLabel}"/>
+                   Style="{StaticResource CustomLabel}"/>
 
             <Image Grid.Row="0" Grid.Column="1" 
                    Source="{Binding BackButtonImagePath}"

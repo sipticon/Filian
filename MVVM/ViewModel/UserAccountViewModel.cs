@@ -125,7 +125,7 @@ namespace Filian.MVVM.ViewModel
         {
             if (string.IsNullOrEmpty(NewUsername))
             {
-                CreateUserNotificationBox("You entered incorrect new username!", "Your username have to be between 5 and 10 characters.");
+                CreateUserNotificationBox("You entered incorrect new username!", "Your username have to be between 2 and 20 characters.");
                 return;
             }
 
@@ -158,7 +158,7 @@ namespace Filian.MVVM.ViewModel
             if (string.IsNullOrEmpty(NewUserPassword))
             {
                 CreateUserNotificationBox("You entered incorrect new password!",
-                    "Your password has to be between 5 and 20 characters, contains uppercase and lowercase letter and digits.");
+                    "Your password has to be between 5 and 25 characters, contains uppercase and lowercase letter and digits.");
                 return;
             }
 

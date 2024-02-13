@@ -55,7 +55,7 @@ namespace Filian.MVVM.ViewModel
 
         private bool _isAnswerShown = false;
 
-        private string _countOfTestsLabel;
+        private string _pageHeader = "Select language to test";
         private string _textOnMainButton = "Apply";
 
         private static List<int> _underThemeIds = new List<int>();
@@ -112,13 +112,13 @@ namespace Filian.MVVM.ViewModel
         }
         public static int LanguageId { get; set; } = 2;
 
-        public string CountOfTestsLabel
+        public string PageHeader
         {
-            get => _countOfTestsLabel;
+            get => _pageHeader;
             set
             {
-                _countOfTestsLabel = value;
-                OnPropertyChanged("CountOfTestsLabel");
+                _pageHeader = value;
+                OnPropertyChanged("PageHeader");
             }
         }
 
@@ -137,17 +137,7 @@ namespace Filian.MVVM.ViewModel
             get => _underThemeIds;
             set => _underThemeIds = value;
         }
-
-        public Visibility VisibilityOfCountOfTestsLabel
-        {
-            get => _visibilityOfCountOfTestsLabel;
-            set
-            {
-                _visibilityOfCountOfTestsLabel = value;
-                OnPropertyChanged("VisibilityOfCountOfTestsLabel");
-            }
-        }
-
+        
         public MainViewModel()
         {
             Log.Info("Application started.");
@@ -180,6 +170,7 @@ namespace Filian.MVVM.ViewModel
                     LanguageId = languageId.Id;
                     TestsVm = new TestsViewModel();
                     ChangeView(TestsVm);
+                    PageHeader = "Select test type";
                 }
             }
             else if (CurrentView == TestsVm)
@@ -190,6 +181,7 @@ namespace Filian.MVVM.ViewModel
                     _testId = test.Id;
                     ThemesVm = new ThemesViewModel();
                     ChangeView(ThemesVm);
+                    PageHeader = "Select theme to test";
                 }
             }
             else if (CurrentView == ThemesVm)
@@ -200,6 +192,7 @@ namespace Filian.MVVM.ViewModel
                     ThemeId = theme.Id;
                     UnderThemesVm = new UnderThemesViewModel();
                     ChangeView(UnderThemesVm);
+                    PageHeader = "Select underthemes to test";
                 }
             }
             else if (CurrentView == UnderThemesVm)
@@ -275,8 +268,7 @@ namespace Filian.MVVM.ViewModel
                             ChangeView(FindPairTranslationVm);
                             break;
                     }
-                    CountOfTestsLabel = $"Tests left: {_countOfTests}";
-                    VisibilityOfCountOfTestsLabel = Visibility.Visible;
+                    PageHeader = $"Tests left: {_countOfTests}";
                     _backButtonActive = false;
                     _navigatePanelButtonsActive = false;
                     TextOnMainButton = "Check";
@@ -369,7 +361,10 @@ namespace Filian.MVVM.ViewModel
         private void NavigateToLanguagesView()
         {
             if (_navigatePanelButtonsActive)
+            {
                 ChangeView(LanguagesVm);
+                PageHeader = "Select language to test";
+            }
             else
                 CreateUserNotificationBox("You are in the test!", "You can't navigate to other tabs while test is running!");
         }
@@ -377,7 +372,10 @@ namespace Filian.MVVM.ViewModel
         private void NavigateToTestsView()
         {
             if (_navigatePanelButtonsActive)
+            {
                 ChangeView(TestsVm);
+                PageHeader = "Select test type";
+            }
             else
                 CreateUserNotificationBox("You are in the test!", "You can't navigate to other tabs while test is running!");
         }
@@ -394,6 +392,7 @@ namespace Filian.MVVM.ViewModel
                     CountOfCorrectAnswers = _userCountOfCorrectAnswers.ToString()
                 };
                 ChangeView(UserAccountVm);
+                PageHeader = "Account profile";
             }
             else
                 CreateUserNotificationBox("You are in the test!", "You can't navigate to other tabs while test is running!");
@@ -495,7 +494,7 @@ namespace Filian.MVVM.ViewModel
                     break;
             }
             _countOfTests--;
-            CountOfTestsLabel = $"Tests left: {_countOfTests}";
+            PageHeader = $"Tests left: {_countOfTests}";
             ChangeView(newView);
             _isAnswerShown = false;
             TextOnMainButton = "Check";
@@ -521,7 +520,6 @@ namespace Filian.MVVM.ViewModel
             Log.Info($"Test {CurrentView} successfully finished.");
             ChangeView(TestsVm);
             _previousViews.Clear();
-            VisibilityOfCountOfTestsLabel = Visibility.Hidden;
             _userCountOfCorrectAnswers += _countOfCorrectAnswers;
             _countOfCorrectAnswers = 0;
             _countOfTests = 0;
@@ -529,6 +527,7 @@ namespace Filian.MVVM.ViewModel
             _navigatePanelButtonsActive = true;
             UnderThemeIds = new List<int>();
             TextOnMainButton = "Apply";
+            PageHeader = "Select test type";
         }
 
         public void UpdateUserInfo()
