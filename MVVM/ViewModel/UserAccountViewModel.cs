@@ -90,7 +90,7 @@ namespace Filian.MVVM.ViewModel
             get => newUsername;
             set
             {
-                newUsername = (value.Length >= 5 && value.Length <= 10) ? value : null;
+                newUsername = (value.Length >= 2 && value.Length <= 20) ? value : null;
                 OnPropertyChanged();
             }
         }
@@ -101,7 +101,7 @@ namespace Filian.MVVM.ViewModel
             set
             {
                 if (value.Length >= 5 && value.Any(char.IsUpper) && value.Any(char.IsLower) && value.Any(char.IsDigit) &&
-                    value.Length <= 20 && !value.Contains("'"))
+                    value.Length <= 25 && !value.Contains("'"))
                     newUserPassword = value;
                 else
                     newUserPassword = null;

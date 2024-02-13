@@ -60,9 +60,7 @@ namespace Filian.MVVM.ViewModel
 
         private static List<int> _underThemeIds = new List<int>();
         private readonly Stack _previousViews;
-
-        private Visibility _visibilityOfCountOfTestsLabel = Visibility.Hidden;
-
+        
         public static readonly string _correctAnswerImagesource = Path.GetFullPath(@"FilianFiles\Test_Icons\grey\Checkbox_Yes.png");
         public static readonly string _wrongAnswerImagesource = Path.GetFullPath(@"FilianFiles\Test_Icons\grey\Checkbox_No.png");
 
@@ -554,7 +552,6 @@ namespace Filian.MVVM.ViewModel
             try
             {
                 sqlCommand.ExecuteNonQuery();
-                _userCountOfCorrectAnswers = 0;
             }
             catch (Exception ex)
             {
