@@ -416,9 +416,7 @@ namespace Filian.MVVM.ViewModel
 
         private void CheckResultOfChoice(string correctAnswer, string selectedAnswer)
         {
-            if (String.IsNullOrEmpty(selectedAnswer))
-                CreateUserNotificationBox("You didn't select the answer!", "Please, select answer!");
-            else if (selectedAnswer.Contains(correctAnswer + ".") || selectedAnswer == correctAnswer)
+            if (selectedAnswer.Contains(correctAnswer + ".") || selectedAnswer == correctAnswer)
             {
                 _countOfCorrectAnswers++;
                 Grid.Children.Add(CreateImage(_correctAnswerImagesource));
@@ -429,7 +427,9 @@ namespace Filian.MVVM.ViewModel
 
         private void MoveToTheNextStep(string correctAnswer, string selectedAnswer)
         {
-            if (_countOfTests == 1)
+            if (String.IsNullOrEmpty(selectedAnswer))
+                CreateUserNotificationBox("You didn't select the answer!", "Please, select answer!");
+            else if (_countOfTests == 1)
             {
                 CheckResultOfChoice(correctAnswer, selectedAnswer);
                 CreateUserNotificationBox("The test is completed!", $"Count of correct answers - {_countOfCorrectAnswers}");
@@ -455,33 +455,43 @@ namespace Filian.MVVM.ViewModel
             {
                 case 1:
                     newView = new OneFromTwoView();
+                    OneFromTwoViewModel.SelectedImage = "";
                     break;
                 case 2:
                     newView = new OneFromFourView();
+                    OneFromFourViewModel.SelectedImage = "";
                     break;
                 case 3:
                     newView = new OneFromFourTextView();
+                    OneFromFourTextViewModel.SelectedWord = "";
                     break;
                 case 4:
                     newView = new OneFromFourListeningView();
+                    OneFromFourListeningViewModel.SelectedImage = "";
                     break;
                 case 5:
                     newView = new TrueOrFalseView();
+                    TrueOrFalseViewModel.IsCurrentWordRight = null;
                     break;
                 case 6:
                     newView = new SpellWithPictureView();
+                    SpellWithPictureVm.Answer = "";
                     break;
                 case 7:
                     newView = new SpellWithVoiceView();
+                    SpellWithVoiceVm.Answer = "";
                     break;
                 case 8:
                     newView = new TranslationTextView();
+                    TranslationTextVm.Answer = "";
                     break;
                 case 9:
                     newView = new TranslationPronunciationView();
+                    TranslationPronunciationVm.Answer = "";
                     break;
                 case 10:
                     newView = new FindPairTranslationView();
+                    FindPairTranslationViewModel.SelectedWord = "";
                     break;
             }
             _countOfTests--;
