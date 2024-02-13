@@ -20,7 +20,7 @@ namespace Filian.MVVM.ViewModel
             get => userName;
             set
             {
-                userName = (value.Length >= 5 && value.Length <= 10) ? value : null;
+                userName = (value.Length >= 2 && value.Length <= 20) ? value : null;
                 OnPropertyChanged();
             }
         }
@@ -31,7 +31,7 @@ namespace Filian.MVVM.ViewModel
             set
             {
                 if (value.Length >= 5 && value.Any(char.IsUpper) && value.Any(char.IsLower) && value.Any(char.IsDigit) &&
-                    value.Length <= 20 && !value.Contains("'"))
+                    value.Length <= 25 && !value.Contains("'"))
                     userPassword = value;
                 else
                     userPassword = null;
@@ -67,13 +67,13 @@ namespace Filian.MVVM.ViewModel
             if (newUser != null)
             {
                 string sqlNewUser = 
-                    $"INSERT INTO users (username , email, user_status, user_password) VALUES ({newUser.UserName}, {newUser.UserEmail}, {newUser.UserStatus}, {newUser.UserPassword})";
+                    $"INSERT INTO users (username , email, user_status, user_password) VALUES ('{newUser.UserName}', '{newUser.UserEmail}', '{newUser.UserStatus}', '{newUser.UserPassword}')";
 
                 SqlConnection sqlConnection = new SqlConnection(sqlConnectionString);
-                sqlConnection.Open();
-
+                
                 try
                 {
+                    sqlConnection.Open();
                     SqlCommand sqlCommand = new SqlCommand(sqlNewUser, sqlConnection);
                     sqlCommand.ExecuteNonQuery();
 
@@ -86,8 +86,9 @@ namespace Filian.MVVM.ViewModel
                 catch (Exception ex)
                 {
                     CreateUserNotificationBox("User with current username or email address already exists!",
-                        "Create new username or sign up.");
+                        "Create new username or sign in.");
                     Log.Error("Failed while trying to add new user to database: ", ex);
+                    CreateUserNotificationBox("Something went wrong while tying to register you!", "Please, check your connection to internet!");
                 }
                 finally
                 {
@@ -109,13 +110,13 @@ namespace Filian.MVVM.ViewModel
                         return newUser;
                     }
                     CreateUserNotificationBox("You entered incorrect password!",
-                        "Your password has to be between 5 and 20 characters, contains uppercase and lowercase letter and digits.");
+                        "Your password has to be between 5 and 25 characters, contains uppercase and lowercase letter and digits.");
                     return null;
                 }
                 CreateUserNotificationBox("You entered incorrect email!", "Please, enter correct email address.");
                 return null;
             }
-            CreateUserNotificationBox("You entered incorrect username!", "Your username have to be between 5 and 10 characters.");
+            CreateUserNotificationBox("You entered incorrect username!", "Your username have to be between 2 and 20 characters.");
             return null;
         }
 

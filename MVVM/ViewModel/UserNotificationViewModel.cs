@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.IO;
+using System.Linq;
 using System.Windows;
 using Filian.Core;
 using Filian.MVVM.View;
@@ -9,6 +10,19 @@ namespace Filian.MVVM.ViewModel
     {
         private static string notificationMessage;
         private static string notificationAdvice;
+
+        private static string imagePath = Path.GetFullPath(@"Images\owl_exclamation.png");
+
+        public string ImagePath
+        {
+            get => imagePath;
+            set
+            {
+                imagePath = Path.GetFullPath(value);
+                OnPropertyChanged("ImagePath");
+            }
+        }
+
         public  string NotificationMessage
         {
             get => notificationMessage;

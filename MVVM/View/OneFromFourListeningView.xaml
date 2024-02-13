@@ -56,10 +56,10 @@
                          Grid.ColumnSpan="2"  
                          Content="Play Pronunciation"
                          Command="{Binding PlayPronunciationCommand}"
-                         FontSize="30" HorizontalAlignment="Center" 
+                         FontSize="23" HorizontalAlignment="Center" 
                          VerticalAlignment="Center"
-                         Width="300"
-                         Height="45"
+                         Width="250"
+                         Height="35"
                          Style="{StaticResource CustomButton}"
                          Background="#222831"/>
                 

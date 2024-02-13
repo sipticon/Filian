@@ -28,11 +28,11 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
 
-                    <Image  Grid.Column ="0" 
+                    <Image x:Name="UserIcon"  
+                            Grid.Column ="0" 
                             Grid.Row="0"
                             Height="250"
-                            Width="250"
-                            Source="C:\Users\oleksandrm\materials\Filian\Images\usericon.png"/>
+                            Width="250"/>
 
                     <Label Grid.Column ="1" 
                            Grid.Row="0"
@@ -117,8 +117,7 @@
                            VerticalAlignment="Center"
                            PreviewMouseDown="ShowPassword_PreviewMouseDown" 
                            PreviewMouseUp="ShowPassword_PreviewMouseUp" 
-                           MouseLeave="ShowPassword_MouseLeave"
-                           Source="C:\Users\oleksandrm\materials\Filian\Images\closed_eye.png"/>
+                           MouseLeave="ShowPassword_MouseLeave"/>
 
                     <Button Grid.Column="1"
                             Grid.Row="1"

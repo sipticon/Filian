@@ -11,10 +11,11 @@ using Image = System.Windows.Controls.Image;
 using System.Linq;
 using Application = System.Windows.Application;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace Filian.MVVM.ViewModel
 {
-    public class MainViewModel :  ViewModel
+    public class MainViewModel :  ViewModel, IDisposable
     {
         public RelayCommand OpenLanguagesViewCommand { get; set; }
         public RelayCommand OpenTestsViewCommand { get; set; }
@@ -54,16 +55,37 @@ namespace Filian.MVVM.ViewModel
 
         private bool _isAnswerShown = false;
 
-        private string _countOfTestsLabel;
+        private string _pageHeader = "Select language to test";
         private string _textOnMainButton = "Apply";
 
         private static List<int> _underThemeIds = new List<int>();
         private readonly Stack _previousViews;
+        
+        public static readonly string _correctAnswerImagesource = Path.GetFullPath(@"FilianFiles\Test_Icons\grey\Checkbox_Yes.png");
+        public static readonly string _wrongAnswerImagesource = Path.GetFullPath(@"FilianFiles\Test_Icons\grey\Checkbox_No.png");
 
-        private Visibility _visibilityOfCountOfTestsLabel = Visibility.Hidden;
+        private string backButtonImagePath = Path.GetFullPath(@"Images\back.png");
+        private string closeButtonImagePath = Path.GetFullPath(@"Images\close.png");
 
-        public static readonly string _correctAnswerImagesource = @"C:\Users\oleksandrm\materials\Test_Icons\grey\Checkbox_Yes.png";
-        public static readonly string _wrongAnswerImagesource = @"C:\Users\oleksandrm\materials\Test_Icons\grey\Checkbox_No.png";
+        public string BackButtonImagePath
+        {
+            get => backButtonImagePath;
+            set
+            {
+                backButtonImagePath = Path.GetFullPath(value);
+                OnPropertyChanged("BackButtonImagePath");
+            }
+        }
+
+        public string CloseButtonImagePath
+        {
+            get => closeButtonImagePath;
+            set
+            {
+                closeButtonImagePath = Path.GetFullPath(value);
+                OnPropertyChanged("CloseButtonImagePath");
+            }
+        }
 
         public static string userName;
         public static string userEmail;
@@ -88,13 +110,13 @@ namespace Filian.MVVM.ViewModel
         }
         public static int LanguageId { get; set; } = 2;
 
-        public string CountOfTestsLabel
+        public string PageHeader
         {
-            get => _countOfTestsLabel;
+            get => _pageHeader;
             set
             {
-                _countOfTestsLabel = value;
-                OnPropertyChanged("CountOfTestsLabel");
+                _pageHeader = value;
+                OnPropertyChanged("PageHeader");
             }
         }
 
@@ -113,17 +135,7 @@ namespace Filian.MVVM.ViewModel
             get => _underThemeIds;
             set => _underThemeIds = value;
         }
-
-        public Visibility VisibilityOfCountOfTestsLabel
-        {
-            get => _visibilityOfCountOfTestsLabel;
-            set
-            {
-                _visibilityOfCountOfTestsLabel = value;
-                OnPropertyChanged("VisibilityOfCountOfTestsLabel");
-            }
-        }
-
+        
         public MainViewModel()
         {
             Log.Info("Application started.");
@@ -156,6 +168,7 @@ namespace Filian.MVVM.ViewModel
                     LanguageId = languageId.Id;
                     TestsVm = new TestsViewModel();
                     ChangeView(TestsVm);
+                    PageHeader = "Select test type";
                 }
             }
             else if (CurrentView == TestsVm)
@@ -166,6 +179,7 @@ namespace Filian.MVVM.ViewModel
                     _testId = test.Id;
                     ThemesVm = new ThemesViewModel();
                     ChangeView(ThemesVm);
+                    PageHeader = "Select theme to test";
                 }
             }
             else if (CurrentView == ThemesVm)
@@ -176,6 +190,7 @@ namespace Filian.MVVM.ViewModel
                     ThemeId = theme.Id;
                     UnderThemesVm = new UnderThemesViewModel();
                     ChangeView(UnderThemesVm);
+                    PageHeader = "Select underthemes to test";
                 }
             }
             else if (CurrentView == UnderThemesVm)
@@ -185,7 +200,6 @@ namespace Filian.MVVM.ViewModel
                 {
                     foreach (Theme underTheme in underThemes)
                     {
-                        UnderThemeIds.Add(underTheme.Id);
                         UnderThemeIds.Add(underTheme.Id);
                     }
 
@@ -252,8 +266,7 @@ namespace Filian.MVVM.ViewModel
                             ChangeView(FindPairTranslationVm);
                             break;
                     }
-                    CountOfTestsLabel = $"Tests left: {_countOfTests}";
-                    VisibilityOfCountOfTestsLabel = Visibility.Visible;
+                    PageHeader = $"Tests left: {_countOfTests}";
                     _backButtonActive = false;
                     _navigatePanelButtonsActive = false;
                     TextOnMainButton = "Check";
@@ -306,16 +319,8 @@ namespace Filian.MVVM.ViewModel
 
         private void Exit_Click()
         {
-            try
-            {
-                UpdateUserInfo();
-                Application.Current.Shutdown();
-                Log.Info("Application successfully closed.");
-            }
-            catch (Exception ex)
-            {
-                Log.Error("Failed while closing application",ex);
-            }
+           Dispose();
+           Application.Current.Shutdown();
         }
 
         private void Back_Click()
@@ -354,7 +359,10 @@ namespace Filian.MVVM.ViewModel
         private void NavigateToLanguagesView()
         {
             if (_navigatePanelButtonsActive)
+            {
                 ChangeView(LanguagesVm);
+                PageHeader = "Select language to test";
+            }
             else
                 CreateUserNotificationBox("You are in the test!", "You can't navigate to other tabs while test is running!");
         }
@@ -362,7 +370,10 @@ namespace Filian.MVVM.ViewModel
         private void NavigateToTestsView()
         {
             if (_navigatePanelButtonsActive)
+            {
                 ChangeView(TestsVm);
+                PageHeader = "Select test type";
+            }
             else
                 CreateUserNotificationBox("You are in the test!", "You can't navigate to other tabs while test is running!");
         }
@@ -379,6 +390,7 @@ namespace Filian.MVVM.ViewModel
                     CountOfCorrectAnswers = _userCountOfCorrectAnswers.ToString()
                 };
                 ChangeView(UserAccountVm);
+                PageHeader = "Account profile";
             }
             else
                 CreateUserNotificationBox("You are in the test!", "You can't navigate to other tabs while test is running!");
@@ -401,9 +413,7 @@ namespace Filian.MVVM.ViewModel
 
         private void CheckResultOfChoice(string correctAnswer, string selectedAnswer)
         {
-            if (selectedAnswer == "")
-                CreateUserNotificationBox("You didn't select the answer!", "Please, select answer!");
-            else if (selectedAnswer.Contains(correctAnswer + ".") || selectedAnswer == correctAnswer)
+            if (selectedAnswer.Contains(correctAnswer + ".") || selectedAnswer == correctAnswer)
             {
                 _countOfCorrectAnswers++;
                 Grid.Children.Add(CreateImage(_correctAnswerImagesource));
@@ -414,7 +424,9 @@ namespace Filian.MVVM.ViewModel
 
         private void MoveToTheNextStep(string correctAnswer, string selectedAnswer)
         {
-            if (_countOfTests == 1)
+            if (String.IsNullOrEmpty(selectedAnswer))
+                CreateUserNotificationBox("You didn't select the answer!", "Please, select answer!");
+            else if (_countOfTests == 1)
             {
                 CheckResultOfChoice(correctAnswer, selectedAnswer);
                 CreateUserNotificationBox("The test is completed!", $"Count of correct answers - {_countOfCorrectAnswers}");
@@ -440,37 +452,47 @@ namespace Filian.MVVM.ViewModel
             {
                 case 1:
                     newView = new OneFromTwoView();
+                    OneFromTwoViewModel.SelectedImage = "";
                     break;
                 case 2:
                     newView = new OneFromFourView();
+                    OneFromFourViewModel.SelectedImage = "";
                     break;
                 case 3:
                     newView = new OneFromFourTextView();
+                    OneFromFourTextViewModel.SelectedWord = "";
                     break;
                 case 4:
                     newView = new OneFromFourListeningView();
+                    OneFromFourListeningViewModel.SelectedImage = "";
                     break;
                 case 5:
                     newView = new TrueOrFalseView();
+                    TrueOrFalseViewModel.IsCurrentWordRight = null;
                     break;
                 case 6:
                     newView = new SpellWithPictureView();
+                    SpellWithPictureVm.Answer = "";
                     break;
                 case 7:
                     newView = new SpellWithVoiceView();
+                    SpellWithVoiceVm.Answer = "";
                     break;
                 case 8:
                     newView = new TranslationTextView();
+                    TranslationTextVm.Answer = "";
                     break;
                 case 9:
                     newView = new TranslationPronunciationView();
+                    TranslationPronunciationVm.Answer = "";
                     break;
                 case 10:
                     newView = new FindPairTranslationView();
+                    FindPairTranslationViewModel.SelectedWord = "";
                     break;
             }
             _countOfTests--;
-            CountOfTestsLabel = $"Tests left: {_countOfTests}";
+            PageHeader = $"Tests left: {_countOfTests}";
             ChangeView(newView);
             _isAnswerShown = false;
             TextOnMainButton = "Check";
@@ -481,7 +503,7 @@ namespace Filian.MVVM.ViewModel
             Image myImage = new Image();
             BitmapImage myBitmapImage = new BitmapImage();
             myBitmapImage.BeginInit();
-            myBitmapImage.UriSource = new Uri(pathToImage);
+            myBitmapImage.UriSource = new Uri(Path.GetFullPath(pathToImage));
             myBitmapImage.EndInit();
             myImage.Source = myBitmapImage;
             myImage.Width = 70;
@@ -496,15 +518,17 @@ namespace Filian.MVVM.ViewModel
             Log.Info($"Test {CurrentView} successfully finished.");
             ChangeView(TestsVm);
             _previousViews.Clear();
-            VisibilityOfCountOfTestsLabel = Visibility.Hidden;
             _userCountOfCorrectAnswers += _countOfCorrectAnswers;
             _countOfCorrectAnswers = 0;
             _countOfTests = 0;
             _backButtonActive = true;
             _navigatePanelButtonsActive = true;
+            UnderThemeIds = new List<int>();
+            TextOnMainButton = "Apply";
+            PageHeader = "Select test type";
         }
 
-        private void UpdateUserInfo()
+        public void UpdateUserInfo()
         {
             string newUserStatus = "";
             string sqlChangeUserInfo = "";
@@ -528,7 +552,6 @@ namespace Filian.MVVM.ViewModel
             try
             {
                 sqlCommand.ExecuteNonQuery();
-                _userCountOfCorrectAnswers = 0;
             }
             catch (Exception ex)
             {
@@ -537,6 +560,19 @@ namespace Filian.MVVM.ViewModel
             finally
             {
                 sqlConnection.Close();
+            }
+        }
+
+        public void Dispose()
+        {
+            try
+            {
+                UpdateUserInfo();
+                Log.Info("Application successfully closed.");
+            }
+            catch (Exception ex)
+            {
+                Log.Error("Failed while closing application", ex);
             }
         }
     }

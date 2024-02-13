@@ -90,7 +90,7 @@ namespace Filian.MVVM.ViewModel
             get => newUsername;
             set
             {
-                newUsername = (value.Length >= 5 && value.Length <= 10) ? value : null;
+                newUsername = (value.Length >= 2 && value.Length <= 20) ? value : null;
                 OnPropertyChanged();
             }
         }
@@ -101,7 +101,7 @@ namespace Filian.MVVM.ViewModel
             set
             {
                 if (value.Length >= 5 && value.Any(char.IsUpper) && value.Any(char.IsLower) && value.Any(char.IsDigit) &&
-                    value.Length <= 20 && !value.Contains("'"))
+                    value.Length <= 25 && !value.Contains("'"))
                     newUserPassword = value;
                 else
                     newUserPassword = null;
@@ -125,7 +125,7 @@ namespace Filian.MVVM.ViewModel
         {
             if (string.IsNullOrEmpty(NewUsername))
             {
-                CreateUserNotificationBox("You entered incorrect new username!", "Your username have to be between 5 and 10 characters.");
+                CreateUserNotificationBox("You entered incorrect new username!", "Your username have to be between 2 and 20 characters.");
                 return;
             }
 
@@ -138,6 +138,7 @@ namespace Filian.MVVM.ViewModel
             {
                 sqlCommand.ExecuteNonQuery();
                 UserNameLabel = $"Username: {NewUsername}";
+                UserName = NewUsername;
                 NewUsername = "";
             }
             catch (Exception ex)
@@ -157,7 +158,7 @@ namespace Filian.MVVM.ViewModel
             if (string.IsNullOrEmpty(NewUserPassword))
             {
                 CreateUserNotificationBox("You entered incorrect new password!",
-                    "Your password has to be between 5 and 20 characters, contains uppercase and lowercase letter and digits.");
+                    "Your password has to be between 5 and 25 characters, contains uppercase and lowercase letter and digits.");
                 return;
             }
 
@@ -172,7 +173,7 @@ namespace Filian.MVVM.ViewModel
             }
             catch (Exception ex)
             {
-                Log.Error("Error while trying to change user password: " + ex);
+                CreateUserNotificationBox("Something went wrong while tying to change password!", "Please, check your connection to internet!");
             }
             finally
             {

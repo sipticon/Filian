@@ -2,6 +2,7 @@
 using Filian.MVVM.Model;
 using System.Collections.ObjectModel;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace Filian.MVVM.ViewModel
 {
@@ -43,7 +44,7 @@ namespace Filian.MVVM.ViewModel
                     {
                         Id = sqlDataReader.GetInt32(0),
                         Name = sqlDataReader.GetString(1),
-                        PicturePath = sqlDataReader.GetString(2)
+                        PicturePath = sqlDataReader.GetString(2),
                     });
                 }
 

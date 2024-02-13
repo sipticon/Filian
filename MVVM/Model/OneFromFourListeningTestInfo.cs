@@ -1,4 +1,6 @@
-﻿namespace Filian.MVVM.Model
+﻿using System.IO;
+
+namespace Filian.MVVM.Model
 {
     public struct OneFromFourListeningTestInfo
     {
@@ -13,10 +15,10 @@
         {
             this.WordName = wordName;
             this.WordPronunciation = wordPronunciation;
-            this.PicturePath1 = picturePath1;
-            this.PicturePath2 = picturePath2;
-            this.PicturePath3 = picturePath3;
-            this.PicturePath4 = picturePath4;
+            this.PicturePath1 = Path.GetFullPath(picturePath1);
+            this.PicturePath2 = Path.GetFullPath(picturePath2);
+            this.PicturePath3 = Path.GetFullPath(picturePath3);
+            this.PicturePath4 = Path.GetFullPath(picturePath4);
         }
     }
 }

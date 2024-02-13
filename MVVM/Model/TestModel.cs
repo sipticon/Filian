@@ -9,8 +9,7 @@ namespace Filian.MVVM.Model
 
         public static Queue<Word> Words { get; set; }
 
-        protected static readonly string SqlConnectionString =
-            @"Data Source=OLEKSANDRM-T470;Initial Catalog=filian_database;Integrated Security=true";
+        protected static readonly string SqlConnectionString = "Data Source=filian-database.c5ce82k0wnfb.us-west-2.rds.amazonaws.com,1433;Initial Catalog=filian_db;User ID=admin;Password=filian_admin;";
 
         protected string ConditionForIds;
 

@@ -82,8 +82,7 @@
                            VerticalAlignment="Center"
                            PreviewMouseDown="ShowPassword_PreviewMouseDown" 
                            PreviewMouseUp="ShowPassword_PreviewMouseUp" 
-                           MouseLeave="ShowPassword_MouseLeave"
-                           Source="C:\Users\oleksandrm\materials\Filian\Images\closed_eye.png"/>
+                           MouseLeave="ShowPassword_MouseLeave"/>
 
                     <Button x:Name="LogInButton"
                             Grid.Row="3"
