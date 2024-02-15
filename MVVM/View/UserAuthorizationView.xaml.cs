@@ -57,5 +57,10 @@ namespace Filian.MVVM.View
                 e.Handled = true;
             }
         }
+
+        protected override void OnClosed(EventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
     }
 }
