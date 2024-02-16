@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
@@ -55,6 +56,14 @@ namespace Filian.MVVM.View
                 e.Command == ApplicationCommands.Paste)
             {
                 e.Handled = true;
+            }
+        }
+
+        protected override void OnClosed(EventArgs e)
+        {
+            if (!Application.Current.Windows.OfType<MainWindow>().Any() && !Application.Current.Windows.OfType<UserRegistrationView>().Any())
+            {
+                Application.Current.Shutdown();
             }
         }
     }

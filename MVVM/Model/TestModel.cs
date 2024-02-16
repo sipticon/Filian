@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Data.SqlClient;
+using Filian.Core;
 
 namespace Filian.MVVM.Model
 {
@@ -9,7 +10,7 @@ namespace Filian.MVVM.Model
 
         public static Queue<Word> Words { get; set; }
 
-        protected static readonly string SqlConnectionString = "Data Source=filian-database.c5ce82k0wnfb.us-west-2.rds.amazonaws.com,1433;Initial Catalog=filian_db;User ID=admin;Password=filian_admin;";
+        protected static readonly string SqlConnectionString = $"Data Source=filian-database.c5ce82k0wnfb.us-west-2.rds.amazonaws.com,1433;Initial Catalog=filian_db;{CredentialsDecryptor.DecryptCredentials()}";
 
         protected string ConditionForIds;
 
