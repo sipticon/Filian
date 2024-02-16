@@ -119,7 +119,6 @@ namespace Filian.MVVM.ViewModel
             MainWindow = new MainWindow();
             MainWindow.Show();
             System.Windows.Application.Current.Windows.OfType<UserAuthorizationView>().First().Close();
-
         }
 
         private void OpenUserRegistrationView()

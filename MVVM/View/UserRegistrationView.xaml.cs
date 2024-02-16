@@ -1,6 +1,7 @@
 ﻿using Filian.MVVM.ViewModel;
 using System;
 using System.IO;
+using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
@@ -60,7 +61,10 @@ namespace Filian.MVVM.View
 
         protected override void OnClosed(EventArgs e)
         {
-            Application.Current.Shutdown();
+            if (!Application.Current.Windows.OfType<MainWindow>().Any() && !Application.Current.Windows.OfType<UserAuthorizationView>().Any())
+            {
+                Application.Current.Shutdown();
+            }
         }
     }
 }

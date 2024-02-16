@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
@@ -60,7 +61,10 @@ namespace Filian.MVVM.View
 
         protected override void OnClosed(EventArgs e)
         {
-            Application.Current.Shutdown();
+            if (!Application.Current.Windows.OfType<MainWindow>().Any() && !Application.Current.Windows.OfType<UserRegistrationView>().Any())
+            {
+                Application.Current.Shutdown();
+            }
         }
     }
 }
